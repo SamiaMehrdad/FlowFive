@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  'mongodb://localhost:27017/puppies',
+  'mongodb://localhost:27017/FlowFive', // 10.0.0.229
   { useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

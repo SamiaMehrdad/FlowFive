@@ -1,18 +1,19 @@
 import React, {useState, useRef, useEffect } from 'react';
 import './SignupPage.css';
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { useForm } from '../../hooks/useForm';
 import userService from '../../utils/userService';
+import TitleDiv from '../../components/TitleDiv/TitleDiv';
 
 export default function SignUpPage(props){
     const [invalidForm, setValidForm] = useState(false);
-    const [error, setError ]          = useState('')
+    const [error, setError ]          = useState('');
     const [state, handleChange]       = useForm({
         username: '',
         email: '',
         password: '',
         passwordConf: ''    
-    })
+    });
    
 
     const formRef = useRef();
@@ -24,8 +25,9 @@ export default function SignUpPage(props){
 
 
     return (
-        <>
-          <h1>Sign Up</h1>
+
+        <TitleDiv title="SIGN UP" width= "80%" >
+
           <form  autoComplete="off" ref={formRef} onSubmit={async (e) => {
             e.preventDefault()
             console.log(state, ' this is state')
@@ -92,6 +94,7 @@ export default function SignUpPage(props){
           </form>
 
           {error ? <ErrorMessage error={error} /> : null}
-        </>
+  </TitleDiv>
+
       );
 }

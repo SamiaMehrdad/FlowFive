@@ -1,0 +1,15 @@
+.title-container{
+    border : 1px solid var(--light);
+}
+.title-container *{
+    margin: 10px auto;
+    padding: 0 1%;
+}
+.title-header{
+    top:0;
+    width: 100%;
+    border-bottom: 1px solid red;
+    padding: 10px;
+    font-weight: bolder;
+    margin: 0;
+}

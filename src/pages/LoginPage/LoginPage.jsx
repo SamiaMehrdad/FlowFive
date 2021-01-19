@@ -1,16 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './LoginPage.css';
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { useForm } from '../../hooks/useForm';
 import userService from '../../utils/userService';
 
 export default function LoginPage(props){
     const [invalidForm, setValidForm] = useState(false);
-    const [error, setError ]          = useState('')
+    const [error, setError ]          = useState('');
     const [state, handleChange]       = useForm({
         email: '',
         pw: '',
-    })
+    });
   
     const formRef = useRef();
 
@@ -20,6 +20,7 @@ export default function LoginPage(props){
 
     return (
         <>
+        <div id="test">
           <h1>Login</h1>
           <form  autoComplete="off" ref={formRef} onSubmit={async (e) => {
             e.preventDefault()
@@ -65,6 +66,7 @@ export default function LoginPage(props){
           </form>
 
           {error ? <ErrorMessage error={error} /> : null}
+          </div>
         </>
       );
 }
