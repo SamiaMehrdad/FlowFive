@@ -3,7 +3,7 @@ body{
   --light: #ddd;
   --back: #bbb;
   --dark: #777;
-  --gold: #ffc;
+  --gold: #dda;
   background-color: var(--back);
 }
 .App {
