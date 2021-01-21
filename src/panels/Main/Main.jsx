@@ -41,6 +41,7 @@ export default function Main(props){
               avatars = {testImages}
               />
             <InviteBar message="Come and play with us." />
+            <InviteBar message="Come and play with us." />
          </LabelDiv>
 
          <p> This is outer p test </p>

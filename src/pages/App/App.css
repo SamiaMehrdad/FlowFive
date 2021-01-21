@@ -13,7 +13,34 @@ TitleDiv{
 .App {
   text-align: center;
 }
-
+.scrollable {
+  overflow-y: scroll;
+}
+.scrollable::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.close-icon{
+    /* right: 20px; */
+    /* top: -8px; */
+    color: #905;
+    font-weight: bolder;
+    font-size: 16px;
+    margin: 5px ;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.bar{
+    width: 97%;
+    left: 1%;
+    height: 30px;
+    border: 1px solid var(--gold);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin: 1px auto 2px;
+}
 button{
   border: 1px solid var(--gold);
   background-color: var(--back);

@@ -12,11 +12,12 @@ import './TitleDiv.css';
 export default function TitleDiv(props){
 
     return(
-
-        <div className = "title-container" style = {{width: props.width}} >
+        <>
+        <div className = "title-container scrollable" style = {{width: props.width}} >
             <div className = "title-header"> {props.title} </div>
             {props.children}
         </div>
+        </>
     );
 };
 

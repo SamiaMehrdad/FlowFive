@@ -14,7 +14,7 @@ export default function LabelDiv(props){
     return(
         <div className="labeldiv" style= {{height: props.height, width: props.width? props.width: "95%"}}>
             <p className="labeldiv-title">{props.title}</p>
-            <div className="labeldiv-inner" >
+            <div className="labeldiv-inner scrollable" >
                 {props.children}
             </div>
         </div>

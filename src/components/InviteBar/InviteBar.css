@@ -1,24 +1,5 @@
 .invitebar-main{
-    width: 97%;
-    left: 1%;
-    height: 30px;
-    border: 1px solid var(--gold);
-    padding: 0;
-    display: flex;
-    align-items: center;
-    margin: 1px auto 5px;
-}
 
-.close-icon{
-    right: 20px;
-    /* top: -8px; */
-    color: #905;
-    font-weight: bolder;
-    font-size: 16px;
-    margin: 5px ;
-    position: absolute;
-    display: inline-block;
-    cursor: pointer;
 }
 
 .invite-image{

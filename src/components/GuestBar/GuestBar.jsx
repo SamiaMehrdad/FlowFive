@@ -12,7 +12,7 @@ import './GuestBar.css';
 export default function GuestBar(props){
 
     return(
-        <div className="invitebar-main">
+        <div className="bar">
          { props.user?
              (
                 <> 
