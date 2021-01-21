@@ -19,3 +19,5 @@ export default function TitleDiv(props){
         </div>
     );
 };
+
+//TODO: bug: header should be fixed, it is scrolable now

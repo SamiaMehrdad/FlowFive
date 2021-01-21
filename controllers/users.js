@@ -4,7 +4,8 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
   signup,
-  login
+  login,
+  checkEmail,
 };
 
 async function signup(req, res) {
@@ -24,14 +25,14 @@ async function login(req, res) {
   try {
     const user = await User.findOne({email: req.body.email});
     console.log(user, ' this user', !user, !!user)
-    if (!user) return res.status(401).json({err: 'bad credentials'});
+    if (!user) return res.status(401).json({err: 'controllers.users-->bad credentials, not exists'});
     user.comparePassword(req.body.pw, (err, isMatch) => {
       
       if (isMatch) {
         const token = createJWT(user);
         res.json({token});
       } else {
-        return res.status(401).json({err: 'bad credentials'});
+        return res.status(401).json({ err: 'controllers.users--> bad credentials, in not match'});
       }
     });
   } catch (err) {
@@ -39,6 +40,17 @@ async function login(req, res) {
   }
 }
 
+async function checkEmail(req, res) {
+  console.log(req.body);
+  try {
+    const user = await User.findOne({email: req.body.email});
+    console.log(user, 'MSK: this user is ', !!user)
+ //   if (!user) return res.status(401).json({err: 'bad credentials'});
+
+  } catch (err) {
+    return res.status(401).json(err);
+  }
+}
 /*----- Helper Functions -----*/
 
 function createJWT(user) {

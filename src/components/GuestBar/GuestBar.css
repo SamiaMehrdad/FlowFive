@@ -1,0 +1,8 @@
+
+.guestbar-info
+{
+    display: contents;
+    position: relative;
+    color: var(--gold);
+    font-weight: bold;
+}

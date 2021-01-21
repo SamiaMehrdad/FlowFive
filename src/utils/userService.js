@@ -36,14 +36,30 @@ function login(creds) {
   .then(res => {
     // Valid login if we have a status of 2xx (res.ok)
     if (res.ok) return res.json();
-    throw new Error('Bad Credentials!');
+    throw new Error('userService--> Bad Credentials!');
   })
   .then(({token}) => tokenService.setToken(token));
 }
 
+function checkEmail(email) {
+  console.log("MSK HIT userService.checkEmail");
+  return fetch(BASE_URL + 'checkEmail', {
+    method: 'POST',
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: JSON.stringify(email)
+  })
+  .then(res => {
+    // Valid login if we have a status of 2xx (res.ok)
+    console.log("MSK from userService POST: ", res);
+    if (res.ok) return res.json();
+    throw new Error('Bad Email!');
+  })
+  .then(({token}) => tokenService.setToken(token));
+}
 export default {
   signup, 
   getUser,
   logout,
-  login
+  login,
+  checkEmail,
 };

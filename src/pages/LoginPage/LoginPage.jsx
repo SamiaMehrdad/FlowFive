@@ -1,39 +1,48 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import './LoginPage.css';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { useForm } from '../../hooks/useForm';
 import userService from '../../utils/userService';
 
 export default function LoginPage(props){
+
     const [invalidForm, setValidForm] = useState(false);
     const [error, setError ]          = useState('');
-    const [state, handleChange]       = useForm({
+    const [state, setState]       = useState({
         email: '',
         pw: '',
     });
   
-    const formRef = useRef();
-
-    useEffect(() => {
-      formRef.current.checkValidity() ? setValidForm(false) : setValidForm(true);
-    });
+    const history = useHistory();
+    
+    function handleChange(e){
+      setState({
+        ...state,
+        [e.target.name]: e.target.value
+      })
+    }
+   
+    async function handleSubmit(e){
+      e.preventDefault()
+              
+      try {
+          await userService.login(state);
+          // Route to wherever you want!
+          props.handleSignUpOrLogin() // 
+          history.push('/')
+          
+        } catch (err) {
+          // Invalid user data (probably duplicate email)
+          setError(err.message)
+        }
+    }
 
     return (
         <>
         <div id="test">
           <h1>Login</h1>
-          <form  autoComplete="off" ref={formRef} onSubmit={async (e) => {
-            e.preventDefault()
+          <form  autoComplete="off" onSubmit={handleSubmit} >
             
-            try {
-                await userService.login(state);
-                // Route to wherever you want!
-                alert("Logged in, time to go code where you want to go now! ~ Login Component!")
-              } catch (err) {
-                // Invalid user data (probably duplicate email)
-                setError(err.message)
-              }
-          }}>
             <div className="form-group">
               <input
                 type="email"
@@ -58,7 +67,6 @@ export default function LoginPage(props){
             </div>
             <button
               type="submit"
-              className="btn"
               disabled={invalidForm}
             >
               Login
