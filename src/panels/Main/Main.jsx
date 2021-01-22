@@ -13,6 +13,7 @@ import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import InviteBar from '../../components/InviteBar/InviteBar';
 import GuestBar from '../../components/GuestBar/GuestBar';
+import WaitingPlayer from '../../components/WaitingPlayer/WaitingPlayer'
 
 export default function Main(props){
 
@@ -20,10 +21,13 @@ export default function Main(props){
     const testUser = { nikname: "Hayoola",
                         avatar: "./test.jpg",
                         rank: 50,
+                        chat: "This is a chat message with 100 characters, and again, This is a chat message with some characters !"
                      }
+             
+
     return(
         <>
-        <TitleDiv title="TitleDive test" width="95%">
+        {/* <TitleDiv title="TitleDive test" width="95%">
         { props.user?
             <p> {props.user.email} Logged in! </p>
             :
@@ -46,7 +50,10 @@ export default function Main(props){
 
          <p> This is outer p test </p>
 
-        </TitleDiv>
+        </TitleDiv> */}
+        <br /><br /><br />
+        <WaitingPlayer user={testUser} />
+        <WaitingPlayer user={testUser} />
         </>
     );
 };

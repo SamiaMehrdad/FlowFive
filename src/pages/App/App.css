@@ -3,7 +3,7 @@ body{
   --light: #ddc;
   --back: #aaa;
   --dark: #444;
-  --gold: #dd8;
+  --gold: #dd6;
   background-color: var(--back);
   color: var(--dark);
 }

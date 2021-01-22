@@ -1,0 +1,23 @@
+
+.WaitingPlayer-main{
+    /* outline: solid; */
+    align-items: center;
+
+    text-align: left;
+    padding: 2px;
+}
+.WaitingPlayer-image{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    filter: grayscale(.7) brightness(.8) contrast(.3);
+}
+.WaitingPlayer-chat{
+    font-size: 12px;
+    margin: 10px 0;
+    position: absolute;
+    font-weight: bold;
+    width: 85%;
+    height: 32px;
+    overflow: hidden;
+}
