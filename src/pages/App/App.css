@@ -2,10 +2,11 @@ body{
   --green: #8a8;
   --light: #ddc;
   --back: #aaa;
-  --dark: #444;
+  --dark: #666;
   --gold: #dd6;
   background-color: var(--back);
   color: var(--dark);
+  user-select: none;
 }
 TitleDiv{
   background-color: yellow;
