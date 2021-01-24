@@ -6,8 +6,30 @@ module.exports = {
   signup,
   login,
   checkEmail,
+  getFriends,
+  addFriend,
+  removeFriend,
 };
 
+//----------------------------------------
+function getFriends()
+{
+console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+}
+
+//----------------------------------------
+function addFriend()
+{
+console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+}
+
+//----------------------------------------
+function removeFriend()
+{
+console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+}
+
+//----------------------------------------
 async function signup(req, res) {
   const user = new User(req.body);
   try {
@@ -19,34 +41,34 @@ async function signup(req, res) {
     res.status(400).json(err);
   }
 }
-
+//-----------------------------------------
 async function login(req, res) {
-  console.log(req.body)
+  console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
   try {
     const user = await User.findOne({email: req.body.email});
     console.log(user, ' this user', !user, !!user)
-    if (!user) return res.status(401).json({err: 'controllers.users-->bad credentials, not exists'});
+    if (!user) return res.status(401).json({err: 'controllers.users-->user by given email not exists'});
     user.comparePassword(req.body.pw, (err, isMatch) => {
-      
+    
       if (isMatch) {
         const token = createJWT(user);
         res.json({token});
       } else {
-        return res.status(401).json({ err: 'controllers.users--> bad credentials, in not match'});
+        return res.status(401).json({ err: 'controllers.users--> password not match'});
       }
     });
   } catch (err) {
     return res.status(401).json(err);
   }
 }
-
+//------------------------------------------
 async function checkEmail(req, res) {
-  console.log(req.body);
+  console.log("MSK checkEmail, req.body ----> ",req.body);
   try {
     const user = await User.findOne({email: req.body.email});
-    console.log(user, 'MSK: this user is ', !!user)
+    console.log(user, '---------- MSK checkEmail: this user is ', !!user)
+    return res.jason(user);
  //   if (!user) return res.status(401).json({err: 'bad credentials'});
-
   } catch (err) {
     return res.status(401).json(err);
   }

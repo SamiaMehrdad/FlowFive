@@ -6,7 +6,18 @@ const SALT_ROUNDS = 6;
 const userSchema = new mongoose.Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
-  password: String
+  password: String,
+  nickName: { type: String, default: "string" },
+  avatar: { type: String, default: "avatarURL" },
+  color: { type: String, default: "red" },
+  enroll: { type: Date, default: Date.now },
+  totalPlays: { type: Number, default: 0 },
+  totalWins: { type: Number, default: 0 },
+  role: { type: String, default: "player" },
+  friends: [{ type: mongoose.Types.ObjectId, ref:"User"}],
+  msg: { type: mongoose.Types.ObjectId, ref:"Message"},
+  invitings: [{ type: mongoose.Types.ObjectId, ref:"Invitation"}],
+  inviteds: [{ type: mongoose.Types.ObjectId, ref:"Invitation"}],
 }, {
   timestamps: true
 });
