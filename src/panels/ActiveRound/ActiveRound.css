@@ -1,0 +1,26 @@
+#quit-game{
+    display: inline-block;
+    bottom: 10px;
+    position: absolute;
+    left : 10px;
+    width: 80px;
+}
+
+#quit-game:hover{
+    background-color: #844;
+}
+
+#game-info{
+    color: var(--dark);
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+    background-color: var(--light);
+    padding: 5px;
+}
+
+#game-info p{
+    margin: 0;
+}

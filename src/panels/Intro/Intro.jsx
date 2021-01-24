@@ -25,9 +25,10 @@ export default function Intro(props){
       formRef.current.checkValidity() ? setValidForm(false) : setValidForm(true);
     });
 
+
     return(
         <div id="back">
-            <img id="hb-logo" src="./HB-small1.jpg" />
+            <img id="hb-logo" src="HB-small1.jpg" />
             <p id="welcome">As a guest user, you can start playing right now, 
             but if you don't sign in, it is impossible to calculate your ranking 
             and points. Also if sign in, you can have your own private play room 
@@ -38,7 +39,7 @@ export default function Intro(props){
             e.preventDefault()
             
             try {
-                console.log("MSK try -->", state);
+                console.log("MSK email check try -->", state);
                 await userService.checkEmail(state);
                 
               } catch (err) {
@@ -57,7 +58,7 @@ export default function Intro(props){
                     />
                 </label><br/>
                 <button type="submit" className="green">SIGN IN</button>
-                <button>PLAY RANDOM</button>
+                <button >PLAY RANDOM</button>
             </form>
         </div>
     );

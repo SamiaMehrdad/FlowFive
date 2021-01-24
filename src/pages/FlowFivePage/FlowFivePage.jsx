@@ -24,31 +24,42 @@ import ShowRules from "../../panels/ShowRules/ShowRules";
 import SignUp from "../../panels/Signup/Signup";
 import ViewInvitation from "../../panels/ViewInvitation/ViewInvitation";
 
+
 import './FlowFivePage.css';
 
-const PAGES = ['ActiveRound',
+// const PAGES = ['ActiveRound',
 
-            ];
+//             ];
 
-let PS = [] ;
+// let PS = [] ;
 
-function loadComponent(name) {
-  const Component = React.lazy(() =>
-    import (`../../panels/${name}/${name}`)
-  );
-  return Component;
-}
-
+// function loadComponent(name) {
+//   const Component = React.lazy(() =>
+//     import (`../../panels/${name}/${name}`)
+//   );
+//   return Component;
+// }
+const PAGES= {
+  ActiveRound: ActiveRound,
+  GameBoard: GameBoard,
+  Intro: Intro,
+  Main:  Main,
+  MakeInvitation: MakeInvitation,
+  MySettings: MySettings ,
+  Password: Password ,
+  Practice: Practice,
+  RightHome: RightHome,
+  RoundWait: RoundWait,
+  SetActive: SetActive,
+  ShowRules: ShowRules,
+  SignUp: SignUp,
+  ViewInvitation: ViewInvitation,
+};
 
 
 export default function IntroPage(props){
 
-     for (let page of PAGES ) {
-   // console.log(`../../panels/${page}/${page}`,',');
-     const test = loadComponent(page); 
-    console.log ( "COMPONENT: ", test);
- }
- console.log("Intro COMPONENT:", loadComponent('Intro'));
+
 //  PS.push( loadComponent ( PAGES[0]))
 //  console.log(PS);
 
@@ -56,20 +67,50 @@ export default function IntroPage(props){
 //                  Intro: <Intro />,
 //         }
 
-let keeper = 'Intro'; 
+//let keeper = 'Intro'; 
 // let component = PANELS[keeper];
-let component = <Main user={props.user} />;
+//let component = <Main user={props.user} />;
+
+    const [rightNav, setRightNav] = useState(<RightHome user={props.user} showPage={rightNavigate} />);
+    const [leftNav, setLeftNav] = useState(<ActiveRound user={props.user} showPage={leftNavigate}/>);
+
+    function rightNavigate(page)
+    {
+      console.log( "TRY TO GO TO ", page);
+      if(page === "logout")
+        props.handleLogout();
+      else 
+      { 
+        const Component = PAGES[ page ];
+      //  console.log( "COMPONENT IS ---> ", React.Components[page]); 
+       setRightNav( <Component user={props.user} showPage={rightNavigate} /> );
+      }
+    }
+
+    function leftNavigate(page)
+    {
+      if(page === "logout")
+        props.handleLogout();
+      else 
+      { 
+      const Component = PAGES[ page ]; 
+      setLeftNav( <Component user={props.user} showPage={leftNavigate} /> );
+      }
+    }
+
 
     return(
-        <>
          <Suspense fallback={<div>Loading...</div>}>
             <ErrorBoundary>
                 <div className="app-container">
-                    <div className = "app-half left-panel" > {component} </div>
-                    <div className = "app-half right-panel" > <br/><button>GAME RULES</button><br/><br/><button>PRACTICE</button></div>
+                    <div className = "app-half left-panel" > 
+                     {leftNav} 
+                    </div>
+                    <div className = "app-half right-panel" >
+                     {rightNav} 
+                    </div>
                 </div>
             </ErrorBoundary>
           </Suspense>
-        </>
     );
 };

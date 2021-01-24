@@ -5,7 +5,7 @@ function setToken(token) {
       localStorage.removeItem('token');
     }
   }
-  
+  //----------------------------------------------
   function getToken() {
     let token = localStorage.getItem('token');
     if (token) {
@@ -20,16 +20,16 @@ function setToken(token) {
     }
     return token;
   }
-  
+  //----------------------------------------------
   function getUserFromToken() {
     const token = getToken();
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
   }
-  
+  //-----------------------------------------------
   function removeToken() {
     localStorage.removeItem('token');
   }
-  
+  //-----------------------------------------------
   export default {
     setToken,
     getToken,

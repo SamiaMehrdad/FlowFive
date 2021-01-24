@@ -14,7 +14,7 @@
 }
 
 .TimerBar{
-    background-color: #480;
+    background-color: var(--gold);
     height: 8px;
     width: 260px; /* min=5px max=260px */
     margin: 0 0 0 5px;
@@ -22,13 +22,15 @@
     display: block;
     top: -73px;
     left: 80px;
+    box-shadow: 0 2px 3px #999;
 }
 
 .TimerBar-text{
-    color: #480;
+    color: var(--gold);
     font-size: 32px;
     display: inline-block;
     top: -35px;
     position: relative;
     font-weight: bolder;
+    text-shadow: 0 3px 3px #999;
 }

@@ -1,7 +1,7 @@
 import tokenService from './tokenService';
 
 const BASE_URL = '/api/users/';
-
+//----------------------------
 function signup(user) {
   return fetch(BASE_URL + 'signup', {
     method: 'POST',
@@ -18,15 +18,15 @@ function signup(user) {
   // The above could have been written as
   //.then((token) => token.token);
 }
-
+//----------------------------------------
 function getUser() {
   return tokenService.getUserFromToken();
 }
-
+//-----------------------------------------
 function logout() {
   tokenService.removeToken();
 }
-
+//-----------------------------------------
 function login(creds) {
   return fetch(BASE_URL + 'login', {
     method: 'POST',
@@ -40,9 +40,9 @@ function login(creds) {
   })
   .then(({token}) => tokenService.setToken(token));
 }
-
+//---------------------------------------
 function checkEmail(email) {
-  console.log("MSK HIT userService.checkEmail");
+  console.log("MSK HIT userService.checkEmail : ", email);
   return fetch(BASE_URL + 'checkEmail', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
@@ -51,11 +51,14 @@ function checkEmail(email) {
   .then(res => {
     // Valid login if we have a status of 2xx (res.ok)
     console.log("MSK from userService POST: ", res);
-    if (res.ok) return res.json();
+    if (res.ok) 
+        return res.json();
+
     throw new Error('Bad Email!');
   })
-  .then(({token}) => tokenService.setToken(token));
+  .then((email) => {console.log("THIS EMAIL ***** ",email)});
 }
+//----------------------------------------
 export default {
   signup, 
   getUser,

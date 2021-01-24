@@ -25,9 +25,6 @@ function App() {
   return (
     <div className="App">
       <Switch>
-          {/* <Route exact path="/">
-              
-          </Route> */}
           <Route exact path="/login">
              <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
           </Route>

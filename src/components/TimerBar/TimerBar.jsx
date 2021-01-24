@@ -7,25 +7,32 @@ Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React, { useState, useEffect } from 'react';
-import './TimerBar1.css';
+import './TimerBar.css';
+import Bar from './Bar'
 
 export default function TimerBar(props){
 
-// let index = 0;
-// let chat = props.user.chat;
-// const [msg, setMsg] = useState('');
- 
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-      
-//       if( index < chat.length ) 
-//          setMsg( msg => msg + chat.charAt( index++ ) );
-//       else
-//          clearInterval(interval)
-//     }, 100);
-//     return () => clearInterval(interval);
-//   }, []);
+let helper = (props.time * 10);
+const FULLLENGTH = 260; // px
+const TSTEP = FULLLENGTH / (helper);
 
+const [len, setLen] = useState( FULLLENGTH );
+const [time, setTime] = useState(helper);
+
+useEffect( () => {
+
+    const interval = setInterval ( () => {
+    setTime( time => time - 1 );
+    setLen( len => len - TSTEP );
+    helper--;
+    if( helper <= 0 )
+    {
+        clearInterval ( interval );
+        props.onTimeOut(); // lift up state to Active
+    }
+ }, 100);
+
+}, []);
 
     return(
         <>
@@ -33,9 +40,14 @@ export default function TimerBar(props){
              (
                 <div className="TimerBar-main">
                     <img className='TimerBar-image' src={props.user.avatar} />
-                    <p className="TimerBar-text">WAIT</p>
-                    <div className="TimerBar">
-                    </div>
+                    <p className="TimerBar-text">
+                        {
+                            time >= 0 ?
+                            ( time /10 ).toFixed(1)
+                            : 'Wait...'
+                        } 
+                    </p>
+                    <Bar width={len} />
                 </div>
              ) : null
          }

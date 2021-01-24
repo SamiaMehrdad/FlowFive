@@ -14,7 +14,7 @@ import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import InviteBar from '../../components/InviteBar/InviteBar';
 import GuestBar from '../../components/GuestBar/GuestBar';
 import WaitingPlayer from '../../components/WaitingPlayer/WaitingPlayer'
-import TimerBar from '../../components/TimerBar1/TimerBar1'
+import TimerBar from '../../components/TimerBar/TimerBar'
 
 export default function Main(props){
 
@@ -32,22 +32,10 @@ export default function Main(props){
 
         const [user2, setUser2] = useState( testUser2 );
 
-        function clickNewMessage()
-        {
-            setUser2({...testUser2, chat: "This is new message"});
-        }
 
     return(
         <>
 
-        <LabelDiv title='CHAT BOX' >
-            <input />
-        </LabelDiv>
-        <TimerBar user={testUser} />
-        <WaitingPlayer user={testUser} />
-        <WaitingPlayer user={user2} />
-        <br/><br/>
-        <button onClick = {clickNewMessage} > CHANGE </button>
         {/* <span>{user2.chat}</span> */}
                 {/* <TitleDiv title="TitleDive test" width="95%">
         { props.user?

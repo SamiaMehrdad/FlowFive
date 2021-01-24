@@ -36,7 +36,6 @@ let component = <Intro />;
 
     return(
         <>
-
                 <div className="app-container">
                     <div className = "app-half left-panel" > {component} </div>
                     <div className = "app-half right-panel" > <br/><button>GAME RULES</button><br/><br/><button>PRACTICE</button></div>

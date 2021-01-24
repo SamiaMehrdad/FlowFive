@@ -1,9 +1,9 @@
 body{
   --green: #8a8;
-  --light: #ddc;
-  --back: #aaa;
+  --light: #ccc;
+  --back: #bbb;
   --dark: #666;
-  --gold: #dd6;
+  --gold: #dc6;
   background-color: var(--back);
   color: var(--dark);
   user-select: none;
@@ -44,34 +44,37 @@ TitleDiv{
 }
 button{
   border: 1px solid var(--gold);
-  background-color: var(--back);
-  box-shadow: 1px 1px 5px #777;
+  background-color: var(--light);
+  box-shadow: 1px 3px 5px #888;
   border-radius: 2px;
   font-size: 10px;
   color: var(--dark);
   width: 40%;
   display: inline-block;
-  padding: 5px;
+  padding: 7px;
   margin: 0 10px;
   cursor: pointer;
   outline: none;
+  height: 24px;
+  transition: all .2s;
 }
 button:hover{
-  color: #ffa;
+  color: #ff9;
 }
 button:active{
   box-shadow: 1px 1px 2px #777;
-  color: var(--dark);
+  color: #998;
 }
 
 input{
   border: none;
   outline: none;
-  background-color: var(--gold);
+  background-color: var(--light);
   color: var(--dark);
-  height: 18px;
+  height: 16px;
   font-size: 12px;
-  width: 200px;
+  min-width: 150px;
+  margin: 0 5px;
 }
 label{
   display: block;

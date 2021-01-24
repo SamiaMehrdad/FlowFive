@@ -12,7 +12,6 @@ export default function AnimSpan(props){
 
     let index = 0;
     let chat = props.text;
-    let test = 0;
 
     const [msg, setMsg] = useState('');
 
@@ -23,10 +22,8 @@ export default function AnimSpan(props){
 
         const interval = setInterval( () => 
         {
-            if( index < chat.length ) 
-                setMsg( msg => msg + chat.charAt( index++ ) );
-            else
-                clearInterval(interval)
+            index < chat.length ?
+                setMsg( msg => msg + chat.charAt( index++ )): clearInterval(interval);
         }, 70);
     }, [chat]);
 
