@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
+const Round = require('../models/round')
 
 module.exports = {
   signup,
@@ -43,6 +44,15 @@ async function signup(req, res) {
 }
 //-----------------------------------------
 async function login(req, res) {
+
+    //TODO: DEBUG DUMMY REMOVE THIS
+// const round = new Round ({
+//     title: "Again title?",
+//     host: '600cccf0947c76474f391540',
+// });
+//  await round.save();
+//  console.log("ONE DUMMY ROUND SAVED");
+ //TODO--------------------------------
   console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
   try {
     const user = await User.findOne({email: req.body.email});
@@ -60,6 +70,8 @@ async function login(req, res) {
   } catch (err) {
     return res.status(401).json(err);
   }
+
+
 }
 //------------------------------------------
 async function checkEmail(req, res) {

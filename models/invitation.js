@@ -2,20 +2,20 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const GameSetting = new mongoose.Schema({
-    Game: String,
-    Time: Number,
-    TimeoutKiller: Boolean,
-    BlindMode: Boolean,
-    TradeMode: Boolean,
+    game: { type: String, default: "FlowFive" },
+    time: { type: Number, default: 0 },
+    timeoutKiller: { type: Boolean, default: false },
+    blindMode: { type: Boolean, default: false },
+    tradeMode: { type: Boolean, default: false },
 }, {
   timestamps: true
 });
 
 const invitationSchema = new mongoose.Schema({
-  Message: String,
-  Sender: { type: mongoose.Types.ObjectId, ref:"User"},
-  Parties:  [{ type: mongoose.Types.ObjectId, ref:"User"}],
-  GameSetting: { type: mongoose.Types.ObjectId, ref:"GameSetting"}
+  message: String,
+  sender: { type: mongoose.Types.ObjectId, ref:"User"},
+  parties:  [{ type: mongoose.Types.ObjectId, ref:"User"}],
+  gameSetting: { type: mongoose.Types.ObjectId, ref:"GameSetting"}
 }, {
   timestamps: true
 });
@@ -34,4 +34,4 @@ invitationSchema.set('toObject', {
 })
 
 
-module.exports = mongoose.model('Invitation', roundSchema);
+module.exports = mongoose.model('Invitation', invitationSchema);
