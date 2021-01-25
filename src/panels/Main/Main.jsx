@@ -8,59 +8,60 @@ Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React, { useState, useRef, useEffect } from 'react';
-// import './.css';
+import './Main.css';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import InviteBar from '../../components/InviteBar/InviteBar';
 import GuestBar from '../../components/GuestBar/GuestBar';
-import WaitingPlayer from '../../components/WaitingPlayer/WaitingPlayer'
-import TimerBar from '../../components/TimerBar/TimerBar'
 
 export default function Main(props){
 
-    const testImages = ["./test.jpg" , "./test.jpg"]
-    const testUser = { nikname: "Hayoola",
-                        avatar: "test.jpg",
-                        rank: 50,
-                        chat: "This is a chat message with 100 characters, and again, This is a chat message with some characters !"
-                     }
-    const testUser2 = { nikname: "Hayoola2",
-                avatar: "test.jpg",
-                rank: 50,
-                chat: "And another chat message but a little shorter !"
-                }   
+    // const testImages = ["./test.jpg" , "./test.jpg"]
+    // const testUser = { nikname: "Hayoola",
+    //                     avatar: "test.jpg",
+    //                     rank: 50,
+    //                     chat: "This is a chat message with 100 characters, and again, This is a chat message with some characters !"
+    //                  }
+    // const testUser2 = { nikname: "Hayoola2",
+    //             avatar: "test.jpg",
+    //             rank: 50,
+    //             chat: "And another chat message but a little shorter !"
+    //             }   
 
-        const [user2, setUser2] = useState( testUser2 );
-
+    //    const [user2, setUser2] = useState( testUser2 );
+    function goInvite()
+    {
+        props.showPage("MakeInvitation");
+    }
+    function goSetting()
+    {
+        props.showPage("MySettings");
+    }
 
     return(
         <>
+        {/* <img className='TimerBar-image' src={props.user.avatar} id="main-image" /> */}
+        <img className='TimerBar-image' src="./test.jpg" id="main-image" />
+        <span className="main-userinfo">Nick Name<br />Rank:82</span>
+        <span className="setting-icon" onClick={ goSetting }>
+            {'\u2699'}
+        </span>
+        <br /><br /><br />
+        <LabelDiv id="inviteds" title="INVITATIONS" height="120px">
 
-        {/* <span>{user2.chat}</span> */}
-                {/* <TitleDiv title="TitleDive test" width="95%">
-        { props.user?
-            <p> {props.user.email} Logged in! </p>
-            :
-            <p>User not defined!</p>
-        }
-         <p> This is outer p test </p>
-         <LabelDiv title='Label test' >
-            <p> This is inner p test </p>
-            <GuestBar user={testUser} />
-         </LabelDiv>
+        </LabelDiv>
+        <LabelDiv id="invitations" title="SENT INVITATIONS" height="120px">
 
-         <LabelDiv title='Label2' >
-            <InviteBar 
-              message="This is message from parent" 
-              avatars = {testImages}
-              />
-            <InviteBar message="Come and play with us." />
-            <InviteBar message="Come and play with us." />
-         </LabelDiv>
-
-         <p> This is outer p test </p>
-
-        </TitleDiv> */}
+        </LabelDiv>
+        <div className="bottom-stick">
+            <button onClick={ goInvite } >
+            {/* <button  > */}
+                INVITE TO PLAY
+            </button>
+            <button >
+                PLAY RANDOM
+            </button>
+        </div>    
         </>
     );
 };

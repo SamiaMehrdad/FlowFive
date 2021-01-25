@@ -12,7 +12,7 @@ import './ShowRules.css';
 export default function ShowRules(props){
 
 function close() {
- props.showPage("RightHome"); //TODO IMPORTANT my magic not working! 
+ props.showPage("RightHome"); 
 }
     return (
     <div className="help-container scrollable">

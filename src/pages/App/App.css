@@ -21,6 +21,11 @@ TitleDiv{
     width: 0;
     height: 0;
 }
+.bottom-stick{
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+}
 .close-icon{
     /* right: 20px; */
     /* top: -8px; */
@@ -73,7 +78,7 @@ input{
   color: var(--dark);
   height: 16px;
   font-size: 12px;
-  min-width: 150px;
+  /* min-width: 150px; */
   margin: 0 5px;
 }
 label{

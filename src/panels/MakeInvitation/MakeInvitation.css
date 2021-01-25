@@ -1,0 +1,11 @@
+.add-guest{
+    background-color: var(--back);
+    margin: auto;
+    right: 15px;
+    position: absolute;
+    top: 162px;
+    width: 80px;
+}
+.full-length{
+    width: 95%;
+}

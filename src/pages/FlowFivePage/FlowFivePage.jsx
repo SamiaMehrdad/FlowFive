@@ -1,22 +1,21 @@
 /*---------------------------------
 Custom react component.
  Component name: 
- Description: Main flowfive app dual screen
- Props:
+ Description: Main flowfive app dual screen navigator
+ Props:  user
  Parent: App
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 import React, { useState, useRef, useEffect, Suspense } from 'react';
 import ErrorBoundary from "./ErrorBoundary";
-// import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import ActiveRound from '../../panels/ActiveRound/ActiveRound';
-import GameBoard from "../../panels/GameBoard/GameBoard";
 import Intro from "../../panels/Intro/Intro";
 import Main from "../../panels/Main/Main";
 import MakeInvitation from "../../panels/MakeInvitation/MakeInvitation";
 import MySettings from "../../panels/MySettings/MySettings";
 import Password from "../../panels/Password/Password";
 import Practice from "../../panels/Practice/Practice";
+import Play from "../../panels/Play/Play";
 import RightHome from "../../panels/RightHome/RightHome";
 import RoundWait from "../../panels/RoundWait/RoundWait";
 import SetActive from "../../panels/SetActive/SetActive";
@@ -40,20 +39,20 @@ import './FlowFivePage.css';
 //   return Component;
 // }
 const PAGES= {
-  ActiveRound: ActiveRound,
-  GameBoard: GameBoard,
-  Intro: Intro,
-  Main:  Main,
-  MakeInvitation: MakeInvitation,
+  ActiveRound: ActiveRound ,
+  Intro: Intro ,
+  Main:  Main ,
+  MakeInvitation: MakeInvitation ,
   MySettings: MySettings ,
   Password: Password ,
-  Practice: Practice,
-  RightHome: RightHome,
-  RoundWait: RoundWait,
-  SetActive: SetActive,
-  ShowRules: ShowRules,
-  SignUp: SignUp,
-  ViewInvitation: ViewInvitation,
+  Practice: Practice ,
+  Play: Play,
+  RightHome: RightHome ,
+  RoundWait: RoundWait ,
+  SetActive: SetActive ,
+  ShowRules: ShowRules ,
+  SignUp: SignUp ,
+  ViewInvitation: ViewInvitation ,
 };
 
 
@@ -72,36 +71,37 @@ export default function IntroPage(props){
 //let component = <Main user={props.user} />;
 
     const [rightNav, setRightNav] = useState(<RightHome user={props.user} showPage={rightNavigate} />);
-    const [leftNav, setLeftNav] = useState(<ActiveRound user={props.user} showPage={leftNavigate}/>);
-
+    const [leftNav, setLeftNav] = useState(<Main user={props.user} showPage={leftNavigate}/>);
+//--------------------------------------------
     function rightNavigate(page)
     {
-      console.log( "TRY TO GO TO ", page);
+      console.log( "RIGHT PANEL GO TO ", page);
       if(page === "logout")
         props.handleLogout();
       else 
       { 
-        const Component = PAGES[ page ];
-      //  console.log( "COMPONENT IS ---> ", React.Components[page]); 
-       setRightNav( <Component user={props.user} showPage={rightNavigate} /> );
+        const Component = PAGES[ page ]; 
+        setRightNav( <Component user={props.user} showPage={rightNavigate} /> );
       }
     }
-
+//--------------------------------------------
     function leftNavigate(page)
     {
+      console.log( "LEFT PANEL GO TO ", page);
       if(page === "logout")
         props.handleLogout();
       else 
       { 
-      const Component = PAGES[ page ]; 
-      setLeftNav( <Component user={props.user} showPage={leftNavigate} /> );
+        const Component = PAGES[ page ]; 
+        setLeftNav( <Component user={props.user} showPage={leftNavigate} /> );
       }
     }
 
-
+//--------------------------------------------
     return(
-         <Suspense fallback={<div>Loading...</div>}>
-            <ErrorBoundary>
+      <>
+          <Suspense fallback={<div>Loading...</div>}>
+            {/* <ErrorBoundary> */}
                 <div className="app-container">
                     <div className = "app-half left-panel" > 
                      {leftNav} 
@@ -110,7 +110,8 @@ export default function IntroPage(props){
                      {rightNav} 
                     </div>
                 </div>
-            </ErrorBoundary>
-          </Suspense>
+            {/* </ErrorBoundary> */}
+           </Suspense>
+     </>
     );
 };

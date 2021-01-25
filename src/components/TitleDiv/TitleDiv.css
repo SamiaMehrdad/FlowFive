@@ -1,15 +1,17 @@
 .title-container{
-    border : 1px solid var(--light);
+    border : 1px solid var(--gold);
     margin: 0 auto;
     height: 100%;
-    font-size: 12px;
+    /* font-size: 12px; */
 }
 
 .title-header{
     top:0;
-    border-bottom: 1px solid var(--light);
-    color: var(--light);
-    padding: 10px;
+    border-bottom: 1px solid var(--gold);
+    color: var(--dark);
+    background-color: var(--light);
+    padding: 5px;
+    font-size: 16px;
     font-weight: bolder;
     margin: 0;
 }

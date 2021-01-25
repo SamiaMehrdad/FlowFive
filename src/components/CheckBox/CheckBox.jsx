@@ -7,13 +7,14 @@ Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React, { useState, useRef, useEffect } from 'react';
-// import './.css';
+import './CheckBox.css';
 
-export default function GameBoard(props){
+export default function CheckBox(props){
 
     return(
-        <>
-
-        </>
+        <div className="check-container" >
+            <input type="checkbox" className="check"></input>
+            <span className="check-label">{props.title}</span>
+        </div>
     );
 };

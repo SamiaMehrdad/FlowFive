@@ -1,0 +1,12 @@
+.gamecell{
+    background-color: var(--back);
+    display: inline-block;
+    width: 23%;
+    height: 23%;
+    border-bottom: 0;
+    margin: 2px;
+}
+
+.gamecell:hover{
+    
+}
