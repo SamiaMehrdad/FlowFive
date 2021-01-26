@@ -19,6 +19,7 @@
 If you want to give it a try, you can go straight to *[Play FlowFive](https://samiamehrdad.github.io/FlowFive/)*, there is also a 'GAME RULES' and 'PRACTICE' section inside of the app that helps you to be familiar with the game !
 
 <br />
+
 ---
 
 ## About this implementation
