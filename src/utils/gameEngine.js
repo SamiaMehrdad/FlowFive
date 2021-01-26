@@ -16,7 +16,7 @@
                     [10,11,14],
                     ];
 
- const WINSITS = [  [0,1,4,6],
+ const WINSITS = [  [0,1,4,5],
                     [1,2,5,6],
                     [2,3,6,7],
                     [4,5,8,9],
@@ -107,9 +107,8 @@ function getPlayground()
 //-----------------------------------------
 function getCellOf( pieceNo )
 {
-    for(let i=0; i <= 16; i++ )
-     if( playground[i] === pieceNo )
-        return i;
+
+    return playground.indexOf( pieceNo );
 }
 
 //-----------------------------------------

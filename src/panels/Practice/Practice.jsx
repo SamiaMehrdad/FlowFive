@@ -32,7 +32,7 @@ function shuffle()
 //-------------------------------------------
 function pieceMovedTo( cellNo )
 {   
-    if(!win[0])
+    if(isNaN(win[0]))
     {
         newBoard = gameEngine.makeMove( cellNo );
         activePiece = gameEngine.getActivePiece();

@@ -35,7 +35,7 @@ useEffect( () =>
 //-----------------------------------------
     function makeCells ()
     {
-        if (props.winners[0] )
+        if ( !isNaN(props.winners[0]) )
         {
             for( let i=0; i!=16; i++)
             {
