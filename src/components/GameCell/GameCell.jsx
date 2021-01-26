@@ -13,15 +13,26 @@ import './GameCell.css';
 
 export default function GameCell(props){
 
+//----------------------------------
 function clicked()
 {
     props.cellClick(props.id);
 }
-
+//----------------------------------
+function setStyle()
+{
+ let style={};
+ if( props.winner )
+    style = {backgroundColor: "rgba(100,190,100,.2)"};
+ else
+    props.highlight? style ={backgroundColor: "rgba(180,170,100,.2)", cursor: "pointer"}: style = null;
+ return style;   
+}
+//----------------------------------
         return(
             <div className="gamecell" 
                  onClick={clicked} 
-                 style={ props.highlight? {backgroundColor: "rgba(180,170,100,.2)", cursor: "pointer"}: null }
+                 style={ setStyle() }
             >
                 { 
                     props.piece? <PieceDotted n={props.piece} face="true" selected={props.selected} /> 

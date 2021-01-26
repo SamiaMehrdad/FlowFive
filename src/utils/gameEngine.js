@@ -35,6 +35,9 @@
                     [1,5,9,13],
                     [2,6,10,14],
                     [3,7,11,15],
+// axes
+                    [0,5,10,15],
+                    [3,6,9,12],
                 ];
 
 let playground = [  1, 0, 0, 0, 
@@ -149,7 +152,7 @@ function matchAtLeast( cells )
 }
 //-----------------------------------------
 function checkWin()
-{
+{ //TODO IMPORTANT cell 0 problem in win detecting
     for( const pair of WINSITS ) 
     {
         if( matchAtLeast(pair))
@@ -181,9 +184,8 @@ function makeMove( cellNo )
     playground[ activeCell ] = temp;
 
     // increase activePece
-    activePiece += 1;
-    if(activePiece > 5 )
-        activePiece = 1 ;
+    activePiece = activePiece === 5? 1 : activePiece+1 ;
+
     // return new playground
     return playground;
 }

@@ -27,20 +27,24 @@ function shuffle()
     newBoard = gameEngine.getSuffledBoard().slice();
     setBoard( newBoard );
     setActive( gameEngine.getActivePiece() ); 
+    setWin([]);
 }
 //-------------------------------------------
 function pieceMovedTo( cellNo )
 {   
- newBoard = gameEngine.makeMove( cellNo );
- activePiece = gameEngine.getActivePiece();
- winnerCells = gameEngine.checkWin();
+    if(!win[0])
+    {
+        newBoard = gameEngine.makeMove( cellNo );
+        activePiece = gameEngine.getActivePiece();
+        winnerCells = gameEngine.checkWin();
   
- setBoard( [...newBoard ] );
- setWin( [...winnerCells] );
- setActive( activePiece ); 
-
- if( winnerCells[0] )
-    console.log(" ****** WIN ! *******", winnerCells );
+        setBoard( [...newBoard ] );
+        setWin( [...winnerCells] );
+        setActive( activePiece ); 
+    }
+//  if( winnerCells[0] )
+//     alert("THIS IS A WINNER COMPOSITION !");
+    //console.log(" ****** WIN ! *******", winnerCells );
 }
 //-------------------------------------------
 function close(){
@@ -55,7 +59,7 @@ function close(){
         <GameBoard  board={board} 
                     activePiece={active} 
                     pieceMovedTo={pieceMovedTo} 
-                    winnerCells={winnerCells}       />
+                    winners={win}       />
     </>
     );
 };

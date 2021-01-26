@@ -12,11 +12,7 @@ import GameCell from '../GameCell/GameCell';
 import gameEngine from '../../utils/gameEngine.js';
 import './GameBoard.css';
 
-    let highlights = [ ];
-                    //     0, 0, 0, 0, 
-                    //   0, 0, 0, 0,
-                    //   0, 0, 0, 0,
-                    //   0, 0, 0, 0 ];                  
+    let highlights = [ ];              
     //-------------------
     function swap( arr, a, b )
     {
@@ -28,26 +24,40 @@ export default function GameBoard(props){
     let cells = [];
     let highlights = [];
     const [gameCells, setGameCells] = useState(cells);
-    
-   // const [hilights, setHilights] = useState(highlights);
-   // const [selected, setSelected] = useState(0);
-   let selected = 0;
+    let selected = 0;
 
-useEffect( () => {
+useEffect( () => 
+    {
         makeCells();
-       setGameCells( [...cells] ); //MSK : Trick to trigg react render for arrays
- 
-}, [props.board]);
+        setGameCells( [...cells] ); //MSK : Trick to trigg react render for arrays
+
+    }, [props.board]);
 //-----------------------------------------
     function makeCells ()
     {
-        for( let i=0; i!=16; i++)
-            cells[i] = (<GameCell   key={i} 
-                                    cellClick={ cellClick } 
-                                    id={i} piece={props.board[ i ]} 
-                                    highlight={highlights[ i ]}
-                                    selected={selected === i ? "true" : null}
-                                    />)
+        if (props.winners[0] )
+        {
+            for( let i=0; i!=16; i++)
+            {
+                cells[i] = (<GameCell   key={i} 
+                                        id={i} 
+                                        piece={props.board[ i ]}
+                                        cellClick={ cellClick } 
+                                        winner={props.winners.indexOf(i) >= 0? "true" : null }
+                                        />)
+            }
+        }
+        else
+            for( let i=0; i!=16; i++)
+            {
+                cells[i] = (<GameCell   key={i} 
+                                        id={i} 
+                                        piece={props.board[ i ]}
+                                        cellClick={ cellClick } 
+                                        highlight={highlights[ i ]}
+                                        selected={selected === i ? "true" : null}
+                                        />)
+            }
     }
 //-----------------------------------------
     function cellClick( n )
@@ -61,9 +71,6 @@ useEffect( () => {
 //----------------------------------------
     selected = props.board.indexOf( props.activePiece );
     highlights = gameEngine.getPossibleMoves("TEST", selected , 5); //TODO: first and 3rd parameters are important just for TRADE mode
-  //  console.log("in gameboard: BOARD : ", props.board);
-  //  console.log("in gameboard: SELECTED CELL, HILIGT ARRAY",selected, highlights);
-    makeCells();
 
 //----------------------------------------
     return(
