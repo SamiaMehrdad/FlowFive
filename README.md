@@ -20,13 +20,24 @@ If you want to give it a try, you can go straight to *[Play FlowFive](https://sa
 
 <br />
 ---
+
 ## About this implementation
----
+
 This instance of **FlowFive** is developed with a vision of simplicity and elegance. 
+
+---
 
 
 ![JOW screenshot](./docs/ff-sc3.JPG)
-There is ...........
+
+Version 1.0 has implemented these features :
+- Private play rooms
+- Chat in rooms
+- Random playing rooms
+- Play Invitation sending / receiving
+- Players ranking
+- Friends list
+- Offline practice play
 
 ---
 <br/>
@@ -136,11 +147,13 @@ Some special React components are developed for this project, while I've tried t
     * Note: Close icon (Red cross) lifts up state to the container parent. *
 
 ## Next steps :
+* Adding OAth
+* Adding Email confirmation
+* Two steps login / sign up
 * Implementing two sub version of FlowFive, Trade mode and Blind mode.
 * Implementing tournaments and playing room with audiences.
 * Making system owner and manager functionalities.
-* Adding some ....
-* Adding some ...
+
 <br/><br/>
 ## Copyrights :
 ---
