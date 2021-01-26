@@ -21,7 +21,7 @@ function clicked()
         return(
             <div className="gamecell" 
                  onClick={clicked} 
-                 style={ props.highlight? {backgroundColor: "rgba(100,80,30,.1)"}: null }
+                 style={ props.highlight? {backgroundColor: "rgba(180,170,100,.2)", cursor: "pointer"}: null }
             >
                 { 
                     props.piece? <PieceDotted n={props.piece} face="true" selected={props.selected} /> 

@@ -17,7 +17,7 @@ export default function RightHome(props){
    
    function randomPlay()
     {
-       console.log( "PRACTICE!!!!!"); 
+       props.showPage("Practice");
     }
 
     function showRules()
@@ -31,13 +31,7 @@ export default function RightHome(props){
         <button onClick={showRules}>GAME RULES</button>
         <br/><br/>
         <button onClick={randomPlay}>PRACTICE </button>
-        <br/><br/>
-         <GameBoard />
-        <PieceDotted n="1" key="1" />
-        <PieceDotted n="2" key="2" />
-        <PieceDotted n="3" key="3" />
-        <PieceDotted n="4" key="4" />
-        <PieceDotted n="5" key="5" />
+         
     </>
     );
 };

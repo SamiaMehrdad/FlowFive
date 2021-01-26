@@ -1,0 +1,15 @@
+.stick{
+    z-index: 500;
+    position: absolute;
+    height: 20px;
+    /* font-size: 9px; */
+    padding: 0;
+    right: -5px;
+    width: 50px;
+}
+.closing{
+    bottom: 3px;
+}
+.again{
+    bottom: 26px;
+}
