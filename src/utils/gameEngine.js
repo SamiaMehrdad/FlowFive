@@ -73,7 +73,7 @@ function getPossibleMoves( mode, cell, pieceNo )
         //     if( Math.abs( pieceNo - playground[ neighbors[i]]) >1 ) //TODO: solve the logic for TRADE mode
         // } 
     }
-        for( let i=0; i!=cells.length; i++ )
+        for( let i=0; i !== cells.length; i++ )
             result[ cells[i] ] = 1;
         return result;
 }
@@ -124,7 +124,7 @@ function emptyCell( cell )
 }
 
 //-----------------------------------------
-function getSuffledBoard()
+function getShuffledBoard()
 {
     playground = Array(16).fill(0);
     for( let i=1; i < 6; i++ )
@@ -132,7 +132,7 @@ function getSuffledBoard()
         let rnd = 0;
         do{
             rnd = Math.floor(Math.random() * 16);
-        }while( playground[ rnd ] != 0 );
+        }while( playground[ rnd ] !== 0 );
         playground[rnd] = i;
     }
     console.log("!!!! SHUFFLE !!!!");
@@ -195,7 +195,7 @@ export default {
     getCellOf,//getCellOf( pieceNo )
     putPiece, //putPiece( cell, pieceNo )
     emptyCell,
-    getSuffledBoard,// shuffle playground and set activePiece to 1
+    getShuffledBoard,// shuffle playground and set activePiece to 1
     getTimeFlag,
     checkWin, // return array of four or false
     getActivePiece,

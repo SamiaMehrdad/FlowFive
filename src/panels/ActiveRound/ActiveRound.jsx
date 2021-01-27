@@ -6,10 +6,8 @@ Custom react component.
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, } from 'react';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
-import InviteBar from '../../components/InviteBar/InviteBar';
-import GuestBar from '../../components/GuestBar/GuestBar';
 import WaitingPlayer from '../../components/WaitingPlayer/WaitingPlayer'
 import TimerBar from '../../components/TimerBar/TimerBar'
 import './ActiveRound.css';
@@ -17,17 +15,17 @@ import './ActiveRound.css';
 export default function ActiveRound(props){
 
 
-    const testImages = ["./test.jpg" , "./test.jpg"]
     const testUser = { nikname: "Hayoola",
                         avatar: "test.jpg",
                         rank: 50,
                         chat: "This is a chat message with 100 characters, and again, This is a chat message with some characters !"
-                     }
+                     };
     const testUser2 = { nikname: "Hayoola2",
                 avatar: "test.jpg",
                 rank: 50,
                 chat: "And another chat message but a little shorter !"
-                } 
+                }; 
+                
     const [user2, setUser2] = useState( testUser2 );
 
     const onTimeOut = () => {

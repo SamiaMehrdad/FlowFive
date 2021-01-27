@@ -11,9 +11,6 @@ import React from 'react';
 import Intro from "../../panels/Intro/Intro";
 import '../FlowFivePage/FlowFivePage.css';
 import RightHome from '../../panels/RightHome/RightHome';
-import Practice from '../../panels/Practice/Practice';
-import TitleDiv from '../../components/TitleDiv/TitleDiv';
-import WaitingPlayer from '../../components/WaitingPlayer/WaitingPlayer';
 
 export default function TempPage(props){
     return(
@@ -21,8 +18,6 @@ export default function TempPage(props){
                 <div className="app-container">
                     <div className = "app-half left-panel" > <Intro /> </div>
                     <div className = "app-half right-panel" > 
-                    {/* <RightHome /> */}
-
                     <br/><button>GAME RULES</button>
                     <br/><br/>
                     <button>PRACTICE</button> 

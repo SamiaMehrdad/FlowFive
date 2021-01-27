@@ -26,7 +26,7 @@ export default function SignUpPage(props){
 
     return (
 
-        <TitleDiv title="SIGN UP" width= "80%" >
+        <TitleDiv title="SIGN UP" width= "350px" >
 
           <form  autoComplete="off" ref={formRef} onSubmit={async (e) => {
             e.preventDefault()
@@ -34,14 +34,16 @@ export default function SignUpPage(props){
             try {
                 await userService.signup(state);
                 // Route to wherever you want!
-                alert("You're logged in! Time to Code where you want to go Now! ~ SignupComponent")
+               // alert("You're logged in! Time to Code where you want to go Now! ~ SignupComponent")
+               
+               console.log( 'USER CREATED :', state);
               } catch (err) {
                 // Invalid user data (probably duplicate email)
                 console.log(err.message)
                 setError(err.message)
               }
           }}>
-            <div className="form-group">
+            {/* <div className="form-group">
               <input
                 className="form-control"
                 name="username"
@@ -50,7 +52,7 @@ export default function SignUpPage(props){
                 onChange={handleChange}
                 required
               />
-            </div>
+            </div> */}
             <div className="form-group">
               <input
                 type="email"

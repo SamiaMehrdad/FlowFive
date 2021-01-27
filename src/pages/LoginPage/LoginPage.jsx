@@ -3,6 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 import './LoginPage.css';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import userService from '../../utils/userService';
+import TitleDiv from '../../components/TitleDiv/TitleDiv';
 
 export default function LoginPage(props){
 
@@ -39,10 +40,11 @@ export default function LoginPage(props){
 
     return (
         <>
-        <div id="test">
-          <h1>Login</h1>
+         <br />
+        <TitleDiv title="LOGIN" width= "350px" >
+ 
           <form  autoComplete="off" onSubmit={handleSubmit} >
-            
+          <br />
             <div className="form-group">
               <input
                 type="email"
@@ -65,16 +67,18 @@ export default function LoginPage(props){
                 required
               />
             </div>
+            <br />
             <button
               type="submit"
               disabled={invalidForm}
             >
               Login
             </button>
+            <br /><br />
           </form>
 
           {error ? <ErrorMessage error={error} /> : null}
-          </div>
+          </TitleDiv>
         </>
       );
 }

@@ -39,7 +39,7 @@ useEffect( () => {
          { props.user?
              (
                 <div className="TimerBar-main">
-                    <img className='TimerBar-image' src={props.user.avatar} />
+                    <img className='TimerBar-image' src={props.user.avatar} alt='User' />
                     <p className="TimerBar-text">
                         {
                             time >= 0 ?

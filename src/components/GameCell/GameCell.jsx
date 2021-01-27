@@ -6,7 +6,7 @@ Custom react component.
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import PieceDotted from '../PieceDotted/PieceDotted';
 
 import './GameCell.css';

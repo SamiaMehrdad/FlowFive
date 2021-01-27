@@ -6,8 +6,7 @@ Custom react component.
  Parent: App
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
-import React, { useState, useRef, useEffect, Suspense } from 'react';
-import ErrorBoundary from "./ErrorBoundary";
+import React, { useState, Suspense } from 'react';
 import ActiveRound from '../../panels/ActiveRound/ActiveRound';
 import Intro from "../../panels/Intro/Intro";
 import Main from "../../panels/Main/Main";
@@ -26,18 +25,7 @@ import ViewInvitation from "../../panels/ViewInvitation/ViewInvitation";
 
 import './FlowFivePage.css';
 
-// const PAGES = ['ActiveRound',
 
-//             ];
-
-// let PS = [] ;
-
-// function loadComponent(name) {
-//   const Component = React.lazy(() =>
-//     import (`../../panels/${name}/${name}`)
-//   );
-//   return Component;
-// }
 const PAGES= {
   ActiveRound: ActiveRound ,
   Intro: Intro ,
@@ -57,18 +45,6 @@ const PAGES= {
 
 
 export default function IntroPage(props){
-
-
-//  PS.push( loadComponent ( PAGES[0]))
-//  console.log(PS);
-
-// const PANELS = { ActiveRound : <ActiveRound />,
-//                  Intro: <Intro />,
-//         }
-
-//let keeper = 'Intro'; 
-// let component = PANELS[keeper];
-//let component = <Main user={props.user} />;
 
     const [rightNav, setRightNav] = useState(<RightHome user={props.user} showPage={rightNavigate} />);
     const [leftNav, setLeftNav] = useState(<Main user={props.user} showPage={leftNavigate}/>);

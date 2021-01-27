@@ -1,7 +1,7 @@
 .security-btn{
     right: 0;
     background-color: var(--gold);
-    margin: -20px -150px 0 0;
+    margin: -40px -180px 0 0;
 }
 
 .editable{
@@ -18,4 +18,18 @@
 .loadable:hover{
 border-bottom: 2px solid var(--gold);
 border-right: 2px solid var(--gold);
+}
+
+.prof-image{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 130px 0 0 20px;
+    box-shadow: 2px 2px 5px #555;
+    top: 0;
+}
+
+#prof-nick{
+    top: 40px;
 }

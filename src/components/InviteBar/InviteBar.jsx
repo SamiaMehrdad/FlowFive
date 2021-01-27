@@ -15,7 +15,7 @@ export default function InviteBar(props){
         <div className="invitebar-main bar">
          { props.avatars?
              props.avatars.map((item, index) => (
-            <img className='invite-image' src={item} key={index} />
+            <img className='invite-image' src={item} key={index} alt="Guest" />
         )) : null
         }
         <span className="invitebar-msg"> {props.message} </span>

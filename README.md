@@ -1,6 +1,6 @@
 # FlowFive 
 
-### An online multi user chat and play web app to play FlowFive board game with friends. 
+### An online multi user chat and play web app to play FlowFive board game with friends. Developed by MERN stack technology.
 ---
 <br/>
 
@@ -16,7 +16,7 @@
 
 **FlowFive** online is a special adaptation of the game with ability ......... Original game design, rules, names and any related materials is done by myself. **FlowFive** is a member of my minimal game design collection **[Horian Booms](https://www.instagram.com/explore/tags/horianbooms/top/?hl=en)**
 
-If you want to give it a try, you can go straight to *[Play FlowFive](https://samiamehrdad.github.io/FlowFive/)*, there is also a 'GAME RULES' and 'PRACTICE' section inside of the app that helps you to be familiar with the game !
+If you want to give it a try, you can go straight to *[Play FlowFive](https://flowfive.herokuapp.com/)*, there is also a 'GAME RULES' and 'PRACTICE' section inside of the app that helps you to be familiar with the game !
 
 <br />
 

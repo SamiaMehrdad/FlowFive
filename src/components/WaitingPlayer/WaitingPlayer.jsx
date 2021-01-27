@@ -6,7 +6,7 @@ Custom react component.
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './WaitingPlayer.css';
 import AnimSpan from './AnimSpan';
 
@@ -16,7 +16,7 @@ export default function WaitingPlayer(props){
         <div className="WaitingPlayer-main">
          { 
            props.user?
-           ( <img className='WaitingPlayer-image' src={props.user.avatar} /> ) 
+           ( <img className='WaitingPlayer-image' src={props.user.avatar} alt="Avatar"/> ) 
            : null
          }
          <AnimSpan text={props.user.chat} />

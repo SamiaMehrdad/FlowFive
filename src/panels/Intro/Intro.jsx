@@ -28,7 +28,7 @@ export default function Intro(props){
 
     return(
         <div id="back">
-            <img id="hb-logo" src="HB-small1.jpg" />
+            <img id="hb-logo" src="HB-small1.jpg" alt="HB Intro" />
             <p id="welcome">As a guest user, you can start playing right now, 
             but if you don't sign in, it is impossible to calculate your ranking 
             and points. Also if sign in, you can have your own private play room 

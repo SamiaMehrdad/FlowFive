@@ -7,21 +7,19 @@ Custom react component.
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import './Main.css';
-import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
-import InviteBar from '../../components/InviteBar/InviteBar';
 import GuestBar from '../../components/GuestBar/GuestBar';
 
 export default function Main(props){
 
     // const testImages = ["./test.jpg" , "./test.jpg"]
-    // const testUser = { nikname: "Hayoola",
-    //                     avatar: "test.jpg",
-    //                     rank: 50,
-    //                     chat: "This is a chat message with 100 characters, and again, This is a chat message with some characters !"
-    //                  }
+    const testUser = { nikname: "Hayoola",
+                        avatar: "test.jpg",
+                        rank: 50,
+                        chat: "This is a chat message with 100 characters, and again, This is a chat message with some characters !"
+                     }
     // const testUser2 = { nikname: "Hayoola2",
     //             avatar: "test.jpg",
     //             rank: 50,
@@ -37,25 +35,27 @@ export default function Main(props){
     {
         props.showPage("MySettings");
     }
-
+    function view()
+    {
+        alert("VIEW");
+    }
     return(
         <>
         {/* <img className='TimerBar-image' src={props.user.avatar} id="main-image" /> */}
-        <img className='TimerBar-image' src="./test.jpg" id="main-image" />
+        <img className='TimerBar-image' src="./test.jpg" id="main-image" alt="Avatar"/>
         <span className="main-userinfo">Nick Name<br />Rank:82</span>
         <span className="setting-icon" onClick={ goSetting }>
             {'\u2699'}
         </span>
         <br /><br /><br />
         <LabelDiv id="inviteds" title="INVITATIONS" height="120px">
-
+            <GuestBar user={testUser} onClick={view}/>
         </LabelDiv>
         <LabelDiv id="invitations" title="SENT INVITATIONS" height="120px">
 
         </LabelDiv>
         <div className="bottom-stick">
             <button onClick={ goInvite } >
-            {/* <button  > */}
                 INVITE TO PLAY
             </button>
             <button >

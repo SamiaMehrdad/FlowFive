@@ -6,7 +6,7 @@ Custom react component.
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './TimerBar.css';
 
 export default function Bar(props){

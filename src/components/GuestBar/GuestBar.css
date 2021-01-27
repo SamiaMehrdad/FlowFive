@@ -1,8 +1,24 @@
-
+.bar{
+    background-color: var(--light);
+    cursor: pointer;
+}
 .guestbar-info
 {
     display: contents;
     position: relative;
-    color: var(--gold);
+    color: var(--dark);
     font-weight: bold;
+   
+}
+/* TODO: DEBUG: should be duplicated , other version in InviteBar.css*/
+.invite-image{
+    width: 20px;
+    height: 20px;
+    /* background-color: black; */
+    margin: 2px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* border: 1px solid #aaa; */
+    box-shadow: 0 0 3px #555;
+    display: inline;
 }

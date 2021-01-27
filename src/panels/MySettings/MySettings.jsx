@@ -6,10 +6,9 @@ Custom react component.
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
-import InviteBar from '../../components/InviteBar/InviteBar';
-import GuestBar from '../../components/GuestBar/GuestBar';
+import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import './MySettings.css';
 
 export default function MySettings(props){
@@ -24,13 +23,13 @@ function logout()
     props.showPage("logout");
 }
     return (
-    <>
-        <img className='TimerBar-image loadable' src="./test.jpg" id="main-image" />
-        <span className="main-userinfo editable">Nick Name</span>
-        <br /><br /><br />
-        <button className="security-btn">SECURITY</button>
+    <TitleDiv title="DASHBOARD">
         <br />
-        <LabelDiv className="friends" title="FRIENDS" height="240px">
+        {/* TODO: BUG in image id and Id CSS */}
+        <img Id="prof-image" className='prof-image loadable' src="./test.jpg" id="main-image" alt="Avatar" />
+        <span Id="prof-nick" className="main-userinfo editable">Nick Name</span>
+        <button className="security-btn">SECURITY</button>
+        <LabelDiv className="friends" title="FRIENDS" height="260px">
 
         </LabelDiv>    
         <div className="bottom-stick">
@@ -41,7 +40,7 @@ function logout()
                 LOG OUT !
             </button>
         </div>
-    </>
+    </TitleDiv>
     );
 
 };

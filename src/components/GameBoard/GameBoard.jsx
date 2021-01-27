@@ -6,18 +6,12 @@ Custom react component.
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React, { useState, useRef, useEffect } from 'react';
-import PieceDotted from '../PieceDotted/PieceDotted';
+import React, { useState, useEffect } from 'react';
 import GameCell from '../GameCell/GameCell';
 import gameEngine from '../../utils/gameEngine.js';
 import './GameBoard.css';
 
-    let highlights = [ ];              
-    //-------------------
-    function swap( arr, a, b )
-    {
-        [arr[a], arr[b]] = [arr[b], arr[a]];
-    }
+           
     //--------------------                    
 export default function GameBoard(props){
 
@@ -37,7 +31,7 @@ useEffect( () =>
     {
         if ( !isNaN(props.winners[0]) )
         {
-            for( let i=0; i!=16; i++)
+            for( let i=0; i < 16; i++)
             {
                 cells[i] = (<GameCell   key={i} 
                                         id={i} 
@@ -48,7 +42,7 @@ useEffect( () =>
             }
         }
         else
-            for( let i=0; i!=16; i++)
+            for( let i=0; i < 16; i++)
             {
                 cells[i] = (<GameCell   key={i} 
                                         id={i} 
