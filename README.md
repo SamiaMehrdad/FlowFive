@@ -61,6 +61,16 @@ This project is a **MERN full stack web application.**
 * **[React](https://www.react.org/)** An open-source, front end, JavaScript library for building user interfaces.
 * **[Node.js](https://www.nodejs.org/)** An open-source, cross-platform, back-end JavaScript runtime environment
 
+*Plugins and node modules:*
+* *[bcrypt](https://www.npmjs.com/package/bcrypt)* A bcrypt library for NodeJS.
+* *[dotenv](https://www.npmjs.com/package/dotenv)* A zero-dependency module for loading environment.
+variables
+* *[jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)* An implementation of JSON Web Tokens.
+* *[mongoose](https://www.mongoosejs.com)* Elegant MongoDB object modeling for Node.js.
+* *[morgan](https://www.npmjs.com/package/morgan)* HTTP request logger middleware for node.js.
+* *[serve-favicon](https://www.npmjs.com/package/serve-favicon)* Node.js middleware for serving a favicon.
+* *[socket.io](https://socket.io/)* A JavaScript library for realtime web applications using websocket.
+
 Final product is hosted by
 * **[Heruko](https://www.heroku.com/)**  A cloud platform as a service
 * **[MongoDB atlas](https://www.mongodb.com/)**  The Cloud-Native Database
@@ -150,7 +160,8 @@ Some special React components are developed for this project, while I've tried t
 ## Next steps :
 * Adding OAth
 * Adding Email confirmation
-* Two steps login / sign up
+* Adding inviting notification by email
+* Two steps login / sign up UX
 * Implementing two sub version of FlowFive, Trade mode and Blind mode.
 * Implementing tournaments and playing room with audiences.
 * Making system owner and manager functionalities.
