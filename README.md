@@ -136,7 +136,7 @@ Some special React components are developed for this project, while I've tried t
 *Properties:*
     
     - user : This component extract information from user object and display them.
-     user object should has .avatar( a url to user image ), .nickname and .ranking values.
+     user object should have .avatar( a url to user image ), .nickname and .ranking values.
 
 * WaitingPlayer >    A chat bar that shows low contrast image user and a chat prompt.
 
@@ -144,9 +144,9 @@ Some special React components are developed for this project, while I've tried t
 
 *Properties:*
     
-    - User : user object should has .avatar( a url to user image ) and a .chat value.
+    - User : user object should have .avatar( a url to user image ) and a .chat value.
     * Note: .chat value is in track hook and each new value will trigger this component to re-render and show new message. *
-    * Note: This component uses <AnimSpan> component to show message with typewriting animation effect. * 
+    * Note: This component uses <AnimSpan> component to show messages with typewriting animation effect. * 
 
 * GuestBar >   A single line info bar that that can be add or remove easily.
 
@@ -154,7 +154,7 @@ Some special React components are developed for this project, while I've tried t
 
 *Properties:*
     
-    - User : user object should has .avatar( a url to user image ) and a .nickname  value.
+    - User : user object should have .avatar( a url to user image ) and a .nickname  value.
     * Note: Close icon (Red cross) lifts up state to the container parent. *
 
 ## Next steps :
