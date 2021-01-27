@@ -7,7 +7,8 @@
     display: contents;
     position: relative;
     color: var(--dark);
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-size: 14px;
    
 }
 /* TODO: DEBUG: should be duplicated , other version in InviteBar.css*/

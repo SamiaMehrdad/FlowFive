@@ -37,7 +37,7 @@ export default function Main(props){
     }
     function view()
     {
-        alert("VIEW");
+        props.showPage('ActiveRound');
     }
     return(
         <>

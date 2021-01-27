@@ -25,11 +25,15 @@ export default function ActiveRound(props){
                 rank: 50,
                 chat: "And another chat message but a little shorter !"
                 }; 
-                
+
     const [user2, setUser2] = useState( testUser2 );
 
     const onTimeOut = () => {
         console.log("TimeOUT!");
+    };
+
+    const quitTheGame = () =>{
+        props.showPage('quitGame'); 
     }
 
     return(
@@ -38,7 +42,7 @@ export default function ActiveRound(props){
                 <input style={{width: '250px', margin: '0 0 5px 5px'}} />
                 <button style={{width: '50px'}}>SEND</button>
             </LabelDiv>
-            <TimerBar user={testUser} time={5} onTimeOut={onTimeOut} />
+            <TimerBar user={testUser} time={30} onTimeOut={onTimeOut} />
             <WaitingPlayer user={testUser} />
             <WaitingPlayer user={user2} />
             <WaitingPlayer user={testUser} />
@@ -46,7 +50,7 @@ export default function ActiveRound(props){
                 <p>00:02:56</p>
                 <p>2284 Moves</p>
             </div>
-            <button id="quit-game" >QUIT</button>
+            <button id="quit-game" onClick={quitTheGame}>QUIT</button>
         </>
     );
 };

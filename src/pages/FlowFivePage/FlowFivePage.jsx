@@ -6,7 +6,7 @@ Custom react component.
  Parent: App
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import ActiveRound from '../../panels/ActiveRound/ActiveRound';
 import Intro from "../../panels/Intro/Intro";
 import Main from "../../panels/Main/Main";
@@ -63,20 +63,29 @@ export default function IntroPage(props){
 //--------------------------------------------
     function leftNavigate(page)
     {
-      console.log( "LEFT PANEL GO TO ", page);
-      if(page === "logout")
+      let target = page;
+      if(target === "logout")
         props.handleLogout();
       else 
       { 
-        const Component = PAGES[ page ]; 
-        setLeftNav( <Component user={props.user} showPage={leftNavigate} /> );
+        if(target === "quitGame")
+          {
+            rightNavigate( "RightHome" );
+            target = "Main";
+          }
+
+          const Component = PAGES[ target ]; 
+          setLeftNav( <Component user={props.user} showPage={leftNavigate} /> );
+          if ( Component == PAGES.ActiveRound )
+               rightNavigate( 'Play' );
+
       }
     }
 
 //--------------------------------------------
     return(
       <>
-          <Suspense fallback={<div>Loading...</div>}>
+          {/* <Suspense fallback={<div>Loading...</div>}> */}
             {/* <ErrorBoundary> */}
                 <div className="app-container">
                     <div className = "app-half left-panel" > 
@@ -87,7 +96,7 @@ export default function IntroPage(props){
                     </div>
                 </div>
             {/* </ErrorBoundary> */}
-           </Suspense>
+           {/* </Suspense> */}
      </>
     );
 };
