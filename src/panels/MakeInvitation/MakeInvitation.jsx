@@ -14,8 +14,10 @@ import CheckBox from '../../components/CheckBox/CheckBox';
 import './MakeInvitation.css';
 
 export default function MakeInvitation(props){
+//----------------------------------------------
 function close() {
  props.showPage("Main"); 
+ //---------------------------------------------
 }
     return(
         <TitleDiv title="INVITE TO PLAY">

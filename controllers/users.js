@@ -13,24 +13,6 @@ module.exports = {
 };
 
 //----------------------------------------
-function getFriends()
-{
-console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
-}
-
-//----------------------------------------
-function addFriend()
-{
-console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
-}
-
-//----------------------------------------
-function removeFriend()
-{
-console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
-}
-
-//----------------------------------------
 async function signup(req, res) {
   const user = new User(req.body);
   try {
@@ -53,7 +35,8 @@ async function login(req, res) {
 //  await round.save();
 //  console.log("ONE DUMMY ROUND SAVED");
  //TODO--------------------------------
-  console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+  console.log ("HIT FROM -------> function ", 
+                arguments.callee.toString().match(/function ([^\(]+)/)[1]);
   try {
     const user = await User.findOne({email: req.body.email});
     console.log(user, ' this user', !user, !!user)
@@ -85,6 +68,28 @@ async function checkEmail(req, res) {
     return res.status(401).json(err);
   }
 }
+
+//----------------------------------------
+function getFriends()
+{
+console.log ("HIT FROM -------> function ", 
+              arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+}
+
+//----------------------------------------
+function addFriend()
+{
+console.log ("HIT FROM -------> function ", 
+              arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+}
+
+//----------------------------------------
+function removeFriend()
+{
+console.log ("HIT FROM -------> function ", 
+              arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+}
+
 /*----- Helper Functions -----*/
 
 function createJWT(user) {
