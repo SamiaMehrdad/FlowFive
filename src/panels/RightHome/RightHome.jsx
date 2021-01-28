@@ -15,12 +15,12 @@ export default function RightHome(props){
    
    function randomPlay()
     {
-       props.showPage("Practice");
+       props.showPage("","Practice");
     }
 
     function showRules()
     {
-       props.showPage("ShowRules"); 
+       props.showPage("","ShowRules"); 
     }
 
     return (

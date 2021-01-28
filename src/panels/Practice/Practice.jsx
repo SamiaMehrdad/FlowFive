@@ -45,7 +45,7 @@ function pieceMovedTo( cellNo )
 }
 //-------------------------------------------
 function close(){
-    props.showPage("RightHome");
+    props.showPage(null,"RightHome");
 }
 //-------------------------------------------
 

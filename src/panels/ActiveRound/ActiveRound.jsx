@@ -33,7 +33,7 @@ export default function ActiveRound(props){
     };
 
     const quitTheGame = () =>{
-        props.showPage('quitGame'); 
+        props.showPage('Main','RightHome'); 
     }
 
     return(

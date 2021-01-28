@@ -29,15 +29,15 @@ export default function Main(props){
     //    const [user2, setUser2] = useState( testUser2 );
     function goInvite()
     {
-        props.showPage("MakeInvitation");
+        props.showPage("MakeInvitation","");
     }
     function goSetting()
     {
-        props.showPage("MySettings");
+        props.showPage("MySettings","");
     }
     function view()
     {
-        props.showPage('ActiveRound');
+        props.showPage('ActiveRound','Play');
     }
     return(
         <>
