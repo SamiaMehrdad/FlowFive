@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const moveSchema = new mongoose.Schema({
+    counter: { type: Number, default: 1 }
     player: { type: mongoose.Types.ObjectId, ref:"User"},
     from:   Number,
     to: Number,
@@ -9,13 +10,15 @@ const moveSchema = new mongoose.Schema({
 });
 
 const roundSchema = new mongoose.Schema({
-  title: String,
-  host: { type: mongoose.Types.ObjectId, ref:"User"},
+  host: { type: mongoose.Types.ObjectId, ref:"Room"},
+  numOfPlayers: { type: Number, default: 2, max: 4},
   start: { type: Date, default: Date.now },
   end:  Date,
   players:  [{ type: mongoose.Types.ObjectId, ref:"User"}],
   timer:   { type: Number, default: 0 },
-  version: { type: Number, default: 0 },
+  game: { type: String, default: "FlowFive" },
+  blindMode: { type: Boolean, default: false },
+  tradeMode: { type: Boolean, default: false },
   isActive: { type: Boolean, default: false },
   winner: { type: mongoose.Types.ObjectId, ref:"User"},
   moves: [{ type: mongoose.Types.ObjectId, ref:"Move"}],

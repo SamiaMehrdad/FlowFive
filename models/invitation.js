@@ -1,21 +1,12 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 
-const GameSetting = new mongoose.Schema({
-    game: { type: String, default: "FlowFive" },
-    time: { type: Number, default: 0 },
-    timeoutKiller: { type: Boolean, default: false },
-    blindMode: { type: Boolean, default: false },
-    tradeMode: { type: Boolean, default: false },
-}, {
-  timestamps: true
-});
 
 const invitationSchema = new mongoose.Schema({
+  sender: { type: mongoose.Types.ObjectId, ref:"Room"},
+  gameType: {type: String, default: "flowfive"},
   message: String,
-  sender: { type: mongoose.Types.ObjectId, ref:"User"},
-  parties:  [{ type: mongoose.Types.ObjectId, ref:"User"}],
-  gameSetting: { type: mongoose.Types.ObjectId, ref:"GameSetting"}
+  date: Date, // if a certain time is set  to play
+  
 }, {
   timestamps: true
 });
