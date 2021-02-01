@@ -26,8 +26,8 @@ function logout()
     <TitleDiv title="DASHBOARD">
         <br />
         {/* TODO: BUG in image id and Id CSS */}
-        <img Id="prof-image" className='prof-image loadable' src="./test.jpg" id="main-image" alt="Avatar" />
-        <span Id="prof-nick" className="main-userinfo editable">Nick Name</span>
+        <img id="my-image" className='prof-image loadable' src="./test.jpg" alt="Avatar" />
+        <span id="prof-nick" className="main-userinfo editable">Nick Name</span>
         <button className="security-btn">SECURITY</button>
         <LabelDiv className="friends" title="FRIENDS" height="260px">
 

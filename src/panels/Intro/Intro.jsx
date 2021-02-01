@@ -14,7 +14,7 @@ import userService from '../../utils/userService';
 export default function Intro(props){
 
     const [invalidForm, setValidForm] = useState(false);
-    const [error, setError ]          = useState('');
+    //const [error, setError ]          = useState('');
     const [state, handleChange]       = useForm({
         email: '',
     });
@@ -23,17 +23,20 @@ export default function Intro(props){
 
     useEffect(() => {
       formRef.current.checkValidity() ? setValidForm(false) : setValidForm(true);
-    });
+    },[]);
 
-
+    function playUnknown()
+    {
+        console.backgroundColor = "#033";
+        console.log(" %c PLAY UNKNOWN ","background: #010; color: #0f0; padding: 5px; border-radius:5px");
+    }
     return(
         <div id="back">
             <img id="hb-logo" src="HB-small1.jpg" alt="HB Intro" />
-            <p id="welcome">As a guest user, you can start playing right now, 
-            but if you don't sign in, it is impossible to calculate your ranking 
-            and points. Also if sign in, you can have your own private play room 
-            and invite your friends to join and play. It is so simple, just enter 
-            your email and hit "Sign in"</p>
+            <p id="welcome">As a guest user, you can start playing right now!<br/>
+            If you want to have your own private play room and your ranking track, 
+            please sign in by your email.
+            </p>
 
             <form  autoComplete="off" ref={formRef} onSubmit={async (e) => {
             e.preventDefault()
@@ -44,10 +47,10 @@ export default function Intro(props){
                 
               } catch (err) {
                 // Invalid user data (probably duplicate email)
-                setError(err.message)
+                console.log(err.message);
+                //setError(err.message)
               }
           }}>
-
                 <label>Email:  
                     <input 
                         type="email" 
@@ -57,9 +60,9 @@ export default function Intro(props){
                         required
                     />
                 </label><br/>
-                <button type="submit" className="green">SIGN IN</button>
-                <button >PLAY RANDOM</button>
+                <button type="submit" className="green noshade">SIGN IN</button>
             </form>
+            <button className="noshade" onClick={playUnknown}>PLAY RANDOM</button>
         </div>
     );
 };

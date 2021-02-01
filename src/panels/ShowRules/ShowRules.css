@@ -1,13 +1,15 @@
 .help-container{
- margin-top: 5px;
+ /* margin-top: 5px; */
  height: calc(100% - 5px);
  overflow-x: hidden;
  width: 100%;
+ background-color: var(--gold);
+ /* background-image: url('/ff-help1.jpg'); */
 }
 
 .help-image{
-    /* width: 100px;
-    height: 100%; */
+    width: 400px;
+    /* height: 100%; */
 }
 
 #back-right{

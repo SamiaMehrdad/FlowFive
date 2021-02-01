@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 body{
   --green: #8a8;
   --light: #ccc;
@@ -7,13 +9,17 @@ body{
   background-color: var(--back);
   color: var(--dark);
   user-select: none;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  /* font-family: arial; */
+
 }
 TitleDiv{
   background-color: yellow;
 }
-.App {
+/* .App {
   text-align: center;
-}
+} */
 .scrollable {
   overflow-y: scroll;
 }
@@ -21,9 +27,13 @@ TitleDiv{
     width: 0;
     height: 0;
 }
+.scrollable::-moz-scrollbar {
+    width: 0;
+    height: 0;
+}
 .bottom-stick{
   position: absolute;
-  bottom: 5px;
+  bottom: calc( 3vh - 5px);
   width: 100%;
 }
 .close-icon{
@@ -34,6 +44,7 @@ TitleDiv{
     position: relative;
     display: inline-block;
     cursor: pointer;
+    left: 93%;
 }
 .bar{
     width: 97%;
@@ -53,12 +64,13 @@ button{
   font-size: 10px;
   color: var(--dark);
   width: 40%;
+  height:10%;
   display: inline-block;
   padding: 7px;
   margin: 0 10px;
   cursor: pointer;
   outline: none;
-  height: 24px;
+  
   transition: all .2s;
 }
 button:hover{

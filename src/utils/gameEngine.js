@@ -126,16 +126,20 @@ function emptyCell( cell )
 //-----------------------------------------
 function getShuffledBoard()
 {
-    playground = Array(16).fill(0);
-    for( let i=1; i < 6; i++ )
-    {
-        let rnd = 0;
-        do{
-            rnd = Math.floor(Math.random() * 16);
-        }while( playground[ rnd ] !== 0 );
-        playground[rnd] = i;
-    }
-    console.log("!!!! SHUFFLE !!!!");
+    
+    do{
+        playground = Array(16).fill(0);
+        for( let i=1; i < 6; i++ )
+        {
+            let rnd = 0;
+            do{
+                rnd = Math.floor(Math.random() * 16);
+            }while( playground[ rnd ] !== 0 );
+            playground[rnd] = i;
+        }
+        console.log("!!!! SHUFFLE !!!!", checkWin().length);
+      } while( checkWin().length);  
+    
     activePiece = 1; // 1 reset game
     return playground;
 }

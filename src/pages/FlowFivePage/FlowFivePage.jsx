@@ -6,7 +6,7 @@ Custom react component.
  Parent: App
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
-import React, { useState } from 'react';
+import React, { lazy, useState } from 'react';
 import ActiveRound from '../../panels/ActiveRound/ActiveRound';
 import Intro from "../../panels/Intro/Intro";
 import Main from "../../panels/Main/Main";
@@ -24,7 +24,6 @@ import ViewInvitation from "../../panels/ViewInvitation/ViewInvitation";
 
 
 import './FlowFivePage.css';
-
 
 const PAGES= {
   ActiveRound: ActiveRound ,
@@ -46,41 +45,14 @@ const PAGES= {
 
 export default function IntroPage(props){
 
+
+
+  //--- Main navigation process ------------------------------------------
+  // use right and left state hooks + navigate function ( lifted state from children)
+  // each children should lift up with shoePage( left , right )
+
     const [rightNav, setRightNav] = useState(<RightHome user={props.user} showPage={navigate} />);
     const [leftNav, setLeftNav] = useState(<Main user={props.user} showPage={navigate}/>);
-// //--------------------------------------------
-//     function rightNavigate(page)
-//     {
-//       console.log( "RIGHT PANEL GO TO ", page);
-//       if(page === "logout")
-//         props.handleLogout();
-//       else 
-//       { 
-//         const Component = PAGES[ page ]; 
-//         setRightNav( <Component user={props.user} showPage={rightNavigate} /> );
-//       }
-//     }
-//--------------------------------------------
-    // function leftNavigate(page)
-    // {
-    //   let target = page;
-    //   if(target === "logout")
-    //     props.handleLogout();
-    //   else 
-    //   { 
-    //     if(target === "quitGame")
-    //       {
-    //         rightNavigate( "RightHome" );
-    //         target = "Main";
-    //       }
-
-    //       const Component = PAGES[ target ]; 
-    //       setLeftNav( <Component user={props.user} showPage={leftNavigate} /> );
-    //       if ( Component == PAGES.ActiveRound )
-    //            rightNavigate( 'Play' );
-
-    //   }
-    // }
 
 //------------------------------------------
   function navigate( left, right )

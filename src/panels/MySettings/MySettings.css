@@ -25,11 +25,14 @@ border-right: 2px solid var(--gold);
     height: 64px;
     border-radius: 50%;
     display: inline-block;
-    margin: 130px 0 0 20px;
     box-shadow: 2px 2px 5px #555;
-    top: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 #prof-nick{
     top: 40px;
+    cursor: text;
 }
+

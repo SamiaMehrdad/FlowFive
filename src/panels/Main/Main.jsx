@@ -48,15 +48,15 @@ export default function Main(props){
             {'\u2699'}
         </span>
         <br /><br /><br />
-        <LabelDiv id="inviteds" title="INVITATIONS" height="120px">
+        <LabelDiv id="inviteds" title="FRIENDS OPEN ROOMS" height="75%">
             <GuestBar user={testUser} onClick={view}/>
         </LabelDiv>
-        <LabelDiv id="invitations" title="SENT INVITATIONS" height="120px">
+        {/* <LabelDiv id="invitations" title="SENT INVITATIONS" height="120px">
 
-        </LabelDiv>
-        <div className="bottom-stick">
+        </LabelDiv> */}
+        <div className="bottom-stick main-page">
             <button onClick={ goInvite } >
-                INVITE TO PLAY
+                OPEN PLAY ROOM
             </button>
             <button >
                 PLAY RANDOM

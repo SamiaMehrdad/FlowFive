@@ -1,3 +1,7 @@
+.main-page button{
+    height: 9vh;
+    /* border-radius: 20px; */
+}
 #inviteds{
 
     background-color: red;
