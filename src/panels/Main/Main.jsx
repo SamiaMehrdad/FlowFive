@@ -62,12 +62,13 @@ export default function Main(props){
                             onClick={view}
                 />
             </LabelDiv>
-            <div className="bottom-stick main-page">
-                <button onClick={ goInvite } >
+            <div className="bottom-stick main-page ">
+                <button className="green" 
+                        onClick={ goInvite } >
                 OPEN PLAY ROOM
                 </button>
                 <button >
-                PLAY RANDOM
+                TRY UNKNOWN
                 </button>
             </div>    
         </>

@@ -6,6 +6,11 @@
     height: 100%;
     background-color: #000;
 }
+
+#back input{
+    background-color: #000;
+    border-bottom: 1px solid;
+}
 #welcome{
     color: var(--gold);
     font-size: clamp( 8px , min(1.8vw , 1.8vh) , 11px );

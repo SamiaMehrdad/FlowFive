@@ -3,7 +3,6 @@
     position: absolute;
     width: clamp( 30px, min(10vh , 10vw) , 100px);
     aspect-ratio: 1;
-    /* font-size: 9px; */
     padding: 0;
     right: -5px;
 

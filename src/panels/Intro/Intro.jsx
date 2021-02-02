@@ -33,7 +33,7 @@ export default function Intro(props){
     return(
         <div id="back">
             <img id="hb-logo" src="HB-small1.jpg" alt="HB Intro" />
-            <p id="welcome">As a guest user, you can start playing right now!<br/>
+            <p id="welcome">Welcome! You, as a guest user, can start playing right now! 
             If you want to have your own private play room and your ranking track, 
             please sign in by your email.
             </p>
@@ -55,13 +55,14 @@ export default function Intro(props){
                     <input 
                         type="email" 
                         name="email" 
-                        value={ state.email ? state.email: "E-mail"}
+                        placeholder="E-mail"
                         onChange={handleChange}
                         required
                     />
                 <br/><br/>
                 <button type="submit" className="green noshade">SIGN IN</button>
             </form>
+            <br/><br/>
             <button className="noshade bottom-stick" onClick={playUnknown}>PLAY RANDOM</button>
         </div>
     );
