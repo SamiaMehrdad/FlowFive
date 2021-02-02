@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  'mongodb://localhost:27017/FlowFive', // 10.0.0.229
- // process.env.DATABASE_URL,
+  //'mongodb://localhost:27017/FlowFive', // 10.0.0.229
+ process.env.DATABASE_URL,
   { useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
