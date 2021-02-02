@@ -32,8 +32,7 @@ function setStyle()
         return(
             <div className="gamecell" 
                  onClick={clicked} 
-                 style={ setStyle() }
-            >
+                 style={ setStyle() } >
                 { 
                     props.piece? <PieceDotted n={props.piece} face="true" selected={props.selected} /> 
                     : <PieceDotted n={props.piece} /> 

@@ -50,13 +50,21 @@ function close(){
 //-------------------------------------------
 
     return (
-    <>
-        <button className="again stick" onClick={shuffle}>AGAIN</button>
-        <button className="closing stick" onClick={close}>CLOSE</button>
+    <div className="help-container">
+        <span       className="close-icon large-icon" 
+                    onClick={close}>
+        X
+        </span>
+        <button     className="again stick" 
+                    onClick={shuffle}>
+        AGAIN
+        </button>
+
         <GameBoard  board={board} 
                     activePiece={active} 
                     pieceMovedTo={pieceMovedTo} 
-                    winners={win}       />
-    </>
+                    winners={win}       
+        />
+    </div>
     );
 };

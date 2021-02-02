@@ -1,14 +1,14 @@
 .piece-face{
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    margin: 10px;
-    padding: 6px 4px 2px 4px;
+    width: clamp(10px, min(5vh , 5vw) , 100px);
+    aspect-ratio: 1;
+    margin: 18% auto;
+    padding: 10% 4% 5% 2%;
     border: 2px solid var(--back);
     display: inline-block;
     z-index: 100;
+    font-size: clamp(10px , min(2.9vh , 2.9vw) , 60px);
     text-align: center;
-    font-size: 13px;
 }
 
 .hide{

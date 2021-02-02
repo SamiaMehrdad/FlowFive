@@ -1,5 +1,5 @@
 .main-page button{
-    height: 9vh;
+    height: clamp( 30px , min( 8vh , 8vw) , 100px);
     /* border-radius: 20px; */
 }
 #inviteds{

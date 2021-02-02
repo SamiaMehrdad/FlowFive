@@ -1,11 +1,12 @@
 .stick{
     z-index: 500;
     position: absolute;
-    height: 20px;
+    width: clamp( 30px, min(10vh , 10vw) , 100px);
+    aspect-ratio: 1;
     /* font-size: 9px; */
     padding: 0;
     right: -5px;
-    width: 50px;
+
 }
 .closing{
     bottom: 3px;

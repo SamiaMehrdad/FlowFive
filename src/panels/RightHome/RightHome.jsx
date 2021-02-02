@@ -8,7 +8,7 @@ Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';
-// import './.css';
+import './RightHome.css';
 
 export default function RightHome(props){
 
@@ -24,12 +24,15 @@ export default function RightHome(props){
     }
 
     return (
-    <>
+    <div id = "right-buttons">
+        <button   onClick={showRules} >
+        GAME RULES
+        </button>
         <br/>
-        <button onClick={showRules}>GAME RULES</button>
-        <br/><br/>
-        <button onClick={randomPlay}>PRACTICE </button>
-         
-    </>
+        <br/>
+        <button   onClick={randomPlay} >
+        PRACTICE 
+        </button>
+    </div>
     );
 };

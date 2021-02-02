@@ -16,11 +16,14 @@ function close() {
 }
     return (
     <div className="help-container scrollable">
-        <img src="ff-help1.jpg" alt="PLAYING RULS" className="help-image"/>
-        <span id="back-right" 
-              className="close-icon" 
-              onClick={close}>
-              X</span>
+        <img    src="ff-help1.jpg" 
+                alt="PLAYING RULS" 
+                className="help-image"
+        />
+        <span   className="close-icon large-icon" 
+                onClick={close}>
+        X
+        </span>
     </div>
     );
 };

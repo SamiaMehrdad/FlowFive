@@ -13,12 +13,13 @@ export default function TitleDiv(props){
 
     return(
         <>
-        <div className = "title-container scrollable" style = {{width: props.width}} >
-            <div className = "title-header"> {props.title} </div>
+            <div className = "title-header"> 
+            {props.title} 
+            </div>
+            <div className = "title-container scrollable" 
+                style = {{width: props.width}} >
             {props.children}
-        </div>
+            </div>
         </>
     );
 };
-
-//TODO: bug: header should be fixed, it is scrolable now

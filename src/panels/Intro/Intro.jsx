@@ -51,18 +51,18 @@ export default function Intro(props){
                 //setError(err.message)
               }
           }}>
-                <label>Email:  
+ 
                     <input 
                         type="email" 
                         name="email" 
-                        value={ state.email}
+                        value={ state.email ? state.email: "E-mail"}
                         onChange={handleChange}
                         required
                     />
-                </label><br/>
+                <br/><br/>
                 <button type="submit" className="green noshade">SIGN IN</button>
             </form>
-            <button className="noshade" onClick={playUnknown}>PLAY RANDOM</button>
+            <button className="noshade bottom-stick" onClick={playUnknown}>PLAY RANDOM</button>
         </div>
     );
 };

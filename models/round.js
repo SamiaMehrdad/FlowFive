@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const moveSchema = new mongoose.Schema({
-    counter: { type: Number, default: 1 }
+    counter: { type: Number, default: 1 },
     player: { type: mongoose.Types.ObjectId, ref:"User"},
     from:   Number,
     to: Number,

@@ -56,7 +56,6 @@ useEffect( () =>
 //-----------------------------------------
     function cellClick( n )
     {
-       // console.log("CLICKED, HILITES ARE ", highlights );
        if(highlights[n] === 1 )
             props.pieceMovedTo(n);
        setGameCells( [...cells] ); //MSK : Trick to trigg react render for arrays
@@ -69,9 +68,9 @@ useEffect( () =>
 //----------------------------------------
     return(
         <div className="gameboard">
-            <div className="cell-container"  >
-                {gameCells}
-            </div>
+             {/* <div className="cell-container"  > */}
+            {gameCells}
+            {/* </div> */}
         </div>
     );
 };

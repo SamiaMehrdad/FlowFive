@@ -1,5 +1,5 @@
 #hb-logo{
-    width: 180px;
+    width: clamp(120px , min( 40vw , 40vh ) , 240px );
 }
 #back{
     width: 100%;
@@ -8,7 +8,7 @@
 }
 #welcome{
     color: var(--gold);
-    font-size: 11px;
+    font-size: clamp( 8px , min(1.8vw , 1.8vh) , 11px );
     padding: 0 20px;
 }
 

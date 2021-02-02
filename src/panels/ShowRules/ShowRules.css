@@ -3,7 +3,7 @@
  height: calc(100% - 5px);
  overflow-x: hidden;
  width: 100%;
- background-color: var(--gold);
+ background-color: var(--back);
  /* background-image: url('/ff-help1.jpg'); */
 }
 
@@ -13,10 +13,10 @@
 }
 
 #back-right{
-    position: absolute;
+    /* position: absolute;
     top: 0;
     right: 10px;
     font-size: 24px;
-    font-weight: bolder;
+    font-weight: bolder; */
     /* color: #ddd; */
 }

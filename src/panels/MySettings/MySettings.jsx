@@ -25,19 +25,27 @@ function logout()
     return (
     <TitleDiv title="DASHBOARD">
         <br />
-        {/* TODO: BUG in image id and Id CSS */}
-        <img id="my-image" className='prof-image loadable' src="./test.jpg" alt="Avatar" />
-        <span id="prof-nick" className="main-userinfo editable">Nick Name</span>
-        <button className="security-btn">SECURITY</button>
-        <LabelDiv className="friends" title="FRIENDS" height="260px">
-
+        <img    id="my-image" 
+                className='prof-image loadable' 
+                src="./test.jpg" 
+                alt="Avatar" />
+        <span   id="prof-nick" 
+                className="main-userinfo editable">
+        Nick Name
+        </span>
+        <button className="security-btn">
+        SECURITY
+        </button>
+        <LabelDiv   className="friends" 
+                    title="FRIENDS" 
+                    height="80%">
         </LabelDiv>    
         <div className="bottom-stick">
             <button onClick={close} >
-                CLOSE
+            CLOSE
             </button>
             <button onClick={ logout } >
-                LOG OUT !
+            LOG OUT !
             </button>
         </div>
     </TitleDiv>

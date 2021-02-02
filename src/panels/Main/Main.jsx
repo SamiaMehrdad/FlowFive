@@ -41,27 +41,35 @@ export default function Main(props){
     }
     return(
         <>
-        {/* <img className='TimerBar-image' src={props.user.avatar} id="main-image" /> */}
-        <img className='TimerBar-image' src="./test.jpg" id="main-image" alt="Avatar"/>
-        <span className="main-userinfo">Nick Name<br />Rank:82</span>
-        <span className="setting-icon" onClick={ goSetting }>
-            {'\u2699'}
-        </span>
-        <br /><br /><br />
-        <LabelDiv id="inviteds" title="FRIENDS OPEN ROOMS" height="75%">
-            <GuestBar user={testUser} onClick={view}/>
-        </LabelDiv>
-        {/* <LabelDiv id="invitations" title="SENT INVITATIONS" height="120px">
-
-        </LabelDiv> */}
-        <div className="bottom-stick main-page">
-            <button onClick={ goInvite } >
+            <img    className='TimerBar-image' 
+                    src="./test.jpg" 
+                    id="main-image" 
+                    alt="Avatar"/>
+            <span   className="main-userinfo">
+            Nick Name<br />Rank:82
+            </span>
+            <span   className="setting-icon" 
+                    onClick={ goSetting }>
+            {'\u2699'} {/*unicode for gear icom */}
+            </span>
+            <br />
+            <br />
+            <br />
+            <LabelDiv   id="inviteds" 
+                        title="FRIENDS OPEN ROOMS" 
+                        height="75%">
+                <GuestBar   user={testUser} 
+                            onClick={view}
+                />
+            </LabelDiv>
+            <div className="bottom-stick main-page">
+                <button onClick={ goInvite } >
                 OPEN PLAY ROOM
-            </button>
-            <button >
+                </button>
+                <button >
                 PLAY RANDOM
-            </button>
-        </div>    
+                </button>
+            </div>    
         </>
     );
 };
