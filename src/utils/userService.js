@@ -44,7 +44,7 @@ function login(creds) {
 function checkEmail(email) {
   console.log("MSK HIT userService.checkEmail : ", email);
   return fetch(BASE_URL + 'checkEmail', {
-    method: 'POST',
+    method: 'GET',
     headers: new Headers({'Content-Type': 'application/json'}),
     body: JSON.stringify(email)
   })
