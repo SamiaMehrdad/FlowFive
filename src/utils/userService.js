@@ -41,22 +41,14 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 //---------------------------------------
-function checkEmail(email) {
-  console.log("MSK HIT userService.checkEmail : ", email);
-  return fetch(BASE_URL + 'checkEmail', {
+async function checkEmail(email) {
+  console.log(Date.now(), "1- MSK HIT userService.checkEmail : ", email);
+  let check = await fetch(BASE_URL + 'checkEmail', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
     body: JSON.stringify(email)
-  })
-  .then(res => {
-    // Valid login if we have a status of 2xx (res.ok)
-    console.log("MSK from userService POST: ", res);
-    if (res.ok) 
-        return res.json();
-
-    throw new Error('Bad Email!');
-  })
-  .then((email) => {console.log("THIS EMAIL ***** ",email)});
+  });
+  return check ;
 }
 //----------------------------------------
 export default {

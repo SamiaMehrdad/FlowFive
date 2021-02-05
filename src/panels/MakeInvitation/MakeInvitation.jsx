@@ -16,7 +16,7 @@ import './MakeInvitation.css';
 export default function MakeInvitation(props){
 //----------------------------------------------
 function close() {
- props.showPage("Main",""); 
+ props.showPage("HomeLeft",""); 
  //---------------------------------------------
 }
     return(

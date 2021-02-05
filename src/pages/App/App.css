@@ -6,6 +6,7 @@ body{
     --back: #bbb;
     --dark: #666;
     --gold: #dc6;
+    --blue: #58a;
     background-color: var(--back);
     color: var(--dark);
     user-select: none;
@@ -41,7 +42,10 @@ TitleDiv{
     display: inline-block;
     cursor: pointer;
     z-index:1000;
-    
+}
+.close-icon:hover{
+    color: #f00;
+
 }
 .large-icon{
     position: absolute;
@@ -60,29 +64,34 @@ TitleDiv{
     align-items: center;
     margin: 1px auto 2px;
 }
+.noshade{
+    box-shadow: none;
+}
 button{
-    border: 1px solid var(--gold);
+    border: none;
     background-color: var(--light);
-    box-shadow: 1px 3px 5px #888;
-    border-radius: 2px;
+    box-shadow: 1px 5px 7px #aaa;
+    border-radius: 4px;
     font-size: clamp( 11px, 1.2vw , 14px);
     color: var(--dark);
     width: 40%;
     height:clamp(26px , min(5vh , 5vw) , 100px);
     display: inline-block;
     padding: 7px;
-    margin: 0 10px;
+    margin: 10px;
     cursor: pointer;
     outline: none;
-    transition: all .2s;
+    transition: all .3s;
     /* z-index: 10000; */
 }
 button:hover{
-    color: #ff9;
+    color: #530;
+    background-color: var(--gold);
+    transform: scale(1.1);
 }
 button:active{
-    box-shadow: 1px 1px 2px #777;
-    color: #998;
+    box-shadow: 1px 1px 2px #999;
+    color: var(--dark);
 }
 
 input{
@@ -101,4 +110,8 @@ label{
 .green{
     background-color: var(--green);
     color: var(--light);
+}
+.blue{
+    background-color: var(--blue);
+    color: #fff;
 }

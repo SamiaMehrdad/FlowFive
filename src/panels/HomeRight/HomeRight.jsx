@@ -8,9 +8,9 @@ Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';
-import './RightHome.css';
+import './HomeRight.css';
 
-export default function RightHome(props){
+export default function HomeRight(props){
 
    
    function randomPlay()
@@ -25,6 +25,7 @@ export default function RightHome(props){
 
     return (
     <div id = "right-buttons">
+
         <button   onClick={showRules} >
         GAME RULES
         </button>

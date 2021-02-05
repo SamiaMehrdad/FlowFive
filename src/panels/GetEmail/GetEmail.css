@@ -1,0 +1,27 @@
+#hb-logo{
+    width: clamp(120px , min( 40vw , 40vh ) , 240px );
+}
+#back{
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+#back input{
+    background-color: #000;
+    border-bottom: 1px solid;
+    font-size: clamp( 8px , min(1.9vw , 1.9vh) , 20px );
+}
+#back a{
+    font-size: clamp( 7px , min(1.5vw , 1.5vh) , 18px );
+    color: #599;
+    margin: 0 0 0 7vw;
+}
+#welcome{
+    color: var(--gold);
+    font-size: clamp( 8px , min(1.8vw , 1.8vh) , 20px );
+    padding: 0 20px;
+}
+#submitButton{
+    width: clamp(50px , min(7vh , 7vw) , 300px);
+}

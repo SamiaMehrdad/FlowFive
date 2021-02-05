@@ -33,9 +33,7 @@ export default function Intro(props){
     return(
         <div id="back">
             <img id="hb-logo" src="HB-small1.jpg" alt="HB Intro" />
-            <p id="welcome">Welcome! You, as a guest user, can start playing right now! 
-            If you want to have your own private play room and your ranking track, 
-            please sign in by your email.
+            <p id="welcome">w
             </p>
 
             <form  autoComplete="off" ref={formRef} onSubmit={async (e) => {
@@ -52,13 +50,13 @@ export default function Intro(props){
               }
           }}>
  
-                    <input 
-                        type="email" 
-                        name="email" 
-                        placeholder="E-mail"
-                        onChange={handleChange}
-                        required
-                    />
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="E-mail"
+                    onChange={handleChange}
+                    required
+                />
                 <br/><br/>
                 <button type="submit" className="green noshade">SIGN IN</button>
             </form>

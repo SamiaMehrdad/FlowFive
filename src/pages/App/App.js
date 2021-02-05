@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
-import LoginPage from '../LoginPage/LoginPage';
+
 import FlowFivePage from '../FlowFivePage/FlowFivePage';
-import TempPage from '../TempPage/TempPage'
 import userService from '../../utils/userService'
 
 function App() {
@@ -19,24 +18,24 @@ function App() {
 //-----------------------------------------
   function handleLogout(){
     userService.logout();
-    setUser({user: null})
+    setUser( null );
+    console.log("LOGGED OUT");
   }
 //-----------------------------------------
 
   return (
     <div className="App">
       <Switch>
-          <Route exact path="/login">
+          {/* <Route exact path="/login">
              <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
           </Route>
           <Route exact path="/signup">
              <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
-          </Route>
-          {userService.getUser() ? 
-              <FlowFivePage user={user} handleLogout={handleLogout}/>
-            :
-            <TempPage />
-          }
+          </Route> */}
+          <FlowFivePage user={user} 
+                        handleLogout={handleLogout}
+                        handleSignUpOrLogin={handleSignUpOrLogin}  
+                        />
       </Switch>
     </div>
   );

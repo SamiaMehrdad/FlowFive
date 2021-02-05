@@ -8,11 +8,11 @@ Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';
-import './Main.css';
+import './HomeLeft.css';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import GuestBar from '../../components/GuestBar/GuestBar';
 
-export default function Main(props){
+export default function HomeLeft(props){
 
     // const testImages = ["./test.jpg" , "./test.jpg"]
     const testUser = { nikname: "Hayoola",

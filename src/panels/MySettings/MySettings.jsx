@@ -15,12 +15,13 @@ export default function MySettings(props){
 
 function close()
 {
-    props.showPage("Main");
+    props.showPage("HomeLeft");
 }
 
 function logout()
 {
-    props.showPage("logout");
+   // props.handleLogout();
+    props.showPage("GetEmail","HomeRight");
 }
     return (
     <TitleDiv title="DASHBOARD">
