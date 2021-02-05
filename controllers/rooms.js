@@ -1,5 +1,6 @@
 
 module.exports = {
+  getAll,
   join,
   leave,
   create,
@@ -9,6 +10,11 @@ module.exports = {
 
 //TODO: --------------------------
 
+//-------------------------------
+function getAll()
+{
+  console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);  
+}
 //-------------------------------
 function message()
 {
