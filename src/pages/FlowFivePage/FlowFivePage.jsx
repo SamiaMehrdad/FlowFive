@@ -87,18 +87,24 @@ console.log( "FlowFivePage runs with props = ", props);
     if(left)
     {
         Component = PAGES[ left ]; 
-        console.log(Date.now(),"Left to --->", left);
+      //  console.log(Date.now(),"Left to --->", left);
         setLeftNav( <Component user={props.user} 
                                 showPage={showPage} 
                                 temp={temp} 
-                                handleLogout={props.handleLogout}  
+                                handleLogout={props.handleLogout} 
+                                handleSignUpOrLogin={props.handleSignUpOrLogin} 
                                 /> );
     }
     if( right )
     {
         Component = PAGES[ right ];
-        console.log(Date.now(),"Right to --->", right); 
-        setRightNav( <Component user={props.user} showPage={showPage} temp={temp} /> )
+      //  console.log(Date.now(),"Right to --->", right); 
+        setRightNav( <Component user={props.user} 
+                                showPage={showPage} 
+                                temp={temp}
+                                handleLogout={props.handleLogout}  
+                                handleSignUpOrLogin={props.handleSignUpOrLogin}  
+                                /> );
     }
   }
 //--------------------------------------------

@@ -1,0 +1,8 @@
+.signup-input{
+    margin: 10px auto;
+    display: block;
+    font-size: clamp( 11px, min(1.6vw , 1.6vh) , 24px);
+    height:  clamp( 16px, min(3vw , 3vh) , 40px);
+    background-color: var(--back);
+    border-bottom: 1px solid var(--light);
+}

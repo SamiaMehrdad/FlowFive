@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color:blue;
+  /* color:blue; */
 }
 
 code {
@@ -13,7 +13,7 @@ code {
     monospace;
     color:red;
 }
-
+/* 
 .btn{
   padding: 5px 50%;
   border-radius: 5px;
@@ -22,11 +22,7 @@ code {
 }
 .btn:hover{
   background-color: rgba(0,255,0,.5);
-}
+} */
 
-#test{
-  border: 1px solid #000;
-  width: 50%;
-  margin: 0 auto;
-}
+
 

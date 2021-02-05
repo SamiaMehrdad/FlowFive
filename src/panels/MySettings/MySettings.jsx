@@ -20,7 +20,7 @@ function close()
 
 function logout()
 {
-   // props.handleLogout();
+    props.handleLogout();
     props.showPage("GetEmail","HomeRight");
 }
     return (

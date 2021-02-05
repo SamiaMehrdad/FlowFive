@@ -14,10 +14,9 @@ import TitleDiv from '../../components/TitleDiv/TitleDiv';
 
 export default function SignUpPage(props){
     const [invalidForm, setValidForm] = useState(false);
-    const [error, setError ]          = useState('');
     const [state, handleChange]       = useForm({
         username: '',
-        email: '',
+        email: props.temp.email,
         password: '',
         passwordConf: ''    
     });
@@ -33,7 +32,7 @@ export default function SignUpPage(props){
 
     return (
 
-        <TitleDiv title="SIGN UP" width= "350px" >
+        <TitleDiv title="SIGN UP" >
 
           <form  autoComplete="off" ref={formRef} onSubmit={async (e) => {
             e.preventDefault()
@@ -44,10 +43,10 @@ export default function SignUpPage(props){
                // alert("You're logged in! Time to Code where you want to go Now! ~ SignupComponent")
                
                console.log( 'USER CREATED :', state);
+               props.showPage("HomeLeft","HomeRight");
               } catch (err) {
                 // Invalid user data (probably duplicate email)
                 console.log(err.message)
-                setError(err.message)
               }
           }}>
             {/* <div className="form-group">
@@ -60,20 +59,18 @@ export default function SignUpPage(props){
                 required
               />
             </div> */}
-            <div className="form-group">
+
               <input
                 type="email"
-                className="form-control"
+                className="signup-input"
                 name="email"
-                placeholder="email"
+                // placeholder="email"
                 value={ state.email}
                 onChange={handleChange}
                 required
               />
-            </div>
-            <div className="form-group">
               <input
-                className="form-control"
+                className="signup-input"
                 name="password"
                 type="password"
                 placeholder="password"
@@ -81,10 +78,8 @@ export default function SignUpPage(props){
                 onChange={handleChange}
                 required
               />
-            </div>
-            <div className="form-group">
               <input
-                className="form-control"
+                className="signup-input"
                 name="passwordConf"
                 type="password"
                 placeholder="Confirm Password"
@@ -92,17 +87,15 @@ export default function SignUpPage(props){
                 onChange={handleChange}
                 required
               />
-            </div>
+            <br />
             <button
               type="submit"
-              className="btn"
               disabled={invalidForm}
             >
-              Signup
+              SIGN ME UP
             </button>
           </form>
 
-          {error ? <ErrorMessage error={error} /> : null}
   </TitleDiv>
 
       );
