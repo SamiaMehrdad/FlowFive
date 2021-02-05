@@ -41,17 +41,10 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 //---------------------------------------
-<<<<<<< HEAD
-function checkEmail(email) {
-  console.log("MSK HIT userService.checkEmail : ", email);
-  return fetch(BASE_URL + 'checkEmail', {
-    method: 'GET',
-=======
 async function checkEmail(email) {
   console.log(Date.now(), "1- MSK HIT userService.checkEmail : ", email);
   let check = await fetch(BASE_URL + 'checkEmail', {
     method: 'POST',
->>>>>>> loging
     headers: new Headers({'Content-Type': 'application/json'}),
     body: JSON.stringify(email)
   });
