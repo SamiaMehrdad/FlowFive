@@ -61,10 +61,13 @@ async function checkEmail(req, res) {
   console.log("MSK checkEmail, req.body ----> ",req.body);
   try {
     const user = await User.findOne({email: req.body.email});
-    console.log(user, '---------- MSK checkEmail: this user is ', !!user)
-    return res.jason(user);
- //   if (!user) return res.status(401).json({err: 'bad credentials'});
+    console.log(' MSK checkEmail: this user is ', !!user, user);
+    if (!user) 
+      return res.status(401).json({err: 'bad credentials'});
+    return res.json(user);
+    
   } catch (err) {
+    console.log("MSK Email check error : --->", err);
     return res.status(401).json(err);
   }
 }

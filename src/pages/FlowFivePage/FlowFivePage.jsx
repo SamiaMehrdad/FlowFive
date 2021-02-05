@@ -6,86 +6,116 @@ Custom react component.
  Parent: App
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
-import React, { lazy, useState } from 'react';
+import React, { useState } from 'react';
+//import userService from '../../utils/userService'
+
 import ActiveRound from '../../panels/ActiveRound/ActiveRound';
-import Intro from "../../panels/Intro/Intro";
-import Main from "../../panels/Main/Main";
 import MakeInvitation from "../../panels/MakeInvitation/MakeInvitation";
 import MySettings from "../../panels/MySettings/MySettings";
-import Password from "../../panels/Password/Password";
+import GetPassword from "../../panels/GetPassword/GetPassword";
+import GetEmail from "../../panels/GetEmail/GetEmail";
 import Practice from "../../panels/Practice/Practice";
 import Play from "../../panels/Play/Play";
-import RightHome from "../../panels/RightHome/RightHome";
+import HomeRight from "../../panels/HomeRight/HomeRight";
+import HomeLeft from "../../panels/HomeLeft/HomeLeft";
 import RoundWait from "../../panels/RoundWait/RoundWait";
 import SetActive from "../../panels/SetActive/SetActive";
 import ShowRules from "../../panels/ShowRules/ShowRules";
-import SignUp from "../../panels/Signup/Signup";
+import Signup from "../../panels/Signup/Signup";
+import SignupInfo from "../../panels/SignupInfo/SignupInfo";
 import ViewInvitation from "../../panels/ViewInvitation/ViewInvitation";
 
 
 import './FlowFivePage.css';
 
 const PAGES= {
+  GetEmail: GetEmail,
+  GetPassword: GetPassword ,
+  Signup: Signup ,
+  SignupInfo: SignupInfo ,
   ActiveRound: ActiveRound ,
-  Intro: Intro ,
-  Main:  Main ,
+  HomeLeft:  HomeLeft ,
+  HomeRight: HomeRight ,
   MakeInvitation: MakeInvitation ,
   MySettings: MySettings ,
-  Password: Password ,
   Practice: Practice ,
   Play: Play,
-  RightHome: RightHome ,
   RoundWait: RoundWait ,
   SetActive: SetActive ,
   ShowRules: ShowRules ,
-  SignUp: SignUp ,
   ViewInvitation: ViewInvitation ,
 };
 
 
-export default function IntroPage(props){
+export default function FlowFivePage(props){
 
-
+console.log( "FlowFivePage runs with props = ", props);
 
   //--- Main navigation process ------------------------------------------
   // use right and left state hooks + navigate function ( lifted state from children)
   // each children should lift up with shoePage( left , right )
 
-    const [rightNav, setRightNav] = useState(<RightHome user={props.user} showPage={navigate} />);
-    const [leftNav, setLeftNav] = useState(<Main user={props.user} showPage={navigate}/>);
+    const [rightNav, setRightNav] = useState(<HomeRight 
+                                              user={props.user} 
+                                              showPage={showPage} />
+                                            );
+                                                                                   
+    const [leftNav, setLeftNav] = useState( props.user ?
+                                            <HomeLeft 
+                                            user={props.user} 
+                                            showPage={showPage}/>
+                                            :
+                                            <GetEmail
+                                            showPage={showPage} />
+                                            );
 
 //------------------------------------------
-  function navigate( left, right )
+// Check if given email is registered before, go for getting password
+// Otherwise go for signup page
+  // function stepUpLogin( user )
+  // {
+  //  // console.log(Date.now(), "4- Check and process -->", user.ok);
+  //   if( user.ok )
+  //     navigate("GetPassword");
+  //   else
+  //     navigate("SignupInfo","SignUp");  
+  // }
+//------------------------------------------
+  function showPage( left, right, temp )
   {
     let Component = null;
     if(left)
     {
-        if(left === "logout"){
-            props.handleLogout();}
         Component = PAGES[ left ]; 
-        setLeftNav( <Component user={props.user} showPage={navigate} /> );
+      //  console.log(Date.now(),"Left to --->", left);
+        setLeftNav( <Component user={props.user} 
+                                showPage={showPage} 
+                                temp={temp} 
+                                handleLogout={props.handleLogout} 
+                                handleSignUpOrLogin={props.handleSignUpOrLogin} 
+                                /> );
     }
     if( right )
     {
-        Component = PAGES[ right ]; 
-        setRightNav( <Component user={props.user} showPage={navigate} /> )
+        Component = PAGES[ right ];
+      //  console.log(Date.now(),"Right to --->", right); 
+        setRightNav( <Component user={props.user} 
+                                showPage={showPage} 
+                                temp={temp}
+                                handleLogout={props.handleLogout}  
+                                handleSignUpOrLogin={props.handleSignUpOrLogin}  
+                                /> );
     }
   }
 //--------------------------------------------
     return(
-      <>
-          {/* <Suspense fallback={<div>Loading...</div>}> */}
-            {/* <ErrorBoundary> */}
-                <div className="app-container">
-                    <div className = "app-half left-panel" > 
-                     {leftNav} 
-                    </div>
-                    <div className = "app-half right-panel" >
-                     {rightNav} 
-                    </div>
+            <div className="app-container">
+                <div className = "app-half left-panel" > 
+                  {leftNav} 
                 </div>
-            {/* </ErrorBoundary> */}
-           {/* </Suspense> */}
-     </>
+                <div className = "app-half right-panel" >
+                  {rightNav} 
+                </div>
+            </div>
     );
 };
