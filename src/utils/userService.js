@@ -42,7 +42,7 @@ function login(creds) {
 }
 //---------------------------------------
 async function checkEmail(email) {
-  console.log(Date.now(), "1- MSK HIT userService.checkEmail : ", email);
+  //console.log(Date.now(), "1- MSK HIT userService.checkEmail : ", email);
   let check = await fetch(BASE_URL + 'checkEmail', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),

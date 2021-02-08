@@ -27,6 +27,7 @@ export default function HomeLeft(props){
     //             }   
 
     //    const [user2, setUser2] = useState( testUser2 );
+    //console.log('user :', props.user.nickName );
     function goInvite()
     {
         props.showPage("MakeInvitation","");
@@ -46,7 +47,7 @@ export default function HomeLeft(props){
                     id="main-image" 
                     alt="Avatar"/>
             <span   className="main-userinfo">
-            Nick Name<br />Rank:82
+            {props.user.nickName}<br />Rank:82
             </span>
             <span   className="setting-icon" 
                     onClick={ goSetting }>

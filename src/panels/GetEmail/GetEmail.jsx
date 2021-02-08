@@ -18,7 +18,7 @@ export default function GetEmail(props){
   
     const formRef = useRef();
 
-    console.log("User Is ---> ", props.temp);
+    //console.log("User Is ---> ", props.temp);
 
 
     function playUnknown()
@@ -72,7 +72,7 @@ export default function GetEmail(props){
                     className="blue noshade" >
             LOG IN BY Google
             </button>
-            <br/>
+<br />
             <button 
                     className="noshade" 
                     onClick={playUnknown}>

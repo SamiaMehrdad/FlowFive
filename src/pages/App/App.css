@@ -72,13 +72,13 @@ button{
     background-color: var(--light);
     box-shadow: 1px 5px 7px #aaa;
     border-radius: 4px;
-    font-size: clamp( 11px, 1.2vw , 14px);
+    font-size: clamp( 6px, min( 1.6vw , 1.6vh ) , 18px);
     color: var(--dark);
     width: 40%;
     height:clamp(26px , min(5vh , 5vw) , 100px);
     display: inline-block;
     padding: 7px;
-    margin: 10px;
+    margin: 3px 10px;
     cursor: pointer;
     outline: none;
     transition: all .3s;

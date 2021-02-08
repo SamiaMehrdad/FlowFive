@@ -6,12 +6,14 @@ Custom react component.
 Developped by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React from 'react';
+import React , {useRef} from 'react';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import './MySettings.css';
 
 export default function MySettings(props){
+
+    const inputFile = useRef(null);
 
 function close()
 {
@@ -23,17 +25,34 @@ function logout()
     props.handleLogout();
     props.showPage("GetEmail","HomeRight");
 }
+function imageClick()
+{
+    inputFile.current.click(); 
+}
     return (
     <TitleDiv title="DASHBOARD">
         <br />
+        <input type='file' 
+               id='file' 
+               ref={inputFile} 
+               style={{display: 'none'}}/>
+
         <img    id="my-image" 
                 className='prof-image loadable' 
-                src="./test.jpg" 
+                src="./test.jpg"
+                onClick={imageClick} 
                 alt="Avatar" />
-        <span   id="prof-nick" 
-                className="main-userinfo editable">
-        Nick Name
-        </span>
+        {props.user.points ?
+            <span   //id="prof-nick" 
+                    className="main-userinfo prof-nick ">
+            {props.user.nickName}
+            </span>
+        :
+            <input  id="nickname-edit"
+                    className="main-userinfo prof-nick "
+                    placeholder={props.user.nickName}
+            /> 
+        }
         <button className="security-btn">
         SECURITY
         </button>

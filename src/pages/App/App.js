@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import SignupPage from '../SignupPage/SignupPage';
 
 import FlowFivePage from '../FlowFivePage/FlowFivePage';
 import userService from '../../utils/userService'
@@ -14,6 +13,7 @@ function App() {
 
   function handleSignUpOrLogin(){
     setUser(userService.getUser()) // getting the user from localstorage decoding the jwt
+    console.log('handleSignUpOrLogin--> user: ', user);
   }
 //-----------------------------------------
   function handleLogout(){

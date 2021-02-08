@@ -26,6 +26,7 @@ export default function SignUpPage(props){
 
     useEffect(() => {
       formRef.current.checkValidity() ? setValidForm(false) : setValidForm(true);
+
     });
 
 
@@ -36,13 +37,13 @@ export default function SignUpPage(props){
 
           <form  autoComplete="off" ref={formRef} onSubmit={async (e) => {
             e.preventDefault()
-            console.log(state, ' this is state')
+            //console.log(state, ' this is state')
             try {
                 await userService.signup(state);
                 // Route to wherever you want!
                // alert("You're logged in! Time to Code where you want to go Now! ~ SignupComponent")
                
-               console.log( 'USER CREATED :', state);
+             //  console.log( 'USER CREATED :', state);
                props.showPage("HomeLeft","HomeRight");
               } catch (err) {
                 // Invalid user data (probably duplicate email)
@@ -73,7 +74,7 @@ export default function SignUpPage(props){
                 className="signup-input"
                 name="password"
                 type="password"
-                placeholder="password"
+                placeholder="Set a password"
                 value={ state.password}
                 onChange={handleChange}
                 required

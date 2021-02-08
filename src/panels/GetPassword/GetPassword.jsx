@@ -45,10 +45,11 @@ export default function GetPassword(props){
                         try {
                             console.log("TRY LOGIN WITH --> ", state);
                             await userService.login(state);
+                            props.handleSignUpOrLogin();
                             props.showPage("HomeLeft");
                             
                             } catch (err) {
-                            console.log(err.message);
+                            console.log(err.message); //TODO: show user a wrong password message
                             }
                     }}>
  
