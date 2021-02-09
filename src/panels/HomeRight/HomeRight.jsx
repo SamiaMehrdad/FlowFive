@@ -4,7 +4,7 @@ Custom react component.
  Description:
  Props:
  parent: FlowFivePage
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';
@@ -15,12 +15,12 @@ export default function HomeRight(props){
    
    function randomPlay()
     {
-       props.showPage("","Practice");
+       props.showPage(null,"Practice");
     }
 
     function showRules()
     {
-       props.showPage("","ShowRules"); 
+       props.showPage(null,"ShowRules"); 
     }
 
     return (

@@ -3,7 +3,7 @@ Custom react component.
  Component name: 
  Description:
  Props: [img] , message
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React, { useState, useEffect } from 'react';

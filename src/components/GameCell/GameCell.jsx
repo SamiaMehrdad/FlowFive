@@ -3,7 +3,7 @@ Custom react component.
  Component name: 
  Description:
  Props: piece: piece number that this cell has - hilight: boolean
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';

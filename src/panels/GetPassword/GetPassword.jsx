@@ -1,13 +1,13 @@
 /*---------------------------------
 Custom react panel.
- Description: Intro panel and email entery
+ Description: Intro panel and email entry
  Props:
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 // import './GetPassword.css';
-import { useForm } from '../../hooks/useForm';
+
 import userService from '../../utils/userService';
 
 export default function GetPassword(props){

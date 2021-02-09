@@ -3,7 +3,7 @@ Custom react component.
  Component name: 
  Description:
  Props:
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React, { useState, useEffect } from 'react';
@@ -23,7 +23,7 @@ export default function GameBoard(props){
 useEffect( () => 
     {
         makeCells();
-        setGameCells( [...cells] ); //MSK : Trick to trigg react render for arrays
+        setGameCells( [...cells] ); //MSK : Trick to trigger react render for arrays
 
     }, [props.board]);
 //-----------------------------------------
@@ -58,7 +58,7 @@ useEffect( () =>
     {
        if(highlights[n] === 1 )
             props.pieceMovedTo(n);
-       setGameCells( [...cells] ); //MSK : Trick to trigg react render for arrays
+       setGameCells( [...cells] ); //MSK : Trick to trigger react render for arrays
        
     }
 //----------------------------------------

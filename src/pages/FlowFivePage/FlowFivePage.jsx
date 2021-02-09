@@ -1,10 +1,10 @@
 /*---------------------------------
 Custom react component.
  Component name: 
- Description: Main flowfive app dual screen navigator
+ Description: Main FlowFive app dual screen navigator
  Props:  user
  Parent: App
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 import React, { useState } from 'react';
 //import userService from '../../utils/userService'
@@ -29,11 +29,9 @@ import ViewInvitation from "../../panels/ViewInvitation/ViewInvitation";
 import './FlowFivePage.css';
 
 const PAGES= {
+  ActiveRound: ActiveRound ,
   GetEmail: GetEmail,
   GetPassword: GetPassword ,
-  Signup: Signup ,
-  SignupInfo: SignupInfo ,
-  ActiveRound: ActiveRound ,
   HomeLeft:  HomeLeft ,
   HomeRight: HomeRight ,
   MakeInvitation: MakeInvitation ,
@@ -41,6 +39,8 @@ const PAGES= {
   Practice: Practice ,
   Play: Play,
   RoundWait: RoundWait ,
+  Signup: Signup ,
+  SignupInfo: SignupInfo ,
   SetActive: SetActive ,
   ShowRules: ShowRules ,
   ViewInvitation: ViewInvitation ,
@@ -72,14 +72,7 @@ console.log( "FlowFivePage runs with props = ", props);
 //------------------------------------------
 // Check if given email is registered before, go for getting password
 // Otherwise go for signup page
-  // function stepUpLogin( user )
-  // {
-  //  // console.log(Date.now(), "4- Check and process -->", user.ok);
-  //   if( user.ok )
-  //     navigate("GetPassword");
-  //   else
-  //     navigate("SignupInfo","SignUp");  
-  // }
+
 //------------------------------------------
   function showPage( left, right, temp )
   {

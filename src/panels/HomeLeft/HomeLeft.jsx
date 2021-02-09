@@ -4,7 +4,7 @@ Custom react component.
  Description:
  Props:
  Parent: FlowFivePage
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';
@@ -51,7 +51,7 @@ export default function HomeLeft(props){
             </span>
             <span   className="setting-icon" 
                     onClick={ goSetting }>
-            {'\u2699'} {/*unicode for gear icom */}
+            {'\u2699'} {/*unicode for gear icon */}
             </span>
             <br />
             <br />

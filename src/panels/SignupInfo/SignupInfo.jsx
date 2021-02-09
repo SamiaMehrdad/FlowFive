@@ -1,8 +1,8 @@
 /*---------------------------------
 Custom react panel.
- Description: Intro panel and email entery
+ Description: Intro panel and email entry
  Props:
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';

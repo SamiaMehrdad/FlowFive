@@ -62,19 +62,22 @@ function getPossibleMoves( mode, cell, pieceNo )
 {
     let result = Array(16).fill(0);
     let cells = [];
-    let neighbors = NEIGHBOR[ cell ]
-
-    for( let i=0; i <  neighbors.length; i++ )
+    
+    if( cell >= 0 && pieceNo > 0 )
     {
-        if(playground[neighbors[i]] === 0 )
-            cells.push(neighbors[i]);
-        // if (mode ==="TRADE")
-        // {
-        //     if( Math.abs( pieceNo - playground[ neighbors[i]]) >1 ) //TODO: solve the logic for TRADE mode
-        // } 
+        let neighbors = NEIGHBOR[ cell ];
+        for( let i=0; i <  neighbors.length; i++ )
+        {
+            if(playground[neighbors[i]] === 0 )
+                cells.push(neighbors[i]);
+            // if (mode ==="TRADE")
+            // {
+            //     if( Math.abs( pieceNo - playground[ neighbors[i]]) >1 ) //TODO: solve the logic for TRADE mode
+            // } 
+        }
+            for( let i=0; i !== cells.length; i++ )
+                result[ cells[i] ] = 1;
     }
-        for( let i=0; i !== cells.length; i++ )
-            result[ cells[i] ] = 1;
         return result;
 }
 //---------------------- interesting from my old embded C code

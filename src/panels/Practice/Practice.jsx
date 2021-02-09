@@ -3,7 +3,7 @@ Custom react component.
  Component name: 
  Description:
  Props:
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React, { useState, } from 'react';
@@ -14,13 +14,15 @@ import './Practice.css';
 export default function Practice(props){
 
 //let newBoard = gameEngine.getShuffledBoard().slice() ; //TODO DEBUG, cause re-shuffle
-let newBoard = [2,0,0,0 ,0,1,0,3 ,4,0,0,0 ,0,0,5,0];
+//let newBoard = [2,0,0,0 ,0,1,0,0 ,0,3,4,0 ,0,0,5,0];
+let newBoard = [0,0,0,0 ,0,0,0,0 ,0,0,0,0 ,0,0,0,0];
 let winnerCells = [];
-let activePiece = 1;
-const [board, setBoard] = useState( newBoard );
-const [active, setActive] = useState( activePiece );
-const [win, setWin ] = useState([]);
+let activePiece = 0;
 
+const [board, setBoard] = useState( newBoard );
+const [active, setActive] = useState( gameEngine.getActivePiece() );
+const [win, setWin ] = useState([]);
+//console.log("Prctice started with board = ", board);
 //-------------------------------------------
 function shuffle()
 {
@@ -48,7 +50,8 @@ function close(){
     props.showPage(null,"HomeRight");
 }
 //-------------------------------------------
-
+ //shuffle(); //WARNING: cause page to hang!
+//-------------------------------------------
     return (
     <div className="help-container">
         <span       className="close-icon large-icon" 
@@ -57,7 +60,7 @@ function close(){
         </span>
         <button     className="again stick" 
                     onClick={shuffle}>
-        AGAIN
+        TRY
         </button>
 
         <GameBoard  board={board} 

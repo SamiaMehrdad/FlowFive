@@ -3,7 +3,7 @@ Custom react component.
  Component name: 
  Description:
  Props:
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React, { useState, } from 'react';
@@ -21,14 +21,7 @@ const [board, setBoard] = useState( newBoard );
 const [active, setActive] = useState( activePiece );
 const [win, setWin ] = useState([]);
 
-//-------------------------------------------
-function shuffle()
-{
-    newBoard = gameEngine.getShuffledBoard().slice();
-    setBoard( newBoard );
-    setActive( gameEngine.getActivePiece() ); 
-    setWin([]);
-}
+
 //-------------------------------------------
 function pieceMovedTo( cellNo )
 {   
@@ -43,10 +36,7 @@ function pieceMovedTo( cellNo )
         setActive( activePiece ); 
     }
 }
-//-------------------------------------------
-function close(){
-    props.showPage("HomeRight");
-}
+
 //-------------------------------------------
 
     return (

@@ -3,7 +3,7 @@ Custom react component.
  Component name: 
  Description:
  Props:
-Developped by: Mehrdad Samia - 2021
+Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';
@@ -17,7 +17,7 @@ function close() {
     return (
     <div className="help-container scrollable">
         <img    src="ff-help1.jpg" 
-                alt="PLAYING RULS" 
+                alt="PLAYING RULES" 
                 className="help-image"
         />
         <span   className="close-icon large-icon" 
