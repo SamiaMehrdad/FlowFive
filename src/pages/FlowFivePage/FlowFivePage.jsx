@@ -10,19 +10,19 @@ import React, { useState } from 'react';
 //import userService from '../../utils/userService'
 
 import ActiveRound from '../../panels/ActiveRound/ActiveRound';
+import GetEmail from "../../panels/GetEmail/GetEmail";
+import GetPassword from "../../panels/GetPassword/GetPassword";
+import HomeLeft from "../../panels/HomeLeft/HomeLeft";
+import HomeRight from "../../panels/HomeRight/HomeRight";
 import MakeInvitation from "../../panels/MakeInvitation/MakeInvitation";
 import MySettings from "../../panels/MySettings/MySettings";
-import GetPassword from "../../panels/GetPassword/GetPassword";
-import GetEmail from "../../panels/GetEmail/GetEmail";
 import Practice from "../../panels/Practice/Practice";
 import Play from "../../panels/Play/Play";
-import HomeRight from "../../panels/HomeRight/HomeRight";
-import HomeLeft from "../../panels/HomeLeft/HomeLeft";
-import RoundWait from "../../panels/RoundWait/RoundWait";
-import SetActive from "../../panels/SetActive/SetActive";
-import ShowRules from "../../panels/ShowRules/ShowRules";
+import PlayRoom from "../../panels/PlayRoom/PlayRoom";
 import Signup from "../../panels/Signup/Signup";
 import SignupInfo from "../../panels/SignupInfo/SignupInfo";
+import SetActive from "../../panels/SetActive/SetActive";
+import ShowRules from "../../panels/ShowRules/ShowRules";
 import ViewInvitation from "../../panels/ViewInvitation/ViewInvitation";
 
 
@@ -38,7 +38,7 @@ const PAGES= {
   MySettings: MySettings ,
   Practice: Practice ,
   Play: Play,
-  RoundWait: RoundWait ,
+  PlayRoom: PlayRoom ,
   Signup: Signup ,
   SignupInfo: SignupInfo ,
   SetActive: SetActive ,
@@ -86,6 +86,7 @@ console.log( "FlowFivePage runs with props = ", props);
                                 temp={temp} 
                                 handleLogout={props.handleLogout} 
                                 handleSignUpOrLogin={props.handleSignUpOrLogin} 
+                                //owner={props.owner} 
                                 /> );
     }
     if( right )
@@ -96,7 +97,8 @@ console.log( "FlowFivePage runs with props = ", props);
                                 showPage={showPage} 
                                 temp={temp}
                                 handleLogout={props.handleLogout}  
-                                handleSignUpOrLogin={props.handleSignUpOrLogin}  
+                                handleSignUpOrLogin={props.handleSignUpOrLogin}
+                                //owner={props.owner}  
                                 /> );
     }
   }

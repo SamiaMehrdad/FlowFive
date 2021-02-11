@@ -11,24 +11,12 @@ import React from 'react';
 import './HomeLeft.css';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import GuestBar from '../../components/GuestBar/GuestBar';
+import userService from '../../utils/userService';
+import roomService from '../../utils/roomService';
 
 export default function HomeLeft(props){
 
-    // const testImages = ["./test.jpg" , "./test.jpg"]
-    const testUser = { nikname: "Hayoola",
-                        avatar: "test.jpg",
-                        rank: 50,
-                        chat: "This is a chat message with 100 characters, and again, This is a chat message with some characters !"
-                     }
-    // const testUser2 = { nikname: "Hayoola2",
-    //             avatar: "test.jpg",
-    //             rank: 50,
-    //             chat: "And another chat message but a little shorter !"
-    //             }   
-
-    //    const [user2, setUser2] = useState( testUser2 );
-    //console.log('user :', props.user.nickName );
-    function goInvite()
+    function openPlayRoom()
     {
         props.showPage("MakeInvitation","");
     }
@@ -36,7 +24,7 @@ export default function HomeLeft(props){
     {
         props.showPage("MySettings","");
     }
-    function view()
+    function goToPlayRoom()
     {
         props.showPage('ActiveRound','Play');
     }
@@ -56,16 +44,16 @@ export default function HomeLeft(props){
             <br />
             <br />
             <br />
-            <LabelDiv   id="inviteds" 
+            <LabelDiv   id="friend-rooms" 
                         title="FRIENDS OPEN ROOMS" 
                         height="75%">
-                <GuestBar   user={testUser} 
-                            onClick={view}
+                <GuestBar   user={props.user} 
+                            onClick={goToPlayRoom}
                 />
             </LabelDiv>
             <div className="bottom-stick main-page ">
                 <button className="green" 
-                        onClick={ goInvite } >
+                        onClick={ openPlayRoom } >
                 OPEN PLAY ROOM
                 </button>
                 <button >

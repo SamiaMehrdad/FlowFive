@@ -63,7 +63,7 @@ async function checkEmail(req, res) {
     const user = await User.findOne({email: req.body.email});
     console.log(' MSK checkEmail: this user is ', !!user, user);
     if (!user) 
-      return res.status(401).json({err: 'bad credentials'});
+      return res.status(401).json({err: 'Email not registerd!'});
     return res.json(user);
     
   } catch (err) {

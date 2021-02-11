@@ -3,11 +3,17 @@ const mongoose = require('mongoose');
 
 const roomSchema = new mongoose.Schema({
   owner: { type: mongoose.Types.ObjectId, ref:"User"},  
-  title: String,
-  ip: String,
-  access: {type:Number, unique:true},  //access code to send over email
-  status:{ type: String, enum['off','accept','wait','run']},
-  class: { type: String, enum ['private', 'public','audience','develop']},
+  title: { type: String, default: "My play room" }
+  ip: String, // ip of room owner device
+  access: { type: String, 
+            unique:true, 
+            sparse: true},  //access code to send over email, 12 digits number
+  status:{  type: String, 
+            enum['off','accept','wait','run'], 
+            default: 'off'},
+  class: {  type: String, 
+            enum ['private', 'public','audience','develop'], 
+            default: 'private'},
 }, {
   timestamps: true
 });

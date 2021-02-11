@@ -50,8 +50,6 @@ function close(){
     props.showPage(null,"HomeRight");
 }
 //-------------------------------------------
- //shuffle(); //WARNING: cause page to hang!
-//-------------------------------------------
     return (
     <div className="help-container">
         <span       className="close-icon large-icon" 
