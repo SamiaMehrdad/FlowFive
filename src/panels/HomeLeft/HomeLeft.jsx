@@ -18,7 +18,8 @@ export default function HomeLeft(props){
 
     function openPlayRoom()
     {
-        props.showPage("MakeInvitation","");
+       // props.showPage("MakeInvitation","");
+       props.showPage("MyPlayRoom");
     }
     function goSetting()
     {

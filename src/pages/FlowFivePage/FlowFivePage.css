@@ -30,6 +30,9 @@
         height: 100%;
         margin: 0;
     }
+    button{
+        border-radius: 9999px;
+    }
 
 }
 @media only screen and (orientation: portrait) and (max-width: 820px)

@@ -51,6 +51,7 @@ function imageClick()
             <input  id="nickname-edit"
                     className="main-userinfo prof-nick "
                     placeholder={props.user.nickName}
+                    maxlength="12"
             /> 
         }
         <button className="security-btn">
