@@ -1,0 +1,23 @@
+.shade{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(0,0,0,.5);
+    z-index: 1000;
+}
+
+.modal{
+    position: fixed;
+    background-color: var(--back);
+    z-index: 1001;
+    left: 35vw;
+    top: 25vh;
+    box-shadow: 5px 5px 10px #333;
+    font-size: 120%;
+}
+.modal-message{
+    margin: 0 auto;
+    padding: 20px;
+}
