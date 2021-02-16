@@ -3,8 +3,6 @@
     /* border-radius: 20px; */
 }
 
-#invitations{
-}
 
 #main-image{
     left: 10px;
@@ -18,10 +16,12 @@
     position:absolute;
     left: 80px;
     top: 10px;
-    color: var(--gold);
+    color: var(--dark);
     font-weight: bold;
-    /* text-shadow: 1px 1px 2px #555; */
-    text-shadow: 0 0 2 px #000;
+    font-size: clamp( 8px, min( 2.2vw , 2.2vh ) , 38px);
+    width: min( 18vh, 18vw);
+    /* padding: 2px ; */
+    background: none;
 }
 .setting-icon{
     position: absolute;

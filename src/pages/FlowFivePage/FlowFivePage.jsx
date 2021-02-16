@@ -14,11 +14,12 @@ import GetEmail from "../../panels/GetEmail/GetEmail";
 import GetPassword from "../../panels/GetPassword/GetPassword";
 import HomeLeft from "../../panels/HomeLeft/HomeLeft";
 import HomeRight from "../../panels/HomeRight/HomeRight";
+import JoinPlayRoom from "../../panels/JoinPlayRoom/JoinPlayRoom";
 import MakeInvitation from "../../panels/MakeInvitation/MakeInvitation";
+import MyPlayRoom from "../../panels/MyPlayRoom/MyPlayRoom";
 import MySettings from "../../panels/MySettings/MySettings";
 import Practice from "../../panels/Practice/Practice";
 import Play from "../../panels/Play/Play";
-import PlayRoom from "../../panels/PlayRoom/PlayRoom";
 import Signup from "../../panels/Signup/Signup";
 import SignupInfo from "../../panels/SignupInfo/SignupInfo";
 import SetActive from "../../panels/SetActive/SetActive";
@@ -34,11 +35,12 @@ const PAGES= {
   GetPassword: GetPassword ,
   HomeLeft:  HomeLeft ,
   HomeRight: HomeRight ,
+  JoinPlayRoom: JoinPlayRoom ,
   MakeInvitation: MakeInvitation ,
+  MyPlayRoom: MyPlayRoom ,
   MySettings: MySettings ,
   Practice: Practice ,
   Play: Play,
-  PlayRoom: PlayRoom ,
   Signup: Signup ,
   SignupInfo: SignupInfo ,
   SetActive: SetActive ,

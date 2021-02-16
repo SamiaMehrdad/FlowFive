@@ -1,17 +1,6 @@
 import userService from "./userService";
-const BASE_URL = '/api/users/';
+const BASE_URL = '/api/rooms/';
 
-//----------------------------------------
-
-export default {
-  getRoomOwner, 
-  getAll, // get all open rooms of my friends
-  join,   // user join a room, owner admitted
-  leave,  // leave an open room
-  open,   // owner action
-  close,  // owner action
-  message,// 
-};
 
 //----------------------------------------
 function getRoomOwner( roomId ) {
@@ -46,12 +35,14 @@ function leave() {
 
 //----------------------------------------
 function open( userId ) {
-
+//console.log('MSK --> open room for ', userId);
+apiPost('open' , userId );
 }
 
 //----------------------------------------
 function close( userId ) {
-
+//console.log('MSK --> close room for ', userId.);
+apiPost('close' , userId );
 }
 //----------------------------------------
 
@@ -59,3 +50,38 @@ function close( userId ) {
 function message( roomId ) {
 
 }
+// helper functions //-----------------------
+
+function apiPost( route, data )
+{
+  fetch (BASE_URL + route , {
+  method: 'POST',
+  headers: new Headers({'Content-Type': 'application/json'}),
+  body: JSON.stringify(data)
+}) .then (res => {
+  console.log("res --> ",res);
+  return("POSTED");
+  });
+}
+//-------------------------------------------
+function apiGet( route, data )
+{
+   fetch (BASE_URL + route , {
+  method: 'POST',
+  headers: new Headers({'Content-Type': 'application/json'}),
+  body: JSON.stringify(data)
+}) .then (res => {
+  console.log("res --> ",res);
+  return res;
+  });
+}
+//-------------------------------------------
+export default {
+  getRoomOwner, 
+  getAll, // get all open rooms of my friends
+  join,   // user join a room, owner admitted
+  leave,  // leave an open room
+  open,   // owner action
+  close,  // owner action
+  message,// 
+};

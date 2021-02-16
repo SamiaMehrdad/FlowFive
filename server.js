@@ -18,9 +18,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/auth')); 
 // api routes must be before the "catch all" route
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/invites', require('./routes/api/invites'));
 app.use('/api/rooms', require('./routes/api/rooms'));
+app.use('/api/users', require('./routes/api/users'));
+//app.use('/api/invites', require('./routes/api/invites'));
+
 
 // "catch all" route
 app.get('/*', function(req, res) {

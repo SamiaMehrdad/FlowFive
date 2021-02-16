@@ -6,17 +6,11 @@
 }
 
 .prof-nick{
-    background: none;
-    position: absolute;
-    padding: 2px 10px;
-    width: min( 18vh, 18vw);
     top:  40px !important; 
-    left: 80px;
-    font-size: clamp( 8px, min( 3vw , 3vh ) , 38px);
 }
-::placeholder { 
-    color: var(--gold);
-}
+/* ::placeholder { 
+    color: var(--dark);
+} */
 .editable{
     background-color: var(--green);
     cursor: text;

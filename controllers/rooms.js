@@ -1,3 +1,5 @@
+const User = require('../models/user');
+const Room = require('../models/room');
 
 module.exports = {
   getAll, // get all open rooms of my friends
@@ -49,9 +51,16 @@ console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/f
 //---------------------------------------
 // Start a new Round belongs to this Room
 //---------------------------------------
-function open(req, res)
+ function open(req, res)
 {
-console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);    
+try {
+    Room.updateOne({owner: req.body._id},{status: 'open'} ,{upsert: true, setDefaultsOnInsert: true},
+    rm => { res.status(500)});
+
+  } catch(err){
+    console.log(err)
+    return res.status(401).json(err);
+  }
 }
 
 //---------------------------------------
@@ -61,5 +70,12 @@ console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/f
 //---------------------------------------
 function close(req, res)
 {
-console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);    
+try {
+    Room.updateOne({owner: req.body._id},{status: 'close'} ,{upsert: true, setDefaultsOnInsert: true},
+    rm => { res.status(500)});
+
+  } catch(err){
+    console.log(err)
+    return res.status(401).json(err);
+  }
 }
