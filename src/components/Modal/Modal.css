@@ -15,7 +15,9 @@
     left: 35vw;
     top: 25vh;
     box-shadow: 5px 5px 10px #333;
-    font-size: 120%;
+    /* font-size: 105%; */
+    font-weight: bold;
+
 }
 .modal-message{
     margin: 0 auto;

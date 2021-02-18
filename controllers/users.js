@@ -27,16 +27,9 @@ async function signup(req, res) {
 //-----------------------------------------
 async function login(req, res) {
 
-    //TODO: DEBUG DUMMY REMOVE THIS
-// const round = new Round ({
-//     title: "Again title?",
-//     host: '600cccf0947c76474f391540',
-// });
-//  await round.save();
-//  console.log("ONE DUMMY ROUND SAVED");
- //TODO--------------------------------
-  console.log ("HIT FROM -------> function ", 
-                arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+
+  // console.log ("HIT FROM -------> function ", 
+  //               arguments.callee.toString().match(/function ([^\(]+)/)[1]);
   try {
     const user = await User.findOne({email: req.body.email});
     console.log(user, ' this user', !user, !!user)

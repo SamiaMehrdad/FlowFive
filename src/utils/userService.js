@@ -34,15 +34,18 @@ function login(creds) {
     body: JSON.stringify(creds)
   })
   .then(res => {
+   // console.log(TS,"2- JWT recieved from server for ", creds)
     // Valid login if we have a status of 2xx (res.ok)
     if (res.ok) return res.json();
-    throw new Error('userService--> Bad Credentials!');
+    throw new Error('userService--> Wrong Password');
   })
-  .then(({token}) => tokenService.setToken(token));
+  .then(({token}) => { 
+    tokenService.setToken(token)
+   // console.log(TS,"2- JWT recieved and set: ", token)
+  });
 }
 //---------------------------------------
 async function checkEmail(email) {
-  //console.log(Date.now(), "1- MSK HIT userService.checkEmail : ", email);
   let check = await fetch(BASE_URL + 'checkEmail', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
@@ -50,6 +53,9 @@ async function checkEmail(email) {
   });
   return check ;
 }
+
+
+//let TS = Date.now();
 //----------------------------------------
 export default {
   signup, 

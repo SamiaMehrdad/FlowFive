@@ -14,24 +14,44 @@ export default function GetPassword(props){
   
     const formRef = useRef();
 
-    const [state, setState]       = useState({
+    const [state, setState] = useState({
         email: props.temp.email,
         pw: '',
     });
 
+
     function handleChange(e){
         setState({
-          ...state,
-          [e.target.name]: e.target.value
+          ...state, [e.target.name]: e.target.value
         })
       }
+
 
     function goBack()
     {
         props.showPage("GetEmail");
     }
+
+
+    async function formSubmit(e){
+        e.preventDefault()
+        try {
+            await userService.login(state);
+//TODO DEBUG: this part is added to prevent very strange login problem!
+            if( props.user && state.email === props.user.email) 
+                props.showPage("HomeLeft");
+            else
+                window.location.reload();
+/*---- till here. without this, previously logged in user data shows up
+and needs a page reload to show current one! */                                 
+            } catch (err) {
+            console.log(err.message); //TODO: show user a wrong password message
+            }
+    }
+
+    
     return(
-        <div id="back">
+        <div id="back"> 
             <img id="hb-logo" src="HB-small1.jpg" alt="Horian Booms" />
             <p id="welcome">WELCOME <br/>
             {props.temp.email}
@@ -39,19 +59,8 @@ export default function GetPassword(props){
 
             <form   autoComplete="off" 
                     ref={formRef} 
-                    onSubmit={ async (e) => {
-                        e.preventDefault()
-                        
-                        try {
-                            console.log("TRY LOGIN WITH --> ", state);
-                            await userService.login(state);
-                            props.handleSignUpOrLogin();
-                            props.showPage("HomeLeft");
-                            
-                            } catch (err) {
-                            console.log(err.message); //TODO: show user a wrong password message
-                            }
-                    }}>
+                    onSubmit={ formSubmit }
+            >
  
                 <input 
                     type="password" 
@@ -70,8 +79,8 @@ export default function GetPassword(props){
                 SIGN IN
                 </button>
             </form>
-            <br/><br/>
-            <button className="noshade bottom-stick" 
+ 
+            <button className="noshade gray " 
                     onClick={goBack}>
             BACK
             </button>

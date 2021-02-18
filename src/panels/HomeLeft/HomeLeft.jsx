@@ -16,31 +16,38 @@ import roomService from '../../utils/roomService';
 
 export default function HomeLeft(props){
 
-    function openPlayRoom()
-    {
+    //if( !props.user ) window.location.reload();
+
+    function openPlayRoom() {
        // props.showPage("MakeInvitation","");
        roomService.open(props.user);
        props.showPage("MyPlayRoom");
     }
 
-    function goSetting()
-    {
+    function goSetting() {
         props.showPage("MySettings","");
     }
-    function goToPlayRoom()
-    {
+
+
+    function goToPlayRoom() {
         props.showPage('ActiveRound','Play');
     }
+
+
     return(
         <>
+        {props.user?
             <img    className='TimerBar-image' 
                     src="./test.jpg" 
                     id="main-image" 
                     alt="Avatar"/>
+         : null }           
+        {props.user ?
             <span   className="main-userinfo">
-            {props.user.nickName}<br />Rank:82
+             {props.user.nickName}<br />Rank:28
             </span>
-            <span   className="setting-icon" 
+         : null }
+            <span   className="setting-icon"  
                     onClick={ goSetting }>
             {'\u2699'} {/*unicode for gear icon */}
             </span>
@@ -51,7 +58,7 @@ export default function HomeLeft(props){
                         title="FRIENDS OPEN ROOMS" 
                         height="75%">
                 <GuestBar   user={props.user} 
-                            onClick={goToPlayRoom}
+                            onClick={goToPlayRoom} 
                 />
             </LabelDiv>
             <div className="bottom-stick main-page ">

@@ -38,12 +38,14 @@ function close() {
     return(  
         <>  
         {modal ?     
-                <Modal  title="THIS IS MODAL TITLE"
+                <Modal  title="CLOSING PLAYROOM WARNING"
                         width="30vw"
-                        message=" This is modal message and bla bla bla ... 
-                         This is modal message and bla bla bla ..."
+                        message=" This will close your private play room and kick out 
+                                any guest from it. Are you sure to proceed?"
                          onOk={modalOk}
                          onCancel={modalCancel}
+                         okTitle="OK"
+                         cancelTitle="CANCEL"
                         /> 
                : null          
         }

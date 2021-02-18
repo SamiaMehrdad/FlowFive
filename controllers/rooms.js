@@ -53,6 +53,7 @@ console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/f
 //---------------------------------------
  function open(req, res)
 {
+  console.log("Opening room for Uid = ", req.body._id);
 try {
     Room.updateOne({owner: req.body._id},{status: 'open'} ,{upsert: true, setDefaultsOnInsert: true},
     rm => { res.status(500)});

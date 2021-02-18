@@ -24,7 +24,7 @@ export default function SignupInfo(props){
             </p>
 
             <br/><br/>
-            <button className="noshade bottom-stick" onClick={goBack}>CANCEL</button>
+            <button className="noshade bottom-stick gray" onClick={goBack}>CANCEL</button>
         </div>
     );
 };

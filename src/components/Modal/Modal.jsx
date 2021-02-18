@@ -26,11 +26,12 @@ return(
                 <br />
                 <p className="modal-message">
                 {props.message}
-                </p> 
-                <br />   
+                </p>  
                 <br />         
-                <button onClick={props.onOk}>OK</button>
-                <button onClick={props.onCancel}>CANCEL</button>
+                <button onClick={props.onOk}>{props.okTitle}</button>
+                {props.cancelTitle ? 
+                    <button onClick={props.onCancel}>CANCEL</button>
+                 : null }   
                 <br />
                 <br />
             </TitleDiv>

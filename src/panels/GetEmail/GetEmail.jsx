@@ -18,16 +18,28 @@ export default function GetEmail(props){
   
     const formRef = useRef();
 
-    //console.log("User Is ---> ", props.temp);
-
 
     function playUnknown()
     {
         console.log(" %c PLAY UNKNOWN ","background: #010; color: #0f0; padding: 5px; border-radius:5px");
     }
+
     function OAuth() {
        
     }
+
+    async function formSubmit(e) {
+        e.preventDefault()
+        try {
+            let serverResponse = await userService.checkEmail(state); 
+            serverResponse.ok ? props.showPage("GetPassword",null,state)
+                            : props.showPage("SignupInfo","Signup",state);
+                
+        } catch (err) {
+            console.log(Date.now(), err.message);
+        }
+    }
+
     return(
         <div id="back">
             <img id="hb-logo" src="HB-small1.jpg" alt="Horian Booms" />
@@ -36,21 +48,10 @@ export default function GetEmail(props){
             please enter your email or login by Google.
             </p>
 
-            <form  autoComplete="off" ref={formRef} onSubmit={ 
-                async (e) => {
-                                e.preventDefault()
-            
-                                try 
-                                {
-                                    let userPromise = await userService.checkEmail(state); 
-                                    //props.stepUpLogin(userPromise);
-                                    userPromise.ok ? props.showPage("GetPassword",null,state)
-                                                   : props.showPage("SignupInfo","Signup",state);
-                                        
-                                } catch (err) {
-                                    console.log(Date.now(), err.message);
-                                }
-                              }} >
+            <form   autoComplete="off" 
+                    ref={formRef} 
+                    onSubmit={formSubmit}
+            >
                 <input 
                     type="email" 
                     name="email" 
@@ -74,7 +75,7 @@ export default function GetEmail(props){
             </button>
 <br />
             <button 
-                    className="noshade" 
+                    className="noshade gray" 
                     onClick={playUnknown}>
             PLAY UNKNOWN
             </button>

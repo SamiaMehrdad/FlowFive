@@ -51,8 +51,6 @@ const PAGES= {
 
 export default function FlowFivePage(props){
 
-console.log( "FlowFivePage runs with props = ", props);
-
   //--- Main navigation process ------------------------------------------
   // use right and left state hooks + navigate function ( lifted state from children)
   // each children should lift up with shoePage( left , right )
@@ -75,32 +73,29 @@ console.log( "FlowFivePage runs with props = ", props);
 // Check if given email is registered before, go for getting password
 // Otherwise go for signup page
 
-//------------------------------------------
   function showPage( left, right, temp )
   {
     let Component = null;
     if(left)
     {
         Component = PAGES[ left ]; 
-      //  console.log(Date.now(),"Left to --->", left);
+     //   console.log(Date.now(),"Left to --->", left, props.user);
         setLeftNav( <Component user={props.user} 
                                 showPage={showPage} 
                                 temp={temp} 
                                 handleLogout={props.handleLogout} 
                                 handleSignUpOrLogin={props.handleSignUpOrLogin} 
-                                //owner={props.owner} 
                                 /> );
     }
     if( right )
     {
         Component = PAGES[ right ];
-      //  console.log(Date.now(),"Right to --->", right); 
+     //   console.log(Date.now(),"Right to --->", right); 
         setRightNav( <Component user={props.user} 
                                 showPage={showPage} 
                                 temp={temp}
                                 handleLogout={props.handleLogout}  
-                                handleSignUpOrLogin={props.handleSignUpOrLogin}
-                                //owner={props.owner}  
+                                handleSignUpOrLogin={props.handleSignUpOrLogin}  
                                 /> );
     }
   }

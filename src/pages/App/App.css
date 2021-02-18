@@ -1,5 +1,5 @@
 
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Assistant&display=swap');
 body{
     --green: #8a8;
     --light: #ccc;
@@ -11,7 +11,7 @@ body{
     background-color: var(--back);
     color: var(--dark);
     user-select: none;
-    font-family: 'Noto Sans', arial, sans-serif;
+    font-family:   'Assistant', sans-serif, arial;
     text-align: center;
 }
 TitleDiv{
@@ -117,4 +117,7 @@ label{
 .blue{
     background-color: var(--blue);
     color: #fff;
+}
+.gray{
+    background-color: var(--light); 
 }
