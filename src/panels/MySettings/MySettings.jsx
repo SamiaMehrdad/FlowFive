@@ -6,14 +6,39 @@ Custom react component.
 Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React , {useRef} from 'react';
+import React , {useRef, useState, useEffect } from 'react';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
+import FriendBar from '../../components/FriendBar/FriendBar';
+import userService from '../../utils/userService';
 import './MySettings.css';
 
 export default function MySettings(props){
 
     const inputFile = useRef(null);
+   // let friendList=[] ;
+    const [friends , setFriends] = useState(null);
+    
+async function getFriendsOf() {
+    const friendList = await userService.getFriends(props.user);
+    setFriends(friendList);
+    console.log(Date.now(),"GET FRIENDS IN getFriendsOf() -->",friendList);
+    
+    //return friendList;
+}
+
+
+
+//let  friends = getFriendsOf(); 
+// setFriends(getFriendsOf());
+useEffect(() => {
+    getFriendsOf();
+}, [])
+
+// while( ! friends.length )
+//  console.log('.');
+// console.log(Date.now(),"GET FRIENDS OUT of getFriendsOf() --> ",friends);
+
 
 function close()
 {
@@ -25,10 +50,24 @@ function logout()
     props.handleLogout();
     props.showPage("GetEmail","HomeRight");
 }
+
 function imageClick()
 {
     inputFile.current.click(); 
 }
+
+// function makeFriendsList(){
+//  let result = [];
+//  if(friends)   
+//     for(let friend in friends)
+//         result.push (
+//             <p>
+//             {friend.nickName}
+//             </p>
+//         )
+//  return result;   
+// }
+
     return (
     <TitleDiv title="DASHBOARD">
         <br />
@@ -54,16 +93,27 @@ function imageClick()
                     maxLength="12"
             /> 
         }
-        <button className="security-btn">
-        SECURITY
-        </button>
+
         <LabelDiv   className="friends" 
                     title="FRIENDS" 
                     height="80%">
+            <button className="add-friend">
+            ADD
+            </button>
+        { friends && friends.length ?
+            friends.map((friend) =>
+            <FriendBar user={friend}>
+
+            </FriendBar>)
+        : <p>You have no friends in list. Add some!</p>
+        }
         </LabelDiv>    
-        <div className="bottom-stick">
+        <div className="bottom-stick setting">
             <button onClick={close} >
             CLOSE
+            </button>
+            <button className="blue">
+            SECURITY
             </button>
             <button onClick={ logout } >
             LOG OUT !

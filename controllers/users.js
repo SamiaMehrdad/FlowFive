@@ -66,10 +66,19 @@ async function checkEmail(req, res) {
 }
 
 //----------------------------------------
-function getFriends()
+async function getFriends(req, res)
 {
-console.log ("HIT FROM -------> function ", 
-              arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+
+  try {
+    // Consider example
+    // const posts = await Post.find({}).populate('user').exec()
+    const friends = await User.find( {_id: {$in: req.body.friends}}, 'avatar nickName');
+    console.log("LIST OF FRIENDS ---> ",friends);
+    return res.json(friends);
+  } catch (err) {
+    console.log("MSK Email check error : --->", err);
+    return res.status(401).json(err);
+  }             
 }
 
 //----------------------------------------

@@ -8,7 +8,7 @@ router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
 router.post('/checkEmail', usersCtrl.checkEmail);
 /*---------- Protected Routes ----------*/
-router.get('/getFriends', usersCtrl.getFriends);
+router.post('/getFriends', usersCtrl.getFriends);
 router.post('/addFriend/:id', usersCtrl.addFriend);
 router.post('/removeFriend/:id', usersCtrl.removeFriend);
 

@@ -17,7 +17,7 @@ export default function GuestBar(props){
              (
                 <> 
                 <img className='invite-image' src={props.user.avatar} alt="Guest" />
-                <span className="guestbar-info"> {props.user.nikname} #{props.user.rank} </span>
+                <span className="guestbar-info"> {props.user.nikName} #{props.user.rank} </span>
                 </>
              ) : null
          }

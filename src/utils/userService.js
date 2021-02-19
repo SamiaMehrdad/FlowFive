@@ -54,8 +54,21 @@ async function checkEmail(email) {
   return check ;
 }
 
+//---------------------------------------
+function getFriends(user) {
+    return fetch(BASE_URL + 'getFriends', {
+    method: 'POST',
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: JSON.stringify(user)
+  })
+  .then( res => {
+    //console.log(Date.now(),"THEN RES = ", res);
+    if (res.ok) 
+      return res.json();
+    console.log("ERROR: ", res[0]);
+  }) 
+}
 
-//let TS = Date.now();
 //----------------------------------------
 export default {
   signup, 
@@ -63,4 +76,5 @@ export default {
   logout,
   login,
   checkEmail,
+  getFriends,
 };

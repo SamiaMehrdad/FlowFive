@@ -22,17 +22,7 @@ function App() {
   function handleLogout(){
     userService.logout();
     setUser( userService.getUser() );
-  //  setUser(null);
-   // console.log(Date.now(),"App LOGOUT ---->", user, "<--AFTER LOGGED OUT");
   }
-
-
-//-
- function getRoomOwner()
- {
-
- }
-
 
 //-
   return (

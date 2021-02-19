@@ -11,7 +11,7 @@ import React from 'react';
 import './HomeLeft.css';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import GuestBar from '../../components/GuestBar/GuestBar';
-import userService from '../../utils/userService';
+//import userService from '../../utils/userService';
 import roomService from '../../utils/roomService';
 
 export default function HomeLeft(props){
