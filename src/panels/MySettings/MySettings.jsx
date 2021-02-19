@@ -7,10 +7,12 @@ Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React , {useRef, useState, useEffect } from 'react';
+import Tooltip from 'react-tooltip';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import FriendBar from '../../components/FriendBar/FriendBar';
 import userService from '../../utils/userService';
+
 import './MySettings.css';
 
 export default function MySettings(props){
@@ -97,9 +99,17 @@ function imageClick()
         <LabelDiv   className="friends" 
                     title="FRIENDS" 
                     height="80%">
-            <button className="add-friend">
+            <button className="add-friend"
+                    data-tip
+                    data-for="add-tip">
             ADD
             </button>
+            <Tooltip    id="add-tip"
+                        place="bottom"
+                        effect="float"
+                        >
+            Search and add friends to your list            
+            </Tooltip>
         { friends && friends.length ?
             friends.map((friend) =>
             <FriendBar user={friend}>
@@ -109,9 +119,16 @@ function imageClick()
         }
         </LabelDiv>    
         <div className="bottom-stick setting">
-            <button onClick={close} >
+            <button onClick={close} 
+                    data-tip
+                    data-for="close-tip">
             CLOSE
             </button>
+            <Tooltip    id="close-tip"
+
+                        >
+            Save changes, close this panel and go back.            
+            </Tooltip>
             <button className="blue">
             SECURITY
             </button>
