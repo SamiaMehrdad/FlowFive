@@ -23,7 +23,7 @@ function setStyle()
 {
  let style={};
  if( props.winner )
-    style = {backgroundColor: "rgba(100,190,100,.2)"};
+    style = {backgroundColor: "var(--green)"};
  else
     props.highlight? style ={backgroundColor: "rgba(180,170,100,.2)", cursor: "pointer"}: style = null;
  return style;   

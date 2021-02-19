@@ -104,9 +104,10 @@ function imageClick()
                     data-for="add-tip">
             ADD
             </button>
+
             <Tooltip    id="add-tip"
                         place="bottom"
-                        effect="float"
+                        delayShow={500} 
                         >
             Search and add friends to your list            
             </Tooltip>
@@ -115,7 +116,7 @@ function imageClick()
             <FriendBar user={friend}>
 
             </FriendBar>)
-        : <p>You have no friends in list. Add some!</p>
+        : <p id='nf-message'>You have no friends in list. Add some!</p>
         }
         </LabelDiv>    
         <div className="bottom-stick setting">
@@ -125,7 +126,7 @@ function imageClick()
             CLOSE
             </button>
             <Tooltip    id="close-tip"
-
+                        delayShow={500}
                         >
             Save changes, close this panel and go back.            
             </Tooltip>

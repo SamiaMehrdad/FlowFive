@@ -6,6 +6,10 @@
     margin: 1px 5px;
     /* color: #fff; */
 }
+
+.friend-bar:hover .remove{
+    display: inline-block;
+}
 .guestbar-info1
 {
     top: -5px;
@@ -31,4 +35,19 @@
 .right{
 margin: 0 2px 0 50px;
 right: 10px;
+}
+
+.remove{
+    background-color: var(--dark);
+    color: var(--gold);
+    float: right;
+    display: none;
+    cursor: pointer;
+    margin: 2px 0;
+    border-radius: 99999px;
+    height: 100%;
+    padding: 2px 10px;
+}
+.remove:hover{
+    background-color: #900;
 }
