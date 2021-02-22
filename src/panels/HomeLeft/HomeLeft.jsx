@@ -64,7 +64,7 @@ export default function HomeLeft(props){
             <LabelDiv   id="friend-rooms" 
                         title="FRIENDS OPEN ROOMS" 
                         height="75%">
-                <FriendBar   user={props.user} 
+                <FriendBar  user={props.user} 
                             onClick={goToPlayRoom}
                             buttonLabel="JOIN" 
                 />

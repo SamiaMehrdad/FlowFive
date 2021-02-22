@@ -24,6 +24,10 @@ export default function AddFriend(props){
      console.log(Date.now(),"GET PLAYERS IN AddFriend() -->",playerList);
  }
 
+ function addFrindtoList(e) {
+     console.log("ADD FRIEND #",e.currentTarget.getAttribute("index"), e.currentTarget.getAttribute("id"))
+ }
+
  useEffect(() => {
     searchUsers();
 }, []);
@@ -34,9 +38,12 @@ export default function AddFriend(props){
                         id="search-bar"
                         height="90%">
                 { players && players.length ? 
-                    players.map((player)=>        
+                    players.map((player,index)=>        
                         <FriendBar user={player}
                                    buttonLabel="ADD"
+                                   key={player._id}
+                                   index={index}
+                                   onClick={addFrindtoList}
                         /> )
                 : <p >BLA Bla bLa</p>      
                 }

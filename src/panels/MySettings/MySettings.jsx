@@ -64,6 +64,11 @@ function showSearchBox() {
     setSearchBox(true);
 }
 
+function removeFriend(e) {
+   // if(e)
+    console.log("REMOVE #",e.currentTarget.getAttribute("index"), e.currentTarget.getAttribute("id"))
+}
+
     return (
     <TitleDiv title="DASHBOARD">
         <br />
@@ -107,11 +112,14 @@ function showSearchBox() {
             Search and add friends to your list            
             </Tooltip>
         { friends && friends.length ?
-            friends.map((friend) =>
+            friends.map((friend, index) =>
             <FriendBar  user={friend}
-                        buttonLabel="REMOVE">
-
-            </FriendBar>)
+                        buttonLabel="REMOVE"
+                        onClick={removeFriend}
+                        key={friend._id}
+                        index={index}
+                         />
+                        )
         : <p id='nf-message'>You have no friends in list. Add some!</p>
         }
         </LabelDiv>    

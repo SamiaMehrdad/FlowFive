@@ -11,20 +11,22 @@ import './FriendBar.css';
 
 export default function FriendBar(props){
 
-    
+ //onClick={()=>{props.onClick(props.key)}}   
     return(
         <>
          { props.user?
              (
-                <div className="friend-bar" onClick={props.onClick}>
+                <div className="friend-bar" >
                     <img className='invite-image1' src={props.user.avatar} alt="" />
                     <span className="guestbar-info1">{props.user.nickName}</span>
                     <span className="guestbar-info1 right">#{props.user.rank}</span>
                     <span className="remove" 
-                          onClick={props.onClick}>
+                       onClick={props.onClick}
+                       id={props.user._id}
+                       index={props.index}>
                     {props.buttonLabel}
                     </span>
-                </div>
+                </div> 
              ) : null
          }    
         </>
