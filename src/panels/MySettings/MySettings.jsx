@@ -11,6 +11,7 @@ import Tooltip from 'react-tooltip';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import FriendBar from '../../components/FriendBar/FriendBar';
+import AddFriend from '../../components/AddFriend/AddFriend';
 import userService from '../../utils/userService';
 
 import './MySettings.css';
@@ -20,6 +21,7 @@ export default function MySettings(props){
     const inputFile = useRef(null);
    // let friendList=[] ;
     const [friends , setFriends] = useState(null);
+    const [searchBox, setSearchBox] = useState(false);
     
 async function getFriendsOf() {
     const friendList = await userService.getFriends(props.user);
@@ -35,7 +37,7 @@ async function getFriendsOf() {
 // setFriends(getFriendsOf());
 useEffect(() => {
     getFriendsOf();
-}, [])
+}, []);
 
 // while( ! friends.length )
 //  console.log('.');
@@ -58,17 +60,9 @@ function imageClick()
     inputFile.current.click(); 
 }
 
-// function makeFriendsList(){
-//  let result = [];
-//  if(friends)   
-//     for(let friend in friends)
-//         result.push (
-//             <p>
-//             {friend.nickName}
-//             </p>
-//         )
-//  return result;   
-// }
+function showSearchBox() {
+    setSearchBox(true);
+}
 
     return (
     <TitleDiv title="DASHBOARD">
@@ -101,7 +95,8 @@ function imageClick()
                     height="80%">
             <button className="add-friend"
                     data-tip
-                    data-for="add-tip">
+                    data-for="add-tip"
+                    onClick={showSearchBox}>
             ADD
             </button>
 
@@ -113,7 +108,8 @@ function imageClick()
             </Tooltip>
         { friends && friends.length ?
             friends.map((friend) =>
-            <FriendBar user={friend}>
+            <FriendBar  user={friend}
+                        buttonLabel="REMOVE">
 
             </FriendBar>)
         : <p id='nf-message'>You have no friends in list. Add some!</p>
@@ -136,6 +132,16 @@ function imageClick()
             <button onClick={ logout } >
             LOG OUT !
             </button>
+        </div>
+        <div    id="search-add"
+                className = {searchBox? "" : "hidden"}>
+            <span   className="close-icon large-icon"
+                    onClick={()=>setSearchBox(false)}>
+            X
+            </span> 
+<br /><br /><br />
+            <AddFriend user={props.user}/>
+    
         </div>
     </TitleDiv>
     );

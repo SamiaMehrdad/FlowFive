@@ -11,7 +11,7 @@ import React from 'react';
 import Tooltip from 'react-tooltip';
 import './HomeLeft.css';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
-import GuestBar from '../../components/GuestBar/GuestBar';
+import FriendBar from '../../components/FriendBar/FriendBar';
 //import userService from '../../utils/userService';
 import roomService from '../../utils/roomService';
 
@@ -64,8 +64,9 @@ export default function HomeLeft(props){
             <LabelDiv   id="friend-rooms" 
                         title="FRIENDS OPEN ROOMS" 
                         height="75%">
-                <GuestBar   user={props.user} 
-                            onClick={goToPlayRoom} 
+                <FriendBar   user={props.user} 
+                            onClick={goToPlayRoom}
+                            buttonLabel="JOIN" 
                 />
             </LabelDiv>
             <div className="bottom-stick main-page ">
