@@ -7,6 +7,8 @@ Custom react component.
 Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 import React, { useState } from 'react';
+
+import publicIp from 'public-ip';
 //import userService from '../../utils/userService'
 
 import ActiveRound from '../../panels/ActiveRound/ActiveRound';
@@ -50,7 +52,10 @@ const PAGES= {
 
 
 export default function FlowFivePage(props){
-
+ (async () => {
+	console.log(await publicIp.v4());
+	//=> '46.5.21.123'
+})();
   //--- Main navigation process ------------------------------------------
   // use right and left state hooks + navigate function ( lifted state from children)
   // each children should lift up with shoePage( left , right )
