@@ -11,6 +11,7 @@ import './FriendBar.css';
 
 export default function FriendBar(props){
 
+    
     return(
         <>
          { props.user?
@@ -19,7 +20,10 @@ export default function FriendBar(props){
                     <img className='invite-image1' src={props.user.avatar} alt="" />
                     <span className="guestbar-info1">{props.user.nickName}</span>
                     <span className="guestbar-info1 right">#{props.user.rank}</span>
-                    <span className="remove" >Remove</span>
+                    <span className="remove" 
+                          onClick={props.onClick}>
+                    {props.buttonLabel}
+                    </span>
                 </div>
              ) : null
          }    
