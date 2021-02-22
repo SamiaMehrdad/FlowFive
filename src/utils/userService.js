@@ -70,6 +70,21 @@ function getFriends(user) {
 }
 
 //----------------------------------------
+function searchUsers(startLetters) {
+  return fetch(BASE_URL + 'searchUsers', {
+    method: 'POST',
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: JSON.stringify(startLetters)
+  })
+  .then( res => {
+    //console.log(Date.now(),"THEN RES = ", res);
+    if (res.ok) 
+      return res.json();
+    console.log("ERROR: ", res[0]);
+  })
+}
+
+//----------------------------------------
 export default {
   signup, 
   getUser,
@@ -77,4 +92,5 @@ export default {
   login,
   checkEmail,
   getFriends,
+  searchUsers,
 };

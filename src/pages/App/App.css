@@ -121,3 +121,7 @@ label{
 .gray{
     background-color: var(--light); 
 }
+
+.hidden{
+    visibility: hidden;
+}

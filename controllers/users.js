@@ -10,6 +10,7 @@ module.exports = {
   getFriends,
   addFriend,
   removeFriend,
+  searchUsers,
 };
 
 //----------------------------------------
@@ -65,6 +66,18 @@ async function checkEmail(req, res) {
   }
 }
 
+//------------------------------------------
+async function searchUsers(req, res) {
+  //console.log("MSK searchUsers, req.body ----> ",req.body);
+  try {
+    const players = await User.find( {role: "player"}, 'avatar nickName points');
+    console.log("ALL PLAYERS ---> ",players);
+    return res.json(players);
+  } catch (err) {
+    console.log("MSK Email check error : --->", err);
+    return res.status(401).json(err);
+  }
+}
 //----------------------------------------
 async function getFriends(req, res)
 {

@@ -17,9 +17,10 @@ const userSchema = new mongoose.Schema({
   avatar: { type: String, default: "avatarURL" },
   color: { type: String, default: "red" },
   enroll: { type: Date, default: Date.now },
-  totalPlays: { type: Number, default: 0},
+  totalPlays: { type: Number, default: 0, },
   totalWins: { type: Number, default: 0 },
-  points: { type: Number, default: 0 },
+  points: { type: Number, default: 0, required: true, },
+  rank: { type: Number, default: 0, required: true, },
   role: { type: String, 
           default: "player", 
           enum: ['player','reporter','audience','admin','super'] },
@@ -63,10 +64,11 @@ userSchema.pre('save', function(next) {
 });
 
 userSchema.methods.comparePassword = function(tryPassword, cb) {
-    console.log(cb, ' this is cb')
+
   // 'this' represents the document that you called comparePassword on
   bcrypt.compare(tryPassword, this.password, function(err, isMatch) {
-    if (err) return cb(err);
+    if (err) 
+      return cb(err);
 
     cb(null, isMatch);
   });
