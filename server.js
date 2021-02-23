@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
+const usersCtrl = require('./controllers/users');
 const http = require("http");
 const socketIo = require("socket.io");
 require('./config/database');
@@ -22,11 +23,11 @@ app.use('/api/rooms', require('./routes/api/rooms'));
 app.use('/api/users', require('./routes/api/users'));
 //app.use('/api/invites', require('./routes/api/invites'));
 
-
-// "catch all" route
+//"catch all" route
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
 
 const server = http.createServer(app);
 const io = socketIo(server);

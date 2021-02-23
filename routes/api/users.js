@@ -12,5 +12,6 @@ router.post('/getFriends', usersCtrl.getFriends);
 router.post('/addFriend/:id', usersCtrl.addFriend);
 router.post('/removeFriend/:id', usersCtrl.removeFriend);
 router.post('/searchUsers',usersCtrl.searchUsers);
+router.get('/setTempUser',usersCtrl.setTempUser);
 
 module.exports = router;

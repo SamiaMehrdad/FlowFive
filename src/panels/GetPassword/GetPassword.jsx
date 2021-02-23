@@ -17,6 +17,7 @@ export default function GetPassword(props){
     const [state, setState] = useState({
         email: props.temp.email,
         pw: '',
+        tempUser: localStorage.getItem('tempUser')
     });
 
 

@@ -1,9 +1,11 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 const SECRET = process.env.SECRET;
 
 
 module.exports = {
+  setTempUser,
   signup,
   login,
   checkEmail,
@@ -12,6 +14,41 @@ module.exports = {
   removeFriend,
   searchUsers,
 };
+
+//----------------------------------------
+async function setTempUser(req, res) {
+  console.log("---------------------Create TEMP user--------------------------");
+  try {
+    let randomIndex=Math.floor( Math.random()*100000 ).toString()
+        + Math.floor( Math.random()*100000 ).toString(); 
+
+    let tempUser = new User({
+      email:`${randomIndex}@2.2` ,
+      tempName: `P${randomIndex}`,
+    });
+
+    tempUser.save( (err, result) =>{
+      if(err)
+        console.log(err);
+      else
+      {
+        console.log(result);
+        return res.json(result);
+      }  
+    })
+
+    // const user = await User.updateOne(  {email: '2@2.2'},
+    //                               {tempName: `P${randomIndex}`} ,
+    //                               {upsert: true, setDefaultsOnInsert: true},
+    // us=> console.log("Temp User = ", us));
+                              
+  //  return res.json(user);
+
+  } catch(err){
+    console.log(err)
+    return res.status(401).json(err);
+  }
+}
 
 //----------------------------------------
 async function signup(req, res) {
@@ -39,6 +76,10 @@ async function login(req, res) {
     
       if (isMatch) {
         const token = createJWT(user);
+        //remove temp user
+        User.findByIdAndDelete(req.body.tempUser,(err , result)=>{
+          console.log("Deleted ***");
+        });
         res.json({token});
       } else {
         return res.status(401).json({ err: 'controllers.users--> password not match'});
@@ -86,7 +127,8 @@ async function getFriends(req, res)
     // Consider example
     // const posts = await Post.find({}).populate('user').exec()
     const friends = await User.find( {_id: {$in: req.body.friends}}, 'avatar nickName');
-    console.log("LIST OF FRIENDS ---> ",friends);
+    //console.log("LIST OF FRIENDS ---> ",friends);
+    console.log("req ---> ",req);
     return res.json(friends);
   } catch (err) {
     console.log("MSK Email check error : --->", err);

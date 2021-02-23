@@ -40,7 +40,8 @@ function login(creds) {
     throw new Error('userService--> Wrong Password');
   })
   .then(({token}) => { 
-    tokenService.setToken(token)
+    tokenService.setToken(token);
+    localStorage.removeItem('tempUser');
    // console.log(TS,"2- JWT recieved and set: ", token)
   });
 }
@@ -85,6 +86,19 @@ function searchUsers(startLetters) {
 }
 
 //----------------------------------------
+function setTempUser() {
+  return fetch(BASE_URL + 'setTempUser', {
+    method: 'GET',
+    headers: new Headers({'Content-Type': 'application/json'}),
+  })
+  .then( res => {
+    //console.log(Date.now(),"THEN RES = ", res);
+    if (res.ok) 
+      return res.json();
+    console.log("ERROR: ", res[0]);
+  })
+}
+//----------------------------------------
 export default {
   signup, 
   getUser,
@@ -93,4 +107,5 @@ export default {
   checkEmail,
   getFriends,
   searchUsers,
+  setTempUser,
 };
