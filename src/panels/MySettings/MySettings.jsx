@@ -23,21 +23,16 @@ export default function MySettings(props){
     const [friends , setFriends] = useState(null);
     const [searchBox, setSearchBox] = useState(false);
     
-async function getFriendsOf() {
-    const friendList = await userService.getFriends(props.user);
-    setFriends(friendList);
-    console.log(Date.now(),"GET FRIENDS IN getFriendsOf() -->",friendList);
-    
-    //return friendList;
-}
+    async function getFriendsOf() {
+        const friendList = await userService.getFriends(props.user);
+        setFriends(friendList);
+        //console.log(Date.now(),"GET FRIENDS IN getFriendsOf() -->",friendList);
+        //return friendList;
+    }
 
-
-
-//let  friends = getFriendsOf(); 
-// setFriends(getFriendsOf());
-useEffect(() => {
-    getFriendsOf();
-}, []);
+    useEffect( () => {
+        getFriendsOf();
+    }, []);
 
 // while( ! friends.length )
 //  console.log('.');
@@ -65,7 +60,6 @@ function showSearchBox() {
 }
 
 function removeFriend(e) {
-   // if(e)
     console.log("REMOVE #",e.currentTarget.getAttribute("index"), e.currentTarget.getAttribute("id"))
 }
 

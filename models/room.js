@@ -10,8 +10,9 @@ const roomSchema = new mongoose.Schema({
             sparse: true},  //access code to send over email, 12 digits number
   status:{  type: String, enum: ['close','open','wait','run'], default: 'close'},
   class: {  type: String, 
-            enum: ['private', 'public','audience','develop'], 
+            enum: ['private', 'public','audience','develop','unknown'], 
             default: 'private'},
+  guests: [{ type: mongoose.Types.ObjectId, ref:"User"}],         
 }, {
   timestamps: true
 });

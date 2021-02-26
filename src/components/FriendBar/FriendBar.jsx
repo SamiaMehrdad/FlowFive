@@ -2,7 +2,7 @@
 Custom react component.
  Component name: 
  Description:
- Props: [img] , message
+ Props: user , buttonLabel , index
 Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
@@ -11,7 +11,6 @@ import './FriendBar.css';
 
 export default function FriendBar(props){
 
- //onClick={()=>{props.onClick(props.key)}}   
     return(
         <>
          { props.user?

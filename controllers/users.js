@@ -32,7 +32,7 @@ async function setTempUser(req, res) {
         console.log(err);
       else
       {
-        console.log(result);
+      //  console.log(result);
         return res.json(result);
       }  
     })
@@ -70,7 +70,7 @@ async function login(req, res) {
   //               arguments.callee.toString().match(/function ([^\(]+)/)[1]);
   try {
     const user = await User.findOne({email: req.body.email});
-    console.log(user, ' this user', !user, !!user)
+    //console.log(user, ' this user', !user, !!user)
     if (!user) return res.status(401).json({err: 'controllers.users-->user by given email not exists'});
     user.comparePassword(req.body.pw, (err, isMatch) => {
     
@@ -96,7 +96,7 @@ async function checkEmail(req, res) {
   console.log("MSK checkEmail, req.body ----> ",req.body);
   try {
     const user = await User.findOne({email: req.body.email});
-    console.log(' MSK checkEmail: this user is ', !!user, user);
+    //console.log(' MSK checkEmail: this user is ', !!user, user);
     if (!user) 
       return res.status(401).json({err: 'Email not registerd!'});
     return res.json(user);
@@ -112,10 +112,10 @@ async function searchUsers(req, res) {
   //console.log("MSK searchUsers, req.body ----> ",req.body);
   try {
     const players = await User.find( {role: "player"}, 'avatar nickName points');
-    console.log("ALL PLAYERS ---> ",players);
+    //console.log("ALL PLAYERS ---> ",players);
     return res.json(players);
   } catch (err) {
-    console.log("MSK Email check error : --->", err);
+    console.log("MSK get users error : --->", err);
     return res.status(401).json(err);
   }
 }
@@ -128,7 +128,7 @@ async function getFriends(req, res)
     // const posts = await Post.find({}).populate('user').exec()
     const friends = await User.find( {_id: {$in: req.body.friends}}, 'avatar nickName');
     //console.log("LIST OF FRIENDS ---> ",friends);
-    console.log("req ---> ",req);
+    // console.log("req ---> ",req);
     return res.json(friends);
   } catch (err) {
     console.log("MSK Email check error : --->", err);
