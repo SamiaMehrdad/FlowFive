@@ -7,6 +7,16 @@ body{
     --dark: #666;
     --gold: #dc6;
     --blue: #58a;
+    --shade: #555;
+    --soft-shade: #aaa;
+    /* --green: #8a8;
+    --light: #666;
+    --back: #555;
+    --dark: #ccc;
+    --gold: #a95;
+    --blue: #58a;
+    --shade: #111;
+    --soft-shade: #333; */
     --button: rgba(255,255,255,.4);
     background-color: var(--back);
     color: var(--dark);
@@ -71,7 +81,8 @@ TitleDiv{
 button{
     border: none;
     background-color: var(--button);
-    box-shadow: 1px 5px 7px #aaa;
+    /* box-shadow: 1px 5px 7px #aaa; */
+    box-shadow: 1px 5px 7px var(--soft-shade);
     border-radius: 4px;
     font-size: clamp( 6px, min( 1.6vw , 1.6vh ) , 18px);
     color: var(--dark);

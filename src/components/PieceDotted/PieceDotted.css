@@ -19,10 +19,10 @@
 
 .show{
     background-color: var(--light);
-    box-shadow: 1px 3px 5px #555;
+    box-shadow: 1px 3px 5px var(--shade);
 }
 
 .selected{
     background-color: var(--gold);
-    box-shadow: 1px 3px 5px #555;
+    box-shadow: 1px 3px 5px var(--shade);
 }

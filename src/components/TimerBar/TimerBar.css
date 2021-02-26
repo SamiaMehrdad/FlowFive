@@ -10,7 +10,7 @@
     border-radius: 50%;
     display: inline-block;
     margin: 0 0 0 20px;
-    box-shadow: 2px 2px 5px #555;
+    box-shadow: 2px 2px 5px var(--shade);
 }
 
 .TimerBar{

@@ -10,7 +10,7 @@
     border-radius: 50%;
     overflow: hidden;
     /* border: 1px solid #aaa; */
-    box-shadow: 0 0 3px #555;
+    box-shadow: 0 0 3px var(--shade);
     display: inline;
 }
 .invitebar-msg
