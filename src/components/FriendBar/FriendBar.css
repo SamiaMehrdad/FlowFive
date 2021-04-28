@@ -1,8 +1,10 @@
 .friend-bar{
-    border: 1px solid var(--light);
-    background-color: rgba(0,0,0,.05);
-    border-radius: 99999px;
+    border-left: 1px solid var(--edge);
+    border-right: 1px solid var(--edge);
     margin: 1px 5px;
+    color: var(--edge);
+    text-shadow: 1px 1px 1px #000;
+    background-color: rgba(255,255,255,.1);
 }
 
 .friend-bar:hover .remove{
@@ -32,15 +34,12 @@ right: 10px;
 }
 
 .remove{
-
-    background-color: var(--light);
     float: right;
     display: none;
     cursor: pointer;
-    border-radius: 99999px;
-    padding: 4px 10px;
-
+    font-size: 12px;
+    margin: 7px;
 }
 .remove:hover{
-    background-color: var(--gold);
+    color: var(--gold);
 }

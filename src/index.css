@@ -5,7 +5,6 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* color:blue; */
 }
 
 code {
@@ -13,16 +12,7 @@ code {
     monospace;
     color:red;
 }
-/* 
-.btn{
-  padding: 5px 50%;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px #777;
-  cursor: pointer;
-}
-.btn:hover{
-  background-color: rgba(0,255,0,.5);
-} */
+
 
 
 

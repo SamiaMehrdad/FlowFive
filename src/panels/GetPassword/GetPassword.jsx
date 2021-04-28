@@ -71,10 +71,11 @@ and needs a page reload to show current one! */
                     onChange={handleChange}
                     autoFocus
                     required
+                    style= {{ display: "block" }}
                 />
-                <br/>
+                
                 <a href=" test " >Forgot password</a>
-                <br/><br/>
+                <br/>
                 <button type="submit" 
                         className="green noshade">
                 SIGN IN

@@ -12,7 +12,7 @@ import './LabelDiv.css';
 export default function LabelDiv(props){
 
     return(
-        <div    className="labeldiv" 
+        <div    className="labeldiv blur" 
                 style= {{height: props.height, width: props.width? props.width: "95%"}}>
             <p      className="labeldiv-title">
             {props.title}

@@ -1,8 +1,6 @@
 .main-page button{
     height: clamp( 30px , min( 8vh , 8vw) , 100px);
-    /* border-radius: 20px; */
 }
-
 
 #main-image{
     left: 10px;
@@ -16,12 +14,8 @@
     position:absolute;
     left: 80px;
     top: 10px;
-    color: var(--dark);
-    font-weight: bold;
     font-size: clamp( 8px, min( 2.2vw , 2.2vh ) , 38px);
     width: min( 18vh, 18vw);
-    /* padding: 2px ; */
-    background: none;
 }
 .setting-icon{
     position: absolute;
@@ -29,7 +23,7 @@
     top: 10px;
     font-size: 40px;
     font-weight: bolder;
-    text-shadow: 1px 2px 3px #777;
+    text-shadow: 1px 2px 3px var(--shade);
     cursor: pointer;
     transition: color .3s;
 }
@@ -37,6 +31,6 @@
     color: var(--gold); 
 }
 .setting-icon:active{
-    text-shadow: 1px 1px 1px #999;
+    text-shadow: none;
     color: var(--light);
 }

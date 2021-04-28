@@ -1,13 +1,13 @@
 .title-header{
     border-bottom: 1px solid var(--gold);
-    color: var(--dark);
+    color: #fff;
     background-color: var(--light);
     padding: 5px;
     font-size:  clamp( 10px, min( 2.5vw , 2.5vh ) , 38px);
-    font-weight: bolder;
     height: 5%;
 }
 .title-container{
+    background-color: var(--mid);
     border : 1px solid var(--gold);
     margin: 0 auto;
     height: 93%;

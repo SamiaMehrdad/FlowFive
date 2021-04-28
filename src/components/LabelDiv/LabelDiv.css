@@ -5,7 +5,7 @@
 
 .labeldiv-title{
     background-color: var(--light);
-    color: var(--dark);
+    color: #fff;
     display: inline-block;
     left: 0;
     top: 0;
@@ -15,12 +15,11 @@
     border-radius: 5px 5px 0 0 ;
     min-width: 20%;
     font-size: 11px;
-    font-weight: bold;
 }
 
 .labeldiv-inner{
     border: 1px solid var(--light);
-    border-radius: 0 3px 3px 3px ;
+    border-radius: 0 10px 10px 10px ;
     height: 75%;
     padding: 5px 0;
     /* max-height: 80px; */ 

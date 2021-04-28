@@ -75,24 +75,43 @@ function removeFriend(e) {
                 className='prof-image loadable' 
                 src="./test.jpg"
                 onClick={imageClick} 
-                alt="Avatar" />
+                alt="Avatar"
+                data-tip
+                data-for="avatar-change" />
+            <Tooltip    
+                id="avatar-change"
+                place="bottom"
+                delayShow={500} 
+                >
+            Click to change your image            
+            </Tooltip>
         {props.user.points ?
-            <span   //id="prof-nick" 
+            <span   id="nickname"
                     className="main-userinfo prof-nick ">
             {props.user.nickName}
             </span>
         :
-            <input  id="nickname-edit"
-                    className="main-userinfo prof-nick "
+        <>
+            <input  id="nickname"
+                    className="main-userinfo round-edge"
                     placeholder={props.user.nickName}
                     maxLength="12"
-            /> 
+                    data-tip
+                    data-for="n-edit"
+            />
+            <Tooltip    id="n-edit"
+                        place="bottom"
+                        delayShow={500} 
+                        >
+            Click to edit your name. It will be fixed after you grab some points.
+            </Tooltip>
+        </>
         }
-
+        <br/>
         <LabelDiv   className="friends" 
                     title="FRIENDS" 
                     height="80%">
-            <button className="add-friend"
+            <button className="add-friend round-edge"
                     data-tip
                     data-for="add-tip"
                     onClick={showSearchBox}>
@@ -136,7 +155,7 @@ function removeFriend(e) {
             </button>
         </div>
         <div    id="search-add"
-                className = {searchBox? "" : "hidden"}>
+                className = {searchBox? "card" : "hidden"}>
             <span   className="close-icon large-icon"
                     onClick={()=>setSearchBox(false)}>
             X

@@ -44,8 +44,8 @@ function close() {
                                 any guest from it. Are you sure to proceed?"
                          onOk={modalOk}
                          onCancel={modalCancel}
-                         okTitle="OK"
-                         cancelTitle="CANCEL"
+                         okTitle="CLOSE ANYWAY"
+                         cancelTitle="NO! CANCEL"
                         /> 
                : null          
         }

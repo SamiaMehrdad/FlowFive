@@ -18,7 +18,7 @@ export default function Modal(props){
 return(
     <>
         <div className="shade"> </div>
-        <div className = "modal">
+        <div className = "modal blur">
             <TitleDiv title={props.title}
                     width={props.width}
                     
@@ -30,7 +30,7 @@ return(
                 <br />         
                 <button onClick={props.onOk}>{props.okTitle}</button>
                 {props.cancelTitle ? 
-                    <button onClick={props.onCancel}>CANCEL</button>
+                    <button onClick={props.onCancel}>{props.cancelTitle}</button>
                  : null }   
                 <br />
                 <br />

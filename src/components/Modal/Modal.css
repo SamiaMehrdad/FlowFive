@@ -4,21 +4,20 @@
     left:0;
     width:100vw;
     height:100vh;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.7);
     z-index: 1000;
 }
 
 .modal{
     position: fixed;
-    background-color: var(--back);
+    color: var(--gold);
     z-index: 1001;
     left: 35vw;
     top: 25vh;
-    box-shadow: 5px 5px 10px #333;
-    /* font-size: 105%; */
-    font-weight: bold;
-
-}
+    box-shadow: 5px 5px 10px var(--shade);
+    border-radius: 10px;
+    overflow: hidden;
+}   
 .modal-message{
     margin: 0 auto;
     padding: 20px;

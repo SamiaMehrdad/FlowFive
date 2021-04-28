@@ -62,7 +62,7 @@ export default function GetEmail(props){
                 />
                 <button 
                     type="submit" 
-                    className="green noshade"
+                    className="green noshade round-edge"
                     id="submitButton">
                 NEXT
                 </button>

@@ -15,11 +15,11 @@ export default function FriendBar(props){
         <>
          { props.user?
              (
-                <div className="friend-bar" >
+                <div className="friend-bar blur round-edge" >
                     <img className='invite-image1' src={props.user.avatar} alt="" />
                     <span className="guestbar-info1">{props.user.nickName}</span>
                     <span className="guestbar-info1 right">#{props.user.rank}</span>
-                    <span className="remove" 
+                    <span className="remove round-edge" 
                        onClick={props.onClick}
                        id={props.user._id}
                        index={props.index}>

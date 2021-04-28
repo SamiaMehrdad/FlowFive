@@ -9,6 +9,7 @@
     z-index: 100;
     font-size: clamp(10px , min(2.9vh , 2.9vw) , 60px);
     text-align: center;
+    color: #000;
 }
 
 .hide{

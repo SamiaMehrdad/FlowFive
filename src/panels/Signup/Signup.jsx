@@ -63,24 +63,24 @@ export default function SignUpPage(props){
 
               <input
                 type="email"
-                className="signup-input"
+                className="signup-input round-edge blur"
                 name="email"
                 // placeholder="email"
                 value={ state.email}
                 onChange={handleChange}
                 required
-              />
+              /><br/>
               <input
-                className="signup-input"
+                className="signup-input round-edge"
                 name="password"
                 type="password"
                 placeholder="Set a password"
                 value={ state.password}
                 onChange={handleChange}
                 required
-              />
+              /><br/>
               <input
-                className="signup-input"
+                className="signup-input round-edge"
                 name="passwordConf"
                 type="password"
                 placeholder="Confirm Password"
@@ -88,7 +88,7 @@ export default function SignUpPage(props){
                 onChange={handleChange}
                 required
               />
-            <br />
+            <br /><br/>
             <button
               type="submit"
               disabled={invalidForm}

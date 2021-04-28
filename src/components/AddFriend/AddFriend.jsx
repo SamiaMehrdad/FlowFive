@@ -36,6 +36,7 @@ export default function AddFriend(props){
         <>
             <LabelDiv   title="MATHCHED FOUND"
                         id="search-bar"
+                        className="blur"
                         height="90%">
                 { players && players.length ? 
                     players.map((player,index)=>        

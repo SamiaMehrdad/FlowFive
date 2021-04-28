@@ -5,11 +5,9 @@
 .invite-image{
     width: 20px;
     height: 20px;
-    /* background-color: black; */
     margin: 2px;
     border-radius: 50%;
     overflow: hidden;
-    /* border: 1px solid #aaa; */
     box-shadow: 0 0 3px var(--shade);
     display: inline;
 }
@@ -18,5 +16,4 @@
     display: contents;
     position: relative;
     color: var(--light);
-    font-weight: bold;
 }
