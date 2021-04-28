@@ -153,6 +153,25 @@ label{
     border-radius: 10px ; 
     backdrop-filter: blur(5px);
 }
+.lighted{
+    border-left: 1px solid var(--edge);
+    border-right: 1px solid var(--edge);
+}
+
 .round-edge{
     border-radius: 99999px;
+}
+
+.circle{
+    border-radius: 50%;
+}
+.boxshaded{
+    box-shadow: 2px 2px 5px var(--shade); 
+}
+.textshaded{
+    text-shadow: 2px 2px 3px var(--shade);    
+}
+.largavatar{
+    width: 64px;
+    height: 64px; 
 }

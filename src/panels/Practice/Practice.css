@@ -1,15 +1,13 @@
-.stick{
-    z-index: 500;
-    position: absolute;
-    width: clamp( 30px, min(10vh , 10vw) , 100px);
-    aspect-ratio: 1;
-    padding: 0;
-    right: -5px;
 
-}
 .closing{
     bottom: 3px;
 }
-.again{
-    bottom: 26px;
+
+#trybtn{
+
+    z-index: 500;
+    position: absolute;
+    width: clamp( 30px, min(10vh , 10vw) , 100px);
+    right: 1vh;
+    bottom: 2vh;
 }

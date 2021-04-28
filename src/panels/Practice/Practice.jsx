@@ -56,7 +56,8 @@ function close(){
                     onClick={close}>
         X
         </span>
-        <button     className="again stick" 
+        <button     className="round-edge"
+                    id="trybtn" 
                     onClick={shuffle}>
         TRY
         </button>

@@ -18,6 +18,6 @@ export default function Bar(props){
     };
 
     return (
-        <div className="TimerBar" style={style}> </div>
+        <div className="TimerBar boxshaded" style={style}> </div>
     )
 }

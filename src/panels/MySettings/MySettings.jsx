@@ -155,7 +155,7 @@ function removeFriend(e) {
             </button>
         </div>
         <div    id="search-add"
-                className = {searchBox? "card" : "hidden"}>
+                className = {searchBox? "card lighted" : "hidden"}>
             <span   className="close-icon large-icon"
                     onClick={()=>setSearchBox(false)}>
             X

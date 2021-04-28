@@ -43,9 +43,9 @@ export default function GetEmail(props){
     return(
         <div id="back">
             <img id="hb-logo" src="HB-small1.jpg" alt="Horian Booms" />
-            <p id="welcome">Welcome! As a guest user, you can start playing right now! 
-            If you want to have your own private play room and your ranking track, 
-            please enter your email or login by Google.
+            <p id="welcome">Welcome! As a guest user, you can start playing unknown, right now!<br/> 
+            But if you want to have your own private play room and your ranking track, 
+            please login by your email or Google account.
             </p>
 
             <form   autoComplete="off" 

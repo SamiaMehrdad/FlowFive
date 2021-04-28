@@ -38,16 +38,16 @@ export default function HomeLeft(props){
     return(
         <>
         {props.user?
-            <img    className='TimerBar-image' 
+        <>
+            <img    className='circle boxshaded largavatar' 
                     src="./test.jpg" 
                     id="main-image" 
                     alt="Avatar"/>
-         : null }           
-        {props.user ?
             <span   className="main-userinfo">
-             {props.user.nickName}<br />Rank:28
+             {props.user.nickName}<br />Rank:27
             </span>
-         : null }
+        </>
+         : null }           
             <span   className="setting-icon"  
                     onClick={ goSetting }
                     data-tip
@@ -75,7 +75,7 @@ export default function HomeLeft(props){
                 OPEN PLAY ROOM
                 </button>
                 <button >
-                TRY UNKNOWN
+                PLAY UNKNOWN
                 </button>
             </div>    
         </>

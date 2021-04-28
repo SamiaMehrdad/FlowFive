@@ -39,8 +39,11 @@ useEffect( () => {
          { props.user?
              (
                 <div className="TimerBar-main">
-                    <img className='TimerBar-image' src={props.user.avatar} alt='User' />
-                    <p className="TimerBar-text">
+                    <img className='circle boxshaded largavatar' 
+                         id="active-image"
+                         src={props.user.avatar} 
+                         alt='User' />
+                    <p className="TimerBar-text textshaded">
                         {
                             time >= 0 ?
                             ( time /10 ).toFixed(1)

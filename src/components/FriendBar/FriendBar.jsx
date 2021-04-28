@@ -15,7 +15,7 @@ export default function FriendBar(props){
         <>
          { props.user?
              (
-                <div className="friend-bar blur round-edge" >
+                <div className="friend-bar lighted blur round-edge" >
                     <img className='invite-image1' src={props.user.avatar} alt="" />
                     <span className="guestbar-info1">{props.user.nickName}</span>
                     <span className="guestbar-info1 right">#{props.user.rank}</span>

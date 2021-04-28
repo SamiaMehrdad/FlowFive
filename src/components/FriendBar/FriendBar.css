@@ -1,6 +1,4 @@
 .friend-bar{
-    border-left: 1px solid var(--edge);
-    border-right: 1px solid var(--edge);
     margin: 1px 5px;
     color: var(--edge);
     text-shadow: 1px 1px 1px #000;
