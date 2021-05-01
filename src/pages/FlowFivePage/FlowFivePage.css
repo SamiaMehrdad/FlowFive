@@ -19,6 +19,7 @@
 .right-panel{
     right:0;
     border: 1px solid var(--gold);
+    background-color: var(--back);
 }
 @media only screen and (max-width: 820px)
 {

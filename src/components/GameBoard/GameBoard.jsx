@@ -71,6 +71,10 @@ useEffect( () =>
              {/* <div className="cell-container"  > */}
             {gameCells}
             {/* </div> */}
+            <p className="bindex">1234</p>
+            <p className="bindex" id="bott-index">1234</p>
+            <div className="bindex side" id="left-index">A B C D</div>
+            <div className="bindex side" id="right-index">A B C D</div>
         </div>
     );
 };

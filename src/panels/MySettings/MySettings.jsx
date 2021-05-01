@@ -39,7 +39,7 @@ export default function MySettings(props){
 // console.log(Date.now(),"GET FRIENDS OUT of getFriendsOf() --> ",friends);
 
 
-function close()
+let close = ()=>
 {
     props.showPage("HomeLeft");
 }
@@ -62,7 +62,6 @@ function showSearchBox() {
 function removeFriend(e) {
     console.log("REMOVE #",e.currentTarget.getAttribute("index"), e.currentTarget.getAttribute("id"))
 }
-
     return (
     <TitleDiv title="DASHBOARD">
         <br />
@@ -78,20 +77,13 @@ function removeFriend(e) {
                 alt="Avatar"
                 data-tip
                 data-for="avatar-change" />
-            <Tooltip    
-                id="avatar-change"
-                place="bottom"
-                delayShow={500} 
-                >
-            Click to change your image            
-            </Tooltip>
+
         {props.user.points ?
             <span   id="nickname"
                     className="main-userinfo prof-nick ">
             {props.user.nickName}
             </span>
         :
-        <>
             <input  id="nickname"
                     className="main-userinfo round-edge"
                     placeholder={props.user.nickName}
@@ -99,31 +91,19 @@ function removeFriend(e) {
                     data-tip
                     data-for="n-edit"
             />
-            <Tooltip    id="n-edit"
-                        place="bottom"
-                        delayShow={500} 
-                        >
-            Click to edit your name. It will be fixed after you grab some points.
-            </Tooltip>
-        </>
         }
         <br/>
         <LabelDiv   className="friends" 
                     title="FRIENDS" 
                     height="80%">
-            <button className="add-friend round-edge"
+            <button className="add-friend circle"
                     data-tip
                     data-for="add-tip"
                     onClick={showSearchBox}>
-            ADD
+            +
             </button>
 
-            <Tooltip    id="add-tip"
-                        place="bottom"
-                        delayShow={500} 
-                        >
-            Search and add friends to your list            
-            </Tooltip>
+
         { friends && friends.length ?
             friends.map((friend, index) =>
             <FriendBar  user={friend}
@@ -142,11 +122,7 @@ function removeFriend(e) {
                     data-for="close-tip">
             CLOSE
             </button>
-            <Tooltip    id="close-tip"
-                        delayShow={500}
-                        >
-            Save changes, close this panel and go back.            
-            </Tooltip>
+
             <button className="blue">
             SECURITY
             </button>
@@ -156,14 +132,37 @@ function removeFriend(e) {
         </div>
         <div    id="search-add"
                 className = {searchBox? "card lighted" : "hidden"}>
-            <span   className="close-icon large-icon"
-                    onClick={()=>setSearchBox(false)}>
-            X
-            </span> 
-<br /><br /><br />
-            <AddFriend user={props.user}/>
-    
+            <close  className="close-icon"
+                    onClick={()=>setSearchBox(false)} />
+
+            <AddFriend user={props.user} />
         </div>
+            <Tooltip    
+                id="avatar-change"
+                place="bottom"
+                delayShow={500} 
+                >
+            Click to change your image            
+            </Tooltip>
+            <Tooltip    
+                id="add-tip"
+                delayShow={500} 
+                >
+            Search and add friends to your list            
+            </Tooltip>
+            <Tooltip    
+                id="close-tip"
+                delayShow={500}
+                >
+            Save changes, close this panel and go back.            
+            </Tooltip>
+            <Tooltip    
+                id="n-edit"
+                place="bottom"
+                delayShow={500} 
+                >
+            Click to edit your name. It will be fixed after you grab some points.
+            </Tooltip>
     </TitleDiv>
     );
 

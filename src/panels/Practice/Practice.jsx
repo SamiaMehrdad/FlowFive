@@ -52,10 +52,8 @@ function close(){
 //-------------------------------------------
     return (
     <div className="help-container">
-        <span       className="close-icon large-icon" 
-                    onClick={close}>
-        X
-        </span>
+        <close       className="close-icon large-icon" 
+                    onClick={close} />
         <button     className="round-edge"
                     id="trybtn" 
                     onClick={shuffle}>

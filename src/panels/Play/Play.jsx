@@ -40,12 +40,12 @@ function pieceMovedTo( cellNo )
 //-------------------------------------------
 
     return (
-    <>
+    <div class="help-container" >
 
         <GameBoard  board={board} 
                     activePiece={active} 
                     pieceMovedTo={pieceMovedTo} 
                     winners={win}       />
-    </>
+    </div>
     );
 };

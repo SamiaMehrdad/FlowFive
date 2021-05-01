@@ -20,10 +20,8 @@ function close() {
                 alt="PLAYING RULES" 
                 className="help-image"
         />
-        <span   className="close-icon large-icon" 
-                onClick={close}>
-        X
-        </span>
+        <close   className="close-icon large-icon" 
+                onClick={close} />
     </div>
     );
 };

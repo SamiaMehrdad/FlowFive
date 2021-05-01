@@ -54,10 +54,7 @@ export default function HomeLeft(props){
                     data-for="setting-tip">
             {'\u2699'} {/*unicode for gear icon */}
             </span>
-            <Tooltip    id="setting-tip"
-                        delayShow={500}>
-            Profile, friends and security settings dashboard.            
-            </Tooltip>
+
             <br />
             <br />
             <br />
@@ -77,7 +74,12 @@ export default function HomeLeft(props){
                 <button >
                 PLAY UNKNOWN
                 </button>
-            </div>    
+            </div>
+
+            <Tooltip    id="setting-tip"
+                        delayShow={500}>
+            Profile, friends and security settings dashboard.            
+            </Tooltip>
         </>
     );
 };

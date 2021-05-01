@@ -1,6 +1,7 @@
 
 #nickname{
-    top:  calc(45px - .5vh) !important;   
+    /* top:  calc(45px - .5vh) !important;    */
+    top: 6vh !important;
 }
 
 .editable{
@@ -34,11 +35,14 @@ border-right: 2px solid var(--gold);
 }
 
 .add-friend{
-    width: 12%;
+    width: 5vh;
+    /* width: 12%; */
     color: var(--gold);
     position: absolute;
     right: -10px;
-    top: -20px;
+    top: -4vh;
+    font-size: 4vh;
+    padding: 0 0 10px 0;
 }
 
 #nf-message{
@@ -55,4 +59,22 @@ border-right: 2px solid var(--gold);
     right: 10px;
     box-shadow: 2px 2px 6px var(--shade);
     background-color: var(--soft-shade);
+}
+
+#search{
+    /* background-color: var(--mid-shade); */
+    width: 80%;
+    height: 5vh;
+    margin: 10px;
+    text-align: left;
+    padding: 0 5px;
+    border: 1px solid var(--light);
+    color: var(--gold);
+
+}
+#search input{
+    background: none;
+    margin: 0;
+    border: none;
+    padding: 0;
 }

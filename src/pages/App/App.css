@@ -1,5 +1,7 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Assistant&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 body{
     --green: rgba(0,100,0,.3);
     --light: rgba(255,255,255,.4);
@@ -21,8 +23,12 @@ body{
     
     color: var(--light);
     user-select: none;
-    font-family:   sans-serif, arial;
+    /* font-family: 'Assistant', sans-serif; */
+    /* font-family: 'Oxanium', cursive; */
+    font-family: 'Ubuntu', sans-serif, arial;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -44,11 +50,16 @@ body{
 }
 .close-icon{
     color: var(--gold);
-    font-size: 16px;
-    margin: 5px ;
-    display: inline-block;
+    font-size: 2.5vh;
+    margin: 5px 0 ;
     cursor: pointer;
     z-index:1000;
+    right: 10px;
+    position: absolute;
+    
+}
+.close-icon:after{
+    content: 'X';
 }
 .close-icon:hover{
     color: #fff;
@@ -59,10 +70,7 @@ body{
     text-shadow: none;
 }
 .large-icon{
-    position: absolute;
-    top: 0;
-    right: 10px;
-    font-size: 24px;
+    font-size: 4vh;
 }
 .bar{
     width: 97%;
@@ -78,6 +86,9 @@ body{
     box-shadow: none;
 }
 button{
+    /* font-family: 'Oxanium', cursive; */
+    font-family: 'Ubuntu', sans-serif, arial;
+    /* font-family: 'Assistant', sans-serif; */
     border: none;
     background: linear-gradient(  var(--button), var(--back));
     border-radius: 8px;

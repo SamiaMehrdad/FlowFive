@@ -109,10 +109,21 @@ async function checkEmail(req, res) {
 
 //------------------------------------------
 async function searchUsers(req, res) {
-  //console.log("MSK searchUsers, req.body ----> ",req.body);
+  //console.log("MSK searchUsers, req.body.partial ----> ",req.body.partial); //ok
   try {
-    const players = await User.find( {role: "player"}, 'avatar nickName points');
-    //console.log("ALL PLAYERS ---> ",players);
+    const regex = new RegExp( req.body.partial, 'i');
+   // console.log("REGX = ",regex);
+    const players = await User.find(  
+                    { $or: [
+                            { nickName: regex, 
+                            },
+                            { name: regex,
+                            },
+                           ] 
+                           , role: "player",
+                    } ,
+                     'avatar nickName points name' );
+    // console.log("ALL PLAYERS ---> ",players);
     return res.json(players);
   } catch (err) {
     console.log("MSK get users error : --->", err);
@@ -127,7 +138,7 @@ async function getFriends(req, res)
     // Consider example
     // const posts = await Post.find({}).populate('user').exec()
     const friends = await User.find( {_id: {$in: req.body.friends}}, 'avatar nickName');
-    //console.log("LIST OF FRIENDS ---> ",friends);
+    console.log("LIST OF FRIENDS ---> ",friends);
     // console.log("req ---> ",req);
     return res.json(friends);
   } catch (err) {

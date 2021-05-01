@@ -71,18 +71,23 @@ function getFriends(user) {
 }
 
 //----------------------------------------
-function searchUsers(startLetters) {
+function searchUsers(partial) {
+  
+  console.log("Serching letters = ",partial) ;
+
   return fetch(BASE_URL + 'searchUsers', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
-    body: JSON.stringify(startLetters)
+    body: JSON.stringify({partial: partial})
   })
   .then( res => {
+      
     //console.log(Date.now(),"THEN RES = ", res);
     if (res.ok) 
       return res.json();
     console.log("ERROR: ", res[0]);
   })
+
 }
 
 //----------------------------------------
