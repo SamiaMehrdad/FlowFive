@@ -38,12 +38,6 @@ export default function MySettings(props){
 //  console.log('.');
 // console.log(Date.now(),"GET FRIENDS OUT of getFriendsOf() --> ",friends);
 
-
-let close = ()=>
-{
-    props.showPage("HomeLeft");
-}
-
 function logout()
 {
     props.handleLogout();
@@ -55,12 +49,9 @@ function imageClick()
     inputFile.current.click(); 
 }
 
-function showSearchBox() {
-    setSearchBox(true);
-}
-
 function removeFriend(e) {
-    console.log("REMOVE #",e.currentTarget.getAttribute("index"), e.currentTarget.getAttribute("id"))
+    console.log("REMOVE #",e.currentTarget.getAttribute("index"), e.currentTarget.getAttribute("id"));
+    userService.removeFriend(e.currentTarget.getAttribute("id"));
 }
     return (
     <TitleDiv title="DASHBOARD">
@@ -99,7 +90,7 @@ function removeFriend(e) {
             <button className="add-friend circle"
                     data-tip
                     data-for="add-tip"
-                    onClick={showSearchBox}>
+                    onClick={()=>setSearchBox(true)}>
             +
             </button>
 
@@ -117,7 +108,7 @@ function removeFriend(e) {
         }
         </LabelDiv>    
         <div className="bottom-stick setting">
-            <button onClick={close} 
+            <button onClick={()=>props.showPage("HomeLeft")} 
                     data-tip
                     data-for="close-tip">
             CLOSE

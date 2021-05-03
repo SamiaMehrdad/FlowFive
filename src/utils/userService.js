@@ -73,7 +73,7 @@ function getFriends(user) {
 //----------------------------------------
 function searchUsers(partial) {
   
-  console.log("Serching letters = ",partial) ;
+  //console.log("Serching letters = ",partial) ;
 
   return fetch(BASE_URL + 'searchUsers', {
     method: 'POST',
@@ -104,6 +104,26 @@ function setTempUser() {
   })
 }
 //----------------------------------------
+function  addFriend() {
+  
+}
+//----------------------------------------
+function removeFriend( fid ){
+  return fetch(BASE_URL + 'removeFriend', {
+    method: 'POST',
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: JSON.stringify({uid: getUser()._id, fid: fid})
+  })
+  .then( res => {
+      
+    //console.log(Date.now(),"THEN RES = ", res);
+    if (res.ok) 
+      return res.json();
+    console.log("ERROR: ", res[0]);
+  })
+}
+//----------------------------------------
+
 export default {
   signup, 
   getUser,
@@ -113,4 +133,6 @@ export default {
   getFriends,
   searchUsers,
   setTempUser,
+  addFriend,
+  removeFriend,
 };

@@ -155,10 +155,16 @@ console.log ("HIT FROM -------> function ",
 }
 
 //----------------------------------------
-function removeFriend()
+function removeFriend(req, res)
 {
-console.log ("HIT FROM -------> function ", 
-              arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+
+let uid = req.body.uid;
+let fid = req.body.fid;
+ 
+User.findOne( {_id: uid}, (err, user)=>{ // No need for error checking because it is not user-called
+              user.friends.splice( user.friends.indexOf(fid), 1);
+              user.save(); 
+            } );       
 }
 
 /*----- Helper Functions -----*/
