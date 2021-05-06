@@ -44,9 +44,11 @@ body{
     height: 0;
 }
 .bottom-stick{
-    position: relative;
+    position: absolute;
     bottom: clamp(5px , min( 2vh , 2vw) , 40px);
+    /* bottom: 0; */
     margin: 0 auto;
+    width: 100%;
 }
 .close-icon{
     color: var(--gold);

@@ -130,19 +130,20 @@ async function searchUsers(req, res) {
     return res.status(401).json(err);
   }
 }
+// OPT this
 //----------------------------------------
 async function getFriends(req, res)
 {
-
+  // find friends of given user: req.body.uid
   try {
-    // Consider example
-    // const posts = await Post.find({}).populate('user').exec()
-    const friends = await User.find( {_id: {$in: req.body.friends}}, 'avatar nickName');
-    console.log("LIST OF FRIENDS ---> ",friends);
-    // console.log("req ---> ",req);
+    //const friendsIds = await User.find({_id: req.body.uid}).populate('friends').exec()
+    const friendsIds = await User.find({_id: req.body.uid}, 'friends');
+   // console.log("getFriends friendsIds --->", friendsIds );
+    const friends = await User.find( {_id: {$in: friendsIds[0].friends}}, 'avatar nickName');
+   // console.log("LIST OF FRIENDS ---> ",friends);
     return res.json(friends);
   } catch (err) {
-    console.log("MSK Email check error : --->", err);
+    console.log("MSK getFriends error : --->", err);
     return res.status(401).json(err);
   }             
 }

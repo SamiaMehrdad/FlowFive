@@ -60,7 +60,7 @@ function getFriends(user) {
     return fetch(BASE_URL + 'getFriends', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
-    body: JSON.stringify(user)
+    body: JSON.stringify({uid: user._id})
   })
   .then( res => {
     //console.log(Date.now(),"THEN RES = ", res);

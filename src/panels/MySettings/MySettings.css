@@ -36,11 +36,10 @@ border-right: 2px solid var(--gold);
 
 .add-friend{
     width: 5vh;
-    /* width: 12%; */
     color: var(--gold);
     position: absolute;
-    right: -10px;
-    top: -4vh;
+    right: 10px;
+    top: 8vh;
     font-size: 4vh;
     padding: 0 0 10px 0;
 }
