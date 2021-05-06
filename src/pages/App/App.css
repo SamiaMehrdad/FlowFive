@@ -177,6 +177,7 @@ label{
 
 .circle{
     border-radius: 50%;
+    overflow: hidden;
 }
 .boxshaded{
     box-shadow: 2px 2px 5px var(--shade); 
@@ -187,4 +188,9 @@ label{
 .largavatar{
     width: 64px;
     height: 64px; 
+}
+.smallavatar{
+    width: 20px;
+    height: 20px;
+    margin: 2px 2px 0 2px;
 }

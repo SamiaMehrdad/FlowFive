@@ -145,10 +145,21 @@ async function getFriends(req, res)
 }
 
 //----------------------------------------
-function addFriend()
+function addFriend(req, res)
 {
-console.log ("HIT FROM -------> function ", 
-              arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+// console.log ("HIT FROM -------> function ", 
+//               arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+let uid = req.body.uid;
+let fid = req.body.fid;
+
+User.updateOne( {_id: uid}, 
+            {$push: {friends: fid} },
+             (err, res)=> {
+                  if (err)  console.log(err); 
+            }
+        );
+
+    console.log("ADD FREIND --->", uid, fid);
 }
 
 //----------------------------------------

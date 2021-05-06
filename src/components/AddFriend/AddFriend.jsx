@@ -23,7 +23,10 @@ export default function AddFriend(props){
  }
 
  function addFrindtoList(e) {
-     console.log("ADD FRIEND #",e.currentTarget.getAttribute("index"), e.currentTarget.getAttribute("id"))
+    // console.log("ADD FRIEND #",e.currentTarget.getAttribute("index"), e.currentTarget.getAttribute("id"))
+    // check if this friend does not already exists
+    
+    userService.addFriend( e.currentTarget.getAttribute("id"));
  }
 
     return (

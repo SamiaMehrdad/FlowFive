@@ -5,7 +5,7 @@
     background-color: rgba(255,255,255,.1);
 }
 
-.friend-bar:hover .remove{
+.friend-bar:hover .friend-action{
     display: inline-block;
 }
 
@@ -16,28 +16,18 @@
     position: relative;
 }
 
-.invite-image1{
-    width: 20px;
-    height: 20px;
-    margin: 5px 0 0 2px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 0 3px var(--shade);
-    display: inline;
-}
-
 .right{
 margin: 0 2px 0 50px;
 right: 10px;
 }
 
-.remove{
+.friend-action{
     float: right;
     display: none;
     cursor: pointer;
     font-size: 12px;
-    margin: 7px;
+    margin: 5px;
 }
-.remove:hover{
+.friend-action:hover{
     color: var(--gold);
 }

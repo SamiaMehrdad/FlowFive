@@ -104,7 +104,17 @@ function setTempUser() {
   })
 }
 //----------------------------------------
-function  addFriend() {
+function  addFriend( fid ){
+  return fetch(BASE_URL + 'addFriend', {
+    method: 'POST',
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: JSON.stringify({uid: getUser()._id, fid: fid})
+  })
+  .then( res => {
+    if (res.ok) 
+      return res.json();
+    console.log("ERROR: ", res[0]);
+  })  
   
 }
 //----------------------------------------
