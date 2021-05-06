@@ -10,7 +10,6 @@ import React , {useRef, useState, useEffect } from 'react';
 import Tooltip from 'react-tooltip';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import FriendsList from '../../components/FriendsList/FriendsList';
-// import AddFriend from '../../components/AddFriend/AddFriend';
 import userService from '../../utils/userService';
 
 import './MySettings.css';
@@ -22,19 +21,14 @@ export default function MySettings(props){
     
  //--------------------------------------   
     async function getFriendsOf() {
-        //let friendsList = [];
         const friendsList = await userService.getFriends( props.user );
         setFriends([...friendsList]);
     }
 
     useEffect( () => {
         getFriendsOf();
-        // return( ()=>{ console.log("CLEANUP"); setFriends([])});
     }, []); 
  
-// while( ! friends.length )
-//  console.log('.');
-// console.log(Date.now(),"GET FRIENDS OUT of getFriendsOf() --> ",friends);
 //-----------------------------------------
 function logout()
 {
@@ -111,12 +105,6 @@ function rebuildFriendsList( newFriends ) {
             delayShow={500} 
             >
         Click to change your image            
-        </Tooltip>
-        <Tooltip    
-            id="add-tip"
-            delayShow={500} 
-            >
-        Search and add friends to your list            
         </Tooltip>
         <Tooltip    
             id="close-tip"

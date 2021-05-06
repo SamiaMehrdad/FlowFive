@@ -8,9 +8,9 @@
     background-color: var(--green);
     cursor: text;
 }
-.friends{
+/* .friends{
     background-color: red;
-}
+} */
 
 .loadable{
     cursor: pointer;
@@ -32,16 +32,6 @@ border-right: 2px solid var(--gold);
 }
 .setting button{
  width: 25%;
-}
-
-.add-friend{
-    width: 5vh;
-    color: var(--gold);
-    position: absolute;
-    right: 10px;
-    top: 8vh;
-    font-size: 4vh;
-    padding: 0 0 10px 0;
 }
 
 #nf-message{
