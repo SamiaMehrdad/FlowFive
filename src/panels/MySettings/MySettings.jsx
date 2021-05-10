@@ -17,18 +17,31 @@ import './MySettings.css';
 export default function MySettings(props){
 
     const inputFile = useRef(null);
-    const [friends , setFriends] = useState(null);
+    const [friends , setFriends] = useState( [] ); // friend = {avatar, nickname, _id}
     
+    useEffect( () => {
+        getFriendsOf();
+    }, []); 
+
  //--------------------------------------   
     async function getFriendsOf() {
         const friendsList = await userService.getFriends( props.user );
         setFriends([...friendsList]);
     }
+//---------------------------------------
+async function addFriend(id) {
+    console.log("FINAL ADD FRIEND ", id);
+}
 
-    useEffect( () => {
-        getFriendsOf();
-    }, []); 
- 
+//---------------------------------------
+async function removeFriend(id) {
+    
+    const removeIndex = friends.map( (friend) => friend._id ).indexOf( id );
+    friends.splice(removeIndex, 1);
+    setFriends([...friends]);
+    userService.removeFriend( id );
+    //console.log("FINAL REMOVE FRIEND ", removeIndex);
+}
 //-----------------------------------------
 function logout()
 {
@@ -41,9 +54,9 @@ function imageClick()
     inputFile.current.click(); 
 }
 //-----------------------------------------
-function rebuildFriendsList( newFriends ) {
+function refreshFriends( newFriends ) {
 
-    setFriends( [...newFriends ] );
+    setFriends( [...friends, newFriends ] );
     console.log("REBUILT FRIENDS: ",friends);
 }
 //-----------------------------------------
@@ -81,7 +94,8 @@ function rebuildFriendsList( newFriends ) {
   
         <FriendsList user={props.user}
                      friends={friends}
-                     rebuildFriendsList = {rebuildFriendsList}
+                     removeFriend={removeFriend}
+                     addFriend={addFriend}
         />
 
         <div className="bottom-stick setting">

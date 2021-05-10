@@ -6,8 +6,8 @@ Custom react component.
 Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React , {useRef, useState } from 'react';
-import Tooltip from 'react-tooltip';
+import React , { useState, } from 'react';
+// import Tooltip from 'react-tooltip';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import FriendBar from '../../components/FriendBar/FriendBar';
 import userService from '../../utils/userService';
@@ -16,18 +16,30 @@ export default function AddFriend(props){
 
  const [players, setPlayrs]= useState([]);
 
+//----------------------------------------
+// 
+//----------------------------------------
  async function searchUsers(partial){
-     const playerList = await userService.searchUsers( partial );
+     let playerList = [];
+     const temp = await userService.searchUsers( partial );
+     // Filter result to remove self user from list
+     temp.map( player => {
+                            if(player._id !== props.user._id ) 
+                                playerList.push(player);
+                            return playerList 
+                         });
      setPlayrs( playerList );
-     console.log(Date.now(),"GET PLAYERS IN AddFriend() -->",playerList);
+     //console.log(Date.now(),"GET PLAYERS IN AddFriend() -->",playerList);
  }
 
- function addFrindtoList(e) {
-    // console.log("ADD FRIEND #",e.currentTarget.getAttribute("index"), e.currentTarget.getAttribute("id"))
-    // check if this friend does not already exists
-    
-    userService.addFriend( e.currentTarget.getAttribute("id"));
- }
+//  function addFrindtoList(e) {
+
+//     // const fid = e.currentTarget.getAttribute("id");
+//     const fid = e.currentTarget;
+//     console.log("AddFriends ADDING ",fid);
+//     props.addFriend(fid);
+
+//  }
 
     return (
         <>
@@ -53,7 +65,7 @@ export default function AddFriend(props){
                                    buttonLabel="ADD"
                                    key={player._id}
                                    index={index}
-                                   onClick={addFrindtoList}
+                                   onClick={e=> props.addFriend(e.currentTarget.getAttribute("id"))}
                         /> )
                 : <p style={{padding: "20px"}}>No Match found.
                     <br/><br/>

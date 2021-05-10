@@ -158,8 +158,6 @@ User.updateOne( {_id: uid},
                   if (err)  console.log(err); 
             }
         );
-
-    console.log("ADD FREIND --->", uid, fid);
 }
 
 //----------------------------------------

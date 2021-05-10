@@ -14,7 +14,8 @@ const roundSchema = new mongoose.Schema({
   numOfPlayers: { type: Number, default: 2, max: 4},
   start: { type: Date, default: Date.now },
   end:  Date,
-  players:  [{ type: mongoose.Types.ObjectId, ref:"User"}],
+ // players:  [{ type: mongoose.Types.ObjectId, ref:"User"}],
+ // players are host quests
   timer:   { type: Number, default: 0 },
   game: { type: String, default: "FlowFive" },
   blindMode: { type: Boolean, default: false },

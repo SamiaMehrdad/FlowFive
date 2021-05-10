@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import './App.css';
 
 import FlowFivePage from '../FlowFivePage/FlowFivePage';
