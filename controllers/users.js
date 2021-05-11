@@ -9,6 +9,7 @@ module.exports = {
   signup,
   login,
   checkEmail,
+  getUser,
   getFriends,
   addFriend,
   removeFriend,
@@ -125,6 +126,11 @@ async function searchUsers(req, res) {
     console.log("MSK get users error : --->", err);
     return res.status(401).json(err);
   }
+}
+//----------------------------------------
+async function getUser( req, res)
+{
+  
 }
 // OPT this
 //----------------------------------------

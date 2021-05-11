@@ -7,7 +7,6 @@ Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React , { useState, } from 'react';
-// import Tooltip from 'react-tooltip';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import FriendBar from '../../components/FriendBar/FriendBar';
 import userService from '../../utils/userService';
@@ -31,15 +30,6 @@ export default function AddFriend(props){
      setPlayrs( playerList );
      //console.log(Date.now(),"GET PLAYERS IN AddFriend() -->",playerList);
  }
-
-//  function addFrindtoList(e) {
-
-//     // const fid = e.currentTarget.getAttribute("id");
-//     const fid = e.currentTarget;
-//     console.log("AddFriends ADDING ",fid);
-//     props.addFriend(fid);
-
-//  }
 
     return (
         <>
@@ -65,7 +55,7 @@ export default function AddFriend(props){
                                    buttonLabel="ADD"
                                    key={player._id}
                                    index={index}
-                                   onClick={e=> props.addFriend(e.currentTarget.getAttribute("id"))}
+                                   onClick={e=> props.addFriend(player)}
                         /> )
                 : <p style={{padding: "20px"}}>No Match found.
                     <br/><br/>

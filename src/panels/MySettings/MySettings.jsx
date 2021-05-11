@@ -29,8 +29,15 @@ export default function MySettings(props){
         setFriends([...friendsList]);
     }
 //---------------------------------------
-async function addFriend(id) {
-    console.log("FINAL ADD FRIEND ", id);
+async function addFriend(friend) {
+    // if friend is not exists in list, then add it
+    let isNew = true;
+    friends.map(item => {if(item._id === friend._id) isNew = false} )
+    if( isNew )
+    {
+        setFriends([...friends, friend]);
+        userService.addFriend( friend._id );
+    }
 }
 
 //---------------------------------------
@@ -40,7 +47,6 @@ async function removeFriend(id) {
     friends.splice(removeIndex, 1);
     setFriends([...friends]);
     userService.removeFriend( id );
-    //console.log("FINAL REMOVE FRIEND ", removeIndex);
 }
 //-----------------------------------------
 function logout()
