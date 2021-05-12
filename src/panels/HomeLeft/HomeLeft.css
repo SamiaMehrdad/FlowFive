@@ -12,6 +12,7 @@
 }
 #main-image:hover{
     filter: grayscale(70%);
+    box-shadow: 0 0 3px 2px #ff0;
 }
 .main-userinfo
 {

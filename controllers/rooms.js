@@ -13,7 +13,7 @@ module.exports = {
 
 //TODO: --------------------------
 
-//-------------------------------
+//------------------------------- 
 async function getAll(req, res)
 {
   // first make a list of my friends
@@ -84,6 +84,15 @@ try {
 //----------------------------------
 // Get all unclosed rooms that belongs to user friends
 //----------------------------------
-function getOpenRooms(req, res) {
-  console.log("################################## GET ALL OPEN ROOMS FRIEND TO --->", req.body);
+async function getOpenRooms(req, res) {
+  try{
+  let friends = await User.find({_id: req.body.uid}, 'friends');
+  console.log("#### GET ALL FRIEND TO --->", req.body, friends[0].friends);
+  const rooms = await Room.find( {owner: {$in: friends[0].friends}, status: { $nin: 'close' } });
+  console.log(".... OPEN ROOMS --->", rooms);
+  return res.json( rooms );
+  }catch(err){
+    console.log("MSK getOpenRooms error : --->", err);
+    return res.status(401).json(err);
+  }
 }
