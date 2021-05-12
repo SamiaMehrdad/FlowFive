@@ -13,6 +13,10 @@ function getRoomId( userId ) {
 }
 
 //----------------------------------------
+function getOpenRooms(uid) {
+  apiPost('getRooms', {uid});
+}
+//----------------------------------------
 function getAll( userId ) {
 
     return fetch (BASE_URL + 'getAll' , {
@@ -54,7 +58,8 @@ function message( roomId ) {
 
 function apiPost( route, data )
 {
-  fetch (BASE_URL + route , {
+  console.log("APIpost FOR ", route, data);
+ return fetch (BASE_URL + route , {
   method: 'POST',
   headers: new Headers({'Content-Type': 'application/json'}),
   body: JSON.stringify(data)
@@ -77,7 +82,9 @@ function apiGet( route, data )
 }
 //-------------------------------------------
 export default {
+  getOpenRooms,
   getRoomOwner, 
+  getRoomId,
   getAll, // get all open rooms of my friends
   join,   // user join a room, owner admitted
   leave,  // leave an open room

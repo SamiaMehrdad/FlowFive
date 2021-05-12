@@ -35,6 +35,7 @@ const userSchema = new mongoose.Schema({
   role: { type: String, 
           default: "player", 
           enum: ['player','reporter','audience','admin','super'] },
+  canChat: { type: Boolean, default: true },
   friends: [{ type: mongoose.Types.ObjectId, ref:"User"}],
   msg: { type: mongoose.Types.ObjectId, ref:"Message"},
 }, {

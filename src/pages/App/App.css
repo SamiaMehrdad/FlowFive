@@ -34,6 +34,8 @@ body{
 
 .scrollable {
     overflow-y: scroll;
+    scrollbar-width: 1vh;
+    scrollbar-color:  rgba(0,0,0,0);
 }
 .scrollable::-webkit-scrollbar {
     width: 0;
@@ -45,8 +47,7 @@ body{
 }
 .bottom-stick{
     position: absolute;
-    bottom: clamp(5px , min( 2vh , 2vw) , 40px);
-    /* bottom: 0; */
+    bottom: 2vh;
     margin: 0 auto;
     width: 100%;
 }

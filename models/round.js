@@ -12,6 +12,9 @@ const moveSchema = new mongoose.Schema({
 const roundSchema = new mongoose.Schema({
   host: { type: mongoose.Types.ObjectId, ref:"Room"},
   numOfPlayers: { type: Number, default: 2, max: 4},
+  gameType:{type: String, 
+            default: "flowfive", 
+            enum: ['flowfive','pentrategy','foursvigor'] },
   start: { type: Date, default: Date.now },
   end:  Date,
  // players:  [{ type: mongoose.Types.ObjectId, ref:"User"}],

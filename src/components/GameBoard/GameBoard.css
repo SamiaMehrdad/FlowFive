@@ -1,6 +1,7 @@
  .gameboard{
     width: 75%;
-    aspect-ratio: 1;
+    height: 75%;
+    /* aspect-ratio: 1; */
     background-color: var(--edge);
     margin: 10% auto;
     padding: 2.5% 1% 0 1%;

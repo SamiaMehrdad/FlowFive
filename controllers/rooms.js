@@ -2,7 +2,8 @@ const User = require('../models/user');
 const Room = require('../models/room');
 
 module.exports = {
-  getAll, // get all open rooms of my friends
+  getOpenRooms, // get all open rooms of my friends
+  getAll, // get all rooms of my friends
   join,   // user join a room, owner admitted
   leave,  // leave an open room
   open,   // owner action
@@ -79,4 +80,10 @@ try {
     console.log(err)
     return res.status(401).json(err);
   }
+}
+//----------------------------------
+// Get all unclosed rooms that belongs to user friends
+//----------------------------------
+function getOpenRooms(req, res) {
+  console.log("################################## GET ALL OPEN ROOMS FRIEND TO --->", req.body);
 }

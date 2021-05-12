@@ -1,6 +1,7 @@
 .app-container{
     height: 70vh;
-    aspect-ratio: 2;
+    /* aspect-ratio: 2; */
+    width: 140vh;
     position: absolute;
     margin: auto;
     top: 0;

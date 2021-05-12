@@ -142,7 +142,7 @@ async function getFriends(req, res)
     const friendsIds = await User.find({_id: req.body.uid}, 'friends');
    // console.log("getFriends friendsIds --->", friendsIds );
     const friends = await User.find( {_id: {$in: friendsIds[0].friends}}, 'avatar nickName');
-   // console.log("LIST OF FRIENDS ---> ",friends);
+    // console.log("LIST OF FRIENDS ---> ",friends);
     return res.json(friends);
   } catch (err) {
     console.log("MSK getFriends error : --->", err);

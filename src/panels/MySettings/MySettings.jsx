@@ -18,15 +18,17 @@ export default function MySettings(props){
 
     const inputFile = useRef(null);
     const [friends , setFriends] = useState( [] ); // friend = {avatar, nickname, _id}
-    
-    useEffect( () => {
-        getFriendsOf();
-    }, []); 
 
+
+ useEffect(() => {
+    getFriendsOf();
+
+ }, [])
  //--------------------------------------   
     async function getFriendsOf() {
         const friendsList = await userService.getFriends( props.user );
-        setFriends([...friendsList]);
+        if( friendsList && friendsList.length > 0 ) // check if connection error
+            setFriends([...friendsList]);
     }
 //---------------------------------------
 async function addFriend(friend) {
@@ -63,7 +65,7 @@ function imageClick()
 function refreshFriends( newFriends ) {
 
     setFriends( [...friends, newFriends ] );
-    console.log("REBUILT FRIENDS: ",friends);
+    //console.log("REBUILT FRIENDS: ",friends);
 }
 //-----------------------------------------
     return (
