@@ -5,6 +5,14 @@ import './App.css';
 import FlowFivePage from '../FlowFivePage/FlowFivePage';
 import userService from '../../utils/userService';
 
+
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+  const xPos = event.pageX + "px";
+  const yPos = event.pageY + "px";
+  //
+});
+
 function App() {
 
   //userService.start();
