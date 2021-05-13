@@ -11,7 +11,7 @@ import React ,{ useState, useEffect } from 'react';
 import Tooltip from 'react-tooltip';
 import './HomeLeft.css';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
-import FriendBar from '../../components/FriendBar/FriendBar';
+import RoomBar from '../../components/RoomBar/RoomBar';
 //import userService from '../../utils/userService';
 import roomService from '../../utils/roomService';
 
@@ -21,11 +21,25 @@ export default function HomeLeft(props){
     //if( !props.user ) window.location.reload();
 
     useEffect(() => {
-        let timer = setInterval(() => {
-            let opens = getOpenRooms();
-            if( opens && opens.length > 0 )
-                setOpenRooms([...opens]);
-            //console.log("GETTING OPEN ROOMS",props.user._id );
+        let timer = setInterval( async () => {
+            let opens = await roomService.getOpenRooms( props.user._id );
+            if( opens )
+            {
+                let rooms = opens.rooms;
+                let owners = opens.owners;
+                let bars = [];
+                rooms.map( (room, index) => {
+                    bars.push( {
+                        avatar: owners[index].avatar,
+                        nickName: owners[index].nickName,
+                        message: room.message,
+                        id: room._id,
+                    } );
+            });
+            setOpenRooms([...bars]);
+            console.log("GETTING OPEN ROOMS BARS: ",bars );
+            }
+               
         }, 10000);
         return () => {
             clearInterval( timer );
@@ -33,9 +47,11 @@ export default function HomeLeft(props){
     });
     
 
-    const getOpenRooms = () =>{
-        return roomService.getOpenRooms( props.user._id );
-    }
+    // async function getOpenRooms() {
+    //     const roomsAndOwners =  await roomService.getOpenRooms( props.user._id );
+    //     // return roomsAndOwners;
+    //     return await roomsAndOwners;
+    // }
 
     function findFriendsOpenRooms(uid) {
         
@@ -77,10 +93,14 @@ export default function HomeLeft(props){
             <LabelDiv   id="friend-rooms" 
                         title="FRIENDS OPEN ROOMS" 
                         height="80%">
-                <FriendBar  user={props.user} 
+                {openRooms?
+                openRooms.map( openRoom =>         
+                <RoomBar  bar={openRoom} 
                             onClick={goToPlayRoom}
                             buttonLabel="JOIN" 
                 />
+                )
+                : null }
             </LabelDiv>
             <div className="bottom-stick main-page ">
                 <button className="green" 

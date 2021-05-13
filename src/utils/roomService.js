@@ -14,7 +14,17 @@ function getRoomId( userId ) {
 
 //----------------------------------------
 function getOpenRooms(uid) {
-  apiPost('getRooms', {uid});
+   return apiGet('getRooms', {uid});
+  // return fetch(BASE_URL + 'getRooms', {
+  //   method: 'POST',
+  //   headers: new Headers({'Content-Type': 'application/json'}),
+  //   body: JSON.stringify({uid})
+  // })
+  // .then( res => {
+  //   if (res.ok) 
+  //     return res.json();
+  //   console.log("ERROR: ", res[0]);
+  // }) 
 }
 //----------------------------------------
 function getAll( userId ) {
@@ -71,13 +81,14 @@ function apiPost( route, data )
 //-------------------------------------------
 function apiGet( route, data )
 {
-   fetch (BASE_URL + route , {
+  return fetch (BASE_URL + route , {
   method: 'POST',
   headers: new Headers({'Content-Type': 'application/json'}),
   body: JSON.stringify(data)
 }) .then (res => {
-  console.log("res --> ",res);
-  return res;
+  if (res.ok) 
+      return res.json();
+  console.log("ERROR: ", res[0]);
   });
 }
 //-------------------------------------------

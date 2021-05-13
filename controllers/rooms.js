@@ -86,11 +86,28 @@ try {
 //----------------------------------
 async function getOpenRooms(req, res) {
   try{
-  let friends = await User.find({_id: req.body.uid}, 'friends');
+  const friends = await User.find({_id: req.body.uid}, 'friends');
   console.log("#### GET ALL FRIEND TO --->", req.body, friends[0].friends);
-  const rooms = await Room.find( {owner: {$in: friends[0].friends}, status: { $nin: 'close' } });
-  console.log(".... OPEN ROOMS --->", rooms);
-  return res.json( rooms );
+  const rooms = await Room.find( {owner: {$in: friends[0].friends}, status: { $nin: 'close' } } );
+   // this got lots of time :-(
+   // MongoDB will not return TODO
+   // This is the way to make correct relation between room and owners in return
+  let ownerIds = [];
+  rooms.map( item => ownerIds.push(item.owner));
+
+  const query = [
+    {$match: {_id: {$in: ownerIds}}},
+    {$addFields: {"__order": {$indexOfArray: [ownerIds, "$_id" ]}}},
+    {$sort: {"__order": 1}}
+   ];
+   const owners = await User.aggregate(query);
+   //------- end of trick by 
+   // http://www.kamsky.org/stupid-tricks-with-mongodb/using-34-aggregation-to-return-documents-in-same-order-as-in-expression
+
+  //console.log(".... OPEN ROOMS --->", rooms);
+  // console.log("**************ownersIds = ", ownerIds);
+  //console.log( "Owners are : ", owners);
+  return res.json( { rooms, owners } );
   }catch(err){
     console.log("MSK getOpenRooms error : --->", err);
     return res.status(401).json(err);

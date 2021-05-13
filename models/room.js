@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const roomSchema = new mongoose.Schema({
   owner: { type: mongoose.Types.ObjectId, ref:"User"},  
-  messsage: { type: String, default: "Come to my play room" },
+  message: { type: String, default: "Come to my play room" },
   ip: String, // ip of room owner device
   access: { type: String, 
             unique:true, 
