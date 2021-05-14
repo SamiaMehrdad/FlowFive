@@ -53,7 +53,9 @@ function close() {
             <LabelDiv   className="guest-list" 
                         title="GUESTS" 
                         height="min(30vh , 30vw)">
-
+            <GuestBar></GuestBar>
+            <GuestBar></GuestBar>
+            <GuestBar></GuestBar>
             </LabelDiv>
             
             <LabelDiv   title="GAME OPTIONS" 

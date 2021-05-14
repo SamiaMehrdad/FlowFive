@@ -25,8 +25,10 @@ right: 10px;
     float: right;
     display: none;
     cursor: pointer;
-    font-size: 12px;
-    margin: 5px 10px;
+    font-size: calc(6px + .8vh);
+    margin: 1% 1.6%;
+    /* margin: 5px 10px; */
+    z-index: 100;
 }
 .friend-action:hover{
     color: var(--gold);

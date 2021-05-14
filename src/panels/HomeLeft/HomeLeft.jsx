@@ -19,9 +19,7 @@ export default function HomeLeft(props){
 
     const[ openRooms, setOpenRooms ] = useState([]);
     //if( !props.user ) window.location.reload();
-
-    useEffect(() => {
-        let timer = setInterval( async () => {
+    async function  getOpenRooms() {
             let opens = await roomService.getOpenRooms( props.user._id );
             if( opens )
             {
@@ -33,29 +31,25 @@ export default function HomeLeft(props){
                         avatar: owners[index].avatar,
                         nickName: owners[index].nickName,
                         message: room.message,
+                        status: room.status,
                         id: room._id,
                     } );
             });
             setOpenRooms([...bars]);
             console.log("GETTING OPEN ROOMS BARS: ",bars );
-            }
-               
-        }, 10000);
+        
+    }
+    }
+
+    useEffect( () => {
+        getOpenRooms();
+        let timer = setInterval( async () => { getOpenRooms();   
+                    }, 10000 );
         return () => {
             clearInterval( timer );
         }
-    });
+    }, [] );
     
-
-    // async function getOpenRooms() {
-    //     const roomsAndOwners =  await roomService.getOpenRooms( props.user._id );
-    //     // return roomsAndOwners;
-    //     return await roomsAndOwners;
-    // }
-
-    function findFriendsOpenRooms(uid) {
-        
-    }
 
     function openPlayRoom() {
        // props.showPage("MakeInvitation","");
@@ -97,7 +91,9 @@ export default function HomeLeft(props){
                 openRooms.map( openRoom =>         
                 <RoomBar  bar={openRoom} 
                             onClick={goToPlayRoom}
-                            buttonLabel="JOIN" 
+                            buttonLabel = {openRoom.status === 'open'?
+                                            "JOIN"
+                                          : "WATCH" }    
                 />
                 )
                 : null }
