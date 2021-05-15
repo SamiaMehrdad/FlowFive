@@ -6,6 +6,7 @@
     height:100vh;
     background-color: rgba(0,0,0,.7);
     z-index: 1000;
+    animation: fadeIn .3s ; 
 }
 
 .modal{
@@ -17,8 +18,21 @@
     box-shadow: 5px 5px 10px var(--shade);
     border-radius: 10px;
     overflow: hidden;
+    /* animation-delay: 2s; */
+    animation: zoomIn .1s ease; 
 }   
 .modal-message{
     margin: 0 auto;
     padding: 20px;
+}
+
+@keyframes zoomIn{
+    from{transform: scaleX(0);}
+    to{ transform: none;}
+
+
+    }      
+@keyframes fadeIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
 }

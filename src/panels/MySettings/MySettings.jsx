@@ -7,6 +7,7 @@ Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React , {useRef, useState, useEffect } from 'react';
+import { Button } from 'semantic-ui-react';
 import Tooltip from 'react-tooltip';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import FriendsList from '../../components/FriendsList/FriendsList';
@@ -107,18 +108,23 @@ function refreshFriends( newFriends ) {
         />
 
         <div className="bottom-stick setting">
-            <button onClick={()=>props.showPage("HomeLeft")} 
+            <Button content='CLOSE' 
+                    icon='play' 
+                    labelPosition='left'
+                    onClick={()=>props.showPage("HomeLeft")} 
                     data-tip
-                    data-for="close-tip">
-            CLOSE
-            </button>
+                    data-for="close-tip"  
+                    className="bt smallbt" />
+            <Button content='SECURITY' 
+                    icon='play' 
+                    labelPosition='left'  
+                    className="bt blue smallbt" />
+            <Button content='LOG OUT!'
+                    onClick={ logout } 
+                    icon='play' 
+                    labelPosition='left'  
+                    className="bt smallbt" />
 
-            <button className="blue">
-            SECURITY
-            </button>
-            <button onClick={ logout } >
-            LOG OUT !
-            </button>
         </div>
 
         <Tooltip    

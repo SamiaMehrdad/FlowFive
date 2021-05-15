@@ -8,6 +8,7 @@ Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 import './HomeRight.css';
 
 export default function HomeRight(props){
@@ -25,15 +26,16 @@ export default function HomeRight(props){
 
     return (
     <div id = "right-buttons">
-
-        <button   onClick={showRules} >
-        GAME RULES
-        </button>
-        <br/>
-        <br/>
-        <button   onClick={randomPlay} >
-        PRACTICE 
-        </button>
+      <Button content='GAME RULES' 
+               icon='info' 
+               labelPosition='left'
+               onClick={showRules}   
+               className="bt" />
+      <Button content='PRACTICE' 
+               icon='info' 
+               labelPosition='left'
+               onClick={randomPlay}   
+               className="bt" />
     </div>
     );
 };

@@ -16,10 +16,15 @@ export default function WaitingPlayer(props){
         <div className="WaitingPlayer-main">
          { 
            props.user?
-           ( <img className='WaitingPlayer-image' src={props.user.avatar} alt="Avatar"/> ) 
+           ( 
+             <>
+             <img className='WaitingPlayer-image' src={props.user.avatar} alt="Avatar"/>
+             <AnimSpan text={props.user.chat} />
+             </>
+            ) 
            : null
          }
-         <AnimSpan text={props.user.chat} />
+         
         </div>
     );
 };

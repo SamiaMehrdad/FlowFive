@@ -8,6 +8,7 @@ Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React ,{ useState, useEffect } from 'react';
+import { Button,} from 'semantic-ui-react';
 import Tooltip from 'react-tooltip';
 import './HomeLeft.css';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
@@ -40,7 +41,7 @@ export default function HomeLeft(props){
         
     }
     }
-
+ 
     useEffect( () => {
         getOpenRooms();
         let timer = setInterval( async () => { getOpenRooms();   
@@ -99,13 +100,17 @@ export default function HomeLeft(props){
                 : null }
             </LabelDiv>
             <div className="bottom-stick main-page ">
-                <button className="green" 
-                        onClick={ openPlayRoom } >
-                OPEN PLAY ROOM
-                </button>
-                <button >
-                PLAY UNKNOWN
-                </button>
+
+            <Button content='OPEN PLAY ROOM' 
+                    icon='sign-in' 
+                    labelPosition='left' 
+                    onClick={openPlayRoom}
+                    className="bt green" />
+            <Button content='PLAY UNKNOWN' 
+                    icon='spy' 
+                    labelPosition='left'  
+                    className="bt" />
+
             </div>
 
             <Tooltip    id="setting-tip"

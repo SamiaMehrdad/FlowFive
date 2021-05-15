@@ -6,7 +6,7 @@ body{
     --green: rgba(0,100,0,.3);
     --light: rgba(255,255,255,.4);
     --mid: rgba(255,255,255,.3);
-    --back: rgba(100,120,120,.5);
+    --back: rgba(90,110,110,.4);
     --dark: rgba(0,0,0,.5);
     --gold: rgba(255,225,0,.7);
     --blue: rgba(0,100,255,.3);
@@ -122,6 +122,42 @@ button:active{
     color: #fff;
 }
 
+.bt{
+    /* font-family: 'Oxanium', cursive; */
+    font-family: 'Ubuntu', sans-serif, arial !important;;
+    /* font-family: 'Assistant', sans-serif; */
+    /* border: none; */
+    background: var(--button) !important;
+    /* background: linear-gradient(  var(--button), var(--back)) !important; */
+    border-radius: 1.2vh !important;
+    font-size: calc(4px + 1.1vh) !important;
+    color: #fff !important;
+    width: 40% !important;
+    height:calc( 10px + 4vh ) !important;
+    font-weight: normal !important;
+    /* display: inline-block; */
+    /* padding: 7px; */
+    margin: 2vh 1vh !important;
+    /* cursor: pointer;
+    outline: none; */
+    transition: all ease .5s !important;
+    border-right: 1px solid var(--edge) !important;
+    border-left: 1px solid var(--edge) !important;
+    /* backdrop-filter: blur(1px) !important; */
+    text-shadow: 1px 1px 1px rgba(0,0,0,.7) !important;
+}
+.bt:hover{
+    color: #ff5 !important; 
+    box-shadow: 1px 3px 5px var(--soft-shade) !important;
+    backdrop-filter: blur(2px) !important;
+    border-right: 1px solid var(--gold) !important;
+    border-left: 1px solid var(--gold) !important;
+}
+.bt:active{
+    box-shadow: 1px 1px var(--soft-shade) !important;
+    color: #fff !important;
+}
+
 input{
     outline: none;
     border: none;
@@ -145,15 +181,15 @@ label{
 }
 
 .green{
-    background-color: var(--green);
-    color: #fff;
+    background-color: var(--green) !important;
+    color: #fff !important;
 }
 .blue{
-    background-color: var(--blue);
-    color: #fff;
+    background-color: var(--blue) !important;
+    color: #fff ;
 }
 .gray{
-    background-color: var(--light); 
+    background-color: var(--light) !important;
 }
 
 .hidden{
@@ -177,8 +213,8 @@ label{
 }
 
 .circle{
-    border-radius: 50%;
-    overflow: hidden;
+    border-radius: 50% !important;
+    overflow: hidden !important;
 }
 .boxshaded{
     box-shadow: 2px 2px 5px var(--shade); 

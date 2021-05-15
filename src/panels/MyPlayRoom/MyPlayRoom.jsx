@@ -7,9 +7,10 @@ Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';
+import { Button, Icon, Label } from 'semantic-ui-react';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
-import GuestBar from '../../components/GuestBar/GuestBar';
+import WaitingPlayer from '../../components/WaitingPlayer/WaitingPlayer';
 import CheckBox from '../../components/CheckBox/CheckBox';
 import Modal from '../../components/Modal/Modal';
 import roomService from '../../utils/roomService';
@@ -52,14 +53,14 @@ function close() {
         <TitleDiv title="MY PLAYROOM">
             <LabelDiv   className="guest-list" 
                         title="GUESTS" 
-                        height="min(30vh , 30vw)">
-            <GuestBar></GuestBar>
-            <GuestBar></GuestBar>
-            <GuestBar></GuestBar>
+                        height="30%">
+            <WaitingPlayer user={props.user}></WaitingPlayer>
+            <WaitingPlayer user={props.user}></WaitingPlayer>
+            <WaitingPlayer user={props.user}></WaitingPlayer>
             </LabelDiv>
             
             <LabelDiv   title="GAME OPTIONS" 
-                        height="60px" >
+                        height="20%" >
                 <CheckBox title="Limit time to" />
                 <input id="time-value" ></input> 
                 <span style={{  fontSize: "11px", 
@@ -80,13 +81,15 @@ function close() {
             <br />
             <br />
             <div className="bottom-stick">
-
-                <button >
-                    START GAME
-                </button>
-                <button onClick={close} >
-                    CLOSE ROOM
-                </button>
+            <Button content='CLOSE ROOM' 
+                    icon='close' 
+                    labelPosition='left' 
+                    onClick={close}
+                    className="bt" />
+            <Button content='START GAME' 
+                    icon='play' 
+                    labelPosition='left'  
+                    className="bt" />
             </div> 
         </TitleDiv>
         </>

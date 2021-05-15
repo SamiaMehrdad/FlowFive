@@ -27,8 +27,8 @@ border-right: 2px solid var(--gold);
     top: 10px;
     left: 10px;
 }
-.setting button{
- width: 25%;
+.smallbt{
+ width: 25% !important;
 }
 
 #nf-message{
