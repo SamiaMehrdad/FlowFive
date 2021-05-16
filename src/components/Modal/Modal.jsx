@@ -27,7 +27,8 @@ return(
                 <br />
                 <p className="modal-message">
                 {props.message}
-                </p>  
+                </p>
+                {props.children}  
                 <br />
                 <Button content={props.okTitle}
                         icon='check' 

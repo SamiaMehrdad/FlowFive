@@ -6,10 +6,11 @@ Custom react component.
 Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
-import React from 'react';
+import React, {useState} from 'react';
 import { Button, Icon, Label } from 'semantic-ui-react';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
+import Messenger from '../../components/Messenger/Messenger';
 import WaitingPlayer from '../../components/WaitingPlayer/WaitingPlayer';
 import CheckBox from '../../components/CheckBox/CheckBox';
 import Modal from '../../components/Modal/Modal';
@@ -19,38 +20,45 @@ import './MyPlayRoom.css';
 
 export default function MyPlayRoom(props){
 
-    const [modal, setModal] = React.useState(false);
-//----------------------------------------------
-function modalCancel() {
-    console.log("Modal cancelled");
-    setModal(false);
-} 
+    const [modal1, setModal1] = useState(false);
+    const [modal2, setModal2] = useState(false);
+    const [players, setPlayers] = useState(1);
+    
 //----------------------------------------------
 function modalOk() {
-    setModal(false)
+    setModal1(false)
     roomService.close(props.user);  
     props.showPage("HomeLeft",""); 
 }   
-//----------------------------------------------
-function close() { 
- setModal(true);  
- //---------------------------------------------
-}  
+
     return(  
         <>  
-        {modal ?     
+        {modal1 ?     
                 <Modal  title="CLOSING PLAYROOM WARNING"
                         width="30vw"
                         message=" This will close your private play room and kick out 
                                 any guest from it. Are you sure to proceed?"
                          onOk={modalOk}
-                         onCancel={modalCancel}
+                         onCancel={()=>setModal1(false)}
                          okTitle="CLOSE ANYWAY"
                          cancelTitle="NO! CANCEL"
                         /> 
                : null          
         }
+        {modal2 ?     
+                <Modal  title="GUEST ACTION"
+                        width="50vw"
+                        message=" bla bla bla"
+                        onOk={()=>setModal2(false)}
+                        okTitle="CLOSE"
+                        > 
+                        <p>TST</p>
+                </Modal>        
+               : null          
+        }
         <TitleDiv title="MY PLAYROOM">
+            <Messenger />
+           
             <LabelDiv   className="guest-list" 
                         title="GUESTS" 
                         height="30%">
@@ -84,11 +92,12 @@ function close() {
             <Button content='CLOSE ROOM' 
                     icon='close' 
                     labelPosition='left' 
-                    onClick={close}
+                    onClick={()=>setModal1(true)}
                     className="bt" />
-            <Button content='START GAME' 
+            <Button content={`START GAME - ${players+1}`} 
                     icon='play' 
-                    labelPosition='left'  
+                    labelPosition='left'
+                    onClick={()=>setModal2(true)}  
                     className="bt" />
             </div> 
         </TitleDiv>
