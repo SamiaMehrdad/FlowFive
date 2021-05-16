@@ -7,6 +7,7 @@ Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React, { useState, } from 'react';
+import { Button, Icon } from 'semantic-ui-react';
 import GameBoard from '../../components/GameBoard/GameBoard';
 import gameEngine from '../../utils/gameEngine.js';
 import './Practice.css';
@@ -52,14 +53,13 @@ function close(){
 //-------------------------------------------
     return (
     <div className="help-container">
-        <close       className="close-icon large-icon" 
-                    onClick={close} />
-        <button     className="round-edge"
-                    id="trybtn" 
-                    onClick={shuffle}>
-        TRY
-        </button>
-
+        <p  className="close-icon large-icon" 
+            onClick={close} />
+        <Button circular
+                icon='shuffle'
+                onClick={shuffle}
+                id="trybtn"   
+                className="bt " />                
         <GameBoard  board={board} 
                     activePiece={active} 
                     pieceMovedTo={pieceMovedTo} 

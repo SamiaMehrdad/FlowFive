@@ -109,19 +109,19 @@ function refreshFriends( newFriends ) {
 
         <div className="bottom-stick setting">
             <Button content='CLOSE' 
-                    icon='play' 
+                    icon='x' 
                     labelPosition='left'
                     onClick={()=>props.showPage("HomeLeft")} 
                     data-tip
                     data-for="close-tip"  
                     className="bt smallbt" />
             <Button content='SECURITY' 
-                    icon='play' 
+                    icon='key' 
                     labelPosition='left'  
                     className="bt blue smallbt" />
             <Button content='LOG OUT!'
                     onClick={ logout } 
-                    icon='play' 
+                    icon='sign-out' 
                     labelPosition='left'  
                     className="bt smallbt" />
 

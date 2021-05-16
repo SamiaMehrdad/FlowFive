@@ -6,6 +6,7 @@ Custom react component.
 Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 import React, {useState, useRef, useEffect } from 'react';
+import { Button } from 'semantic-ui-react';
 import './Signup.css';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { useForm } from '../../hooks/useForm';
@@ -89,12 +90,18 @@ export default function SignUpPage(props){
                 required
               />
             <br /><br/>
-            <button
+            <Button content='SIGN ME UP' 
+                  icon='check' 
+                  labelPosition='left'
+                  type="submit"
+                  disabled={invalidForm}   
+                  className="bt green" />            
+            {/* <button
               type="submit"
               disabled={invalidForm}
             >
               SIGN ME UP
-            </button>
+            </button> */}
           </form>
 
   </TitleDiv>

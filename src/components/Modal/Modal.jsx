@@ -7,6 +7,7 @@ Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 
 import './Modal.css';
@@ -27,10 +28,19 @@ return(
                 <p className="modal-message">
                 {props.message}
                 </p>  
-                <br />         
-                <button onClick={props.onOk}>{props.okTitle}</button>
+                <br />
+                <Button content={props.okTitle}
+                        icon='check' 
+                        labelPosition='left'
+                        onClick={props.onOk}   
+                        className="bt" />         
+                {/* <button onClick={props.onOk}>{props.okTitle}</button> */}
                 {props.cancelTitle ? 
-                    <button onClick={props.onCancel}>{props.cancelTitle}</button>
+                    <Button content={props.cancelTitle}
+                            icon='undo' 
+                            labelPosition='left'
+                            onClick={props.onCancel}   
+                            className="bt" /> 
                  : null }   
                 <br />
                 <br />

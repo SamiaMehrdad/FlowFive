@@ -6,6 +6,7 @@ Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 
 import React, { useRef } from 'react';
+import { Button } from 'semantic-ui-react';
 import './GetEmail.css';
 import { useForm } from '../../hooks/useForm';
 import userService from '../../utils/userService';
@@ -60,25 +61,27 @@ export default function GetEmail(props){
                     autoFocus
                     required
                 />
-                <button 
+                <Button
+                    id="submitButton"
+                    content="NEXT"
                     type="submit" 
-                    className="green noshade round-edge"
-                    id="submitButton">
-                NEXT
-                </button>
-            </form>
+                    icon='arrow circle right'
+                    labelPosition='left'
+                    className="bt green short" />            
 
-            <button   
-                    onClick={OAuth} 
-                    className="blue noshade" >
-            LOG IN BY Google
-            </button>
-<br />
-            <button 
-                    className="noshade gray" 
-                    onClick={playUnknown}>
-            PLAY UNKNOWN
-            </button>
+            </form>
+            <Button content='LOG IN BY GOOGLE' 
+                    icon='google' 
+                    labelPosition='left'
+                    onClick={OAuth}   
+                    className="bt blue" />
+            <br/>        
+            <Button content='PLAY RANDOM' 
+                    icon='spy' 
+                    labelPosition='left'
+                    onClick={playUnknown}   
+                    className="bt " />
+
         </div>
     );
 };

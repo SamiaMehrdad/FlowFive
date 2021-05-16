@@ -11,12 +11,12 @@
     top: 0;
     position: relative;
     margin: 0;
-    padding: .5vh 4vh .5vh 1vh;
+    padding: .4vh 4vh .4vh 1vh;
     /* padding: 1px 30px 3px 8px; */
     border-radius: 5px 5px 0 0 ;
     min-width: 20%;
     /* font-size: 11px; */
-    font-size: 1.9vh;
+    font-size: 1.7vh;
 }
 
 .labeldiv-inner{

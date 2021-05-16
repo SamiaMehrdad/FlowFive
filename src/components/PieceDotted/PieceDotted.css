@@ -1,15 +1,15 @@
 .piece-face{
     border-radius: 50%;
-    width: 40%;
-    height: 35%;
+    width: 50%;
+    height: 50%;
     font-size: 2.6vh;
-    margin: 18% auto;
-    padding: 15% 4% 5% 4%;
+    margin: 20% auto;
     border: 2px solid var(--back);
-    display: inline-block;
+    display: flex;
     z-index: 100;
-    text-align: center;
-    color: #000;
+    color: #222;
+    align-items: center;
+    justify-content: center;
 }
 
 .hide{

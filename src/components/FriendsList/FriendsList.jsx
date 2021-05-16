@@ -8,6 +8,7 @@ Developed by: Mehrdad Samia - 2021
 
 import React , { useState, } from 'react';
 import Tooltip from 'react-tooltip';
+import { Button } from 'semantic-ui-react';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import FriendBar from '../../components/FriendBar/FriendBar';
 import AddFriend from '../../components/AddFriend/AddFriend';
@@ -37,12 +38,13 @@ export default function FriendsList(props){
       : <p id='nf-message'>You have no friends in list. Add some!</p>
     }
     </LabelDiv>
-    <button className="add-friend circle"
-            data-tip
-            data-for="add-tip"
-            onClick={()=>setSearchBox(true)}>
-        +
-    </button>
+      <Button
+          id="btplus"
+          icon='plus'
+          data-tip
+          data-for="add-tip"
+          onClick={()=>setSearchBox(true)}  
+          className="bt circle" /> 
     {searchBox? 
       <div id="search-add" className="card lighted">
         <close  className="close-icon"

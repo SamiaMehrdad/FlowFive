@@ -15,15 +15,15 @@
     font-size: clamp( 8px , min(1.9vw , 1.9vh) , 20px );
 }
 #back a{
-    font-size: clamp( 7px , min(1.5vw , 1.5vh) , 18px );
+    font-size: 1.5vh;
     color: #599;
     margin: 0 0 0 7vw;
 }
 #welcome{
     color: #fff;
-    font-size: clamp( 10px , min(1.9vw , 1.9vh) , 24px );
-    padding: 0 5%;
+    font-size: 1.8vh;
+    padding: 0 3%;
 }
-#submitButton{
+/* #submitButton{
     width: clamp(60px , min(8vh , 8vw) , 300px);
-}
+} */

@@ -1,13 +1,22 @@
 
-.closing{
-    bottom: 3px;
+#closing{
+    position: absolute;
+    top: -1vh;
+    right: 5px;
+    width: 6vh !important;
+    height: 6vh !important;
+    background: none !important;
+    font-size: 3vh !important;
+    color: var(--gold) !important;
 }
 
 #trybtn{
-
-    z-index: 500;
-    position: absolute;
-    width: clamp( 30px, min(10vh , 10vw) , 100px);
-    right: 1vh;
-    bottom: 2vh;
+z-index: 500;
+position: absolute;
+width: 6vh !important;
+height: 6vh !important;
+border-radius: 50% !important;
+font-size: 2vh !important;
+right: 1vh;
+bottom: 1vh;
 }

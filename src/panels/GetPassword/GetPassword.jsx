@@ -7,7 +7,7 @@ Developed by: Mehrdad Samia - 2021
 
 import React, { useState, useRef } from 'react';
 // import './GetPassword.css';
-
+import { Button } from 'semantic-ui-react';
 import userService from '../../utils/userService';
 
 export default function GetPassword(props){
@@ -76,16 +76,17 @@ and needs a page reload to show current one! */
                 
                 <a href=" test " >Forgot password</a>
                 <br/>
-                <button type="submit" 
-                        className="green noshade">
-                SIGN IN
-                </button>
-            </form>
- 
-            <button className="noshade gray " 
-                    onClick={goBack}>
-            BACK
-            </button>
+                <Button content='SIGN IN' 
+                        icon='sign in' 
+                        labelPosition='left'
+                        type="submit"   
+                        className="bt green" />   
+            </form>             
+                <Button content='BACK' 
+                        icon='arrow circle left' 
+                        labelPosition='left'
+                        onClick={goBack}   
+                        className="bt" /> 
         </div>
     );
 };

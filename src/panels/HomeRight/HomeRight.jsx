@@ -32,7 +32,7 @@ export default function HomeRight(props){
                onClick={showRules}   
                className="bt" />
       <Button content='PRACTICE' 
-               icon='info' 
+               icon='thumbs up' 
                labelPosition='left'
                onClick={randomPlay}   
                className="bt" />
