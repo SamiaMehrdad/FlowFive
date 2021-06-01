@@ -19,8 +19,8 @@
 }
 .side{
     top: 9vh;
-    width: 3vh;
-    /* height: 40vh; */
+    width: .1vh;
+    letter-spacing: 0;
 }
 #left-index{
     left: 5vh;

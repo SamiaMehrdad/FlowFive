@@ -6,11 +6,11 @@ Custom react component.
  Parent: App
 Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import socketIOClient from "socket.io-client";
 import publicIp from 'public-ip';
 //import userService from '../../utils/userService'
-
+/// import all PAGE components 
 import ActiveRound from '../../panels/ActiveRound/ActiveRound';
 import GetEmail from "../../panels/GetEmail/GetEmail";
 import GetPassword from "../../panels/GetPassword/GetPassword";
@@ -52,10 +52,27 @@ const PAGES= {
 
 
 export default function FlowFivePage(props){
+
+  // study test for IPs
  (async () => {
 	console.log(await publicIp.v4());
 	//=> '46.5.21.123'
 })();
+
+  //--- Socket.io ------------------
+  const [ioMessage, setIoMessage] = useState("");
+
+  useEffect(() => {
+    const socket = socketIOClient();
+
+    socket.on("FromAPI", data =>{
+      setIoMessage( data );
+    })
+    // return () => {
+    //   cleanup
+    // }
+  }, []);
+
   //--- Main navigation process ------------------------------------------
   // use right and left state hooks + navigate function ( lifted state from children)
   // each children should lift up with shoePage( left , right )

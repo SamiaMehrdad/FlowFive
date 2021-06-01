@@ -1,0 +1,19 @@
+.games{
+    height: 4vh;
+    top: calc( 25px + 30vh);
+    right: 3vh;
+    position: absolute;
+
+}
+
+.games-bt{
+  font-Size: 1.6vh !important;
+  padding: .4vh .8vh !important;
+  border-right: 1px solid #fff !important;
+  opacity: .6;
+}
+
+.games-bt:target{
+border: 1px solid red;
+}
+

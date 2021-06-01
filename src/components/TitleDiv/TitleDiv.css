@@ -2,13 +2,15 @@
     border-bottom: 1px solid var(--gold);
     color: #fff;
     background-color: var(--light);
-    padding: 5px;
     font-size:  2vh;
-    height: 5%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .title-container{
     background-color: var(--mid);
     border : 1px solid var(--gold);
     margin: 0 auto;
-    height: calc(96% - 11px);
+    height: 93%;
 }

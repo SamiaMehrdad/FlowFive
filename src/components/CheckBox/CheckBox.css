@@ -1,20 +1,19 @@
 .check-container{
-    display: inline;
-    margin: 1px 5px;
-}
-.check-label{
-    font-size: 11px;
-    vertical-align: text-top;
-}
-.check{
-    margin: 2px;
-    min-width: 14px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 2vh;
+    margin: 1vh 0;
 }
 
-#time-value{
-    height: 14px;
-    width: 40px;
-    margin: -20px 0 0 0;
-    top: -4px;
-    position: relative;
+.check-label{
+ cursor: pointer;
 }
+
+.check-label:hover{
+ color: #ddd;  
+}
+
+input[type="checkbox"]:hover ~ .check-label{
+ color: #ddd;
+}
+

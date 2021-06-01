@@ -6,7 +6,7 @@ body{
     --green: rgba(0,100,0,.3);
     --light: rgba(255,255,255,.4);
     --mid: rgba(255,255,255,.3);
-    --back: rgba(90,110,110,.4);
+    --back: rgba(100,100,100,.4);
     --dark: rgba(0,0,0,.5);
     --gold: rgba(255,225,0,.7);
     --blue: rgba(0,100,255,.3);
@@ -16,7 +16,7 @@ body{
     --button: rgba(255,255,255,.2);
     background-color: var(--back);
     /* Un-comment this section for background check*/
-    background-image: url("../../test.jpg") ;
+    background-image: url("../../test14.jpg") ;
     background-position: center;
     background-size: cover;
     background-color: var(--back);
@@ -31,7 +31,20 @@ body{
     padding: 0;
 }
 
+input[type="checkbox"]{
+    margin: .5vh;
+    width: 1.2vh;
+    height: 1.2vh;
+    cursor: pointer;
 
+    -webkit-appearance: none;
+	background-color: var(-soft-shade);
+	border-radius: 50%;
+}
+input[type="checkbox"]:checked{
+    background-color: var(--gold) ;
+    box-shadow: 0 0 6px 3px var(--gold);  
+}
 .scrollable {
     overflow-y: scroll;
     scrollbar-width: 1vh;
@@ -146,7 +159,7 @@ button:active{
     /* transition: all ease .3s !important; */
     border-right: 1px solid var(--edge) !important;
     border-left: 1px solid var(--edge) !important;
-    /* backdrop-filter: blur(1px) !important; */
+    backdrop-filter: blur(1px) !important;
     text-shadow: 1px 1px 1px rgba(0,0,0,.7) !important;
 }
 .bt:hover{

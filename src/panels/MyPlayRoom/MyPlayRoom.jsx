@@ -11,8 +11,10 @@ import { Button, Icon, Label } from 'semantic-ui-react';
 import TitleDiv from '../../components/TitleDiv/TitleDiv';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import Messenger from '../../components/Messenger/Messenger';
+import GoptionFF from '../../components/GoptionFF/GoptionFF';
+import GoptionP from '../../components/GoptionP/GoptionP';
+import GoptionFV from '../../components/GoptionFV/GoptionFV';
 import WaitingPlayer from '../../components/WaitingPlayer/WaitingPlayer';
-import CheckBox from '../../components/CheckBox/CheckBox';
 import Modal from '../../components/Modal/Modal';
 import roomService from '../../utils/roomService';
 
@@ -23,6 +25,7 @@ export default function MyPlayRoom(props){
     const [modal1, setModal1] = useState(false);
     const [modal2, setModal2] = useState(false);
     const [players, setPlayers] = useState(1);
+    const [gameType, setGameType] = useState('FlowFive');
     
 //----------------------------------------------
 function modalOk() {
@@ -57,37 +60,49 @@ function modalOk() {
                : null          
         }
         <TitleDiv title="MY PLAYROOM">
-            <Messenger />
-           
+        {/* NOTE: CSS id selector is not targeting!! */}
+            <Messenger  width="70%"
+                        top="6.5vh"
+                        right="2vh" /> 
+           <br />
             <LabelDiv   className="guest-list" 
                         title="GUESTS" 
-                        height="30%">
+                        height="40%">
             <WaitingPlayer user={props.user}></WaitingPlayer>
             <WaitingPlayer user={props.user}></WaitingPlayer>
             <WaitingPlayer user={props.user}></WaitingPlayer>
             </LabelDiv>
-            
+            {/* <div > */}
+            <Button.Group className="games"  >
+                <Button content = "FlowFive" 
+                        className="games-bt" 
+                        style={{color: 'green', }} 
+                        onClick={()=>setGameType('FlowFive')}/>
+                <Button content = "PENTRATEGY" 
+                        className="games-bt" 
+                        style={{color: 'CornflowerBlue', }} 
+                        onClick={()=>setGameType('PENTRATEGY')}/>
+                <Button content="Four's Vigor"
+                        className="games-bt" 
+                        style={{color: 'DarkSlateGray', }} 
+                        onClick={()=>setGameType('FoursVigor')}>
+                        
+                </Button>
+                <Button content = "•••" className="games-bt" />
+            </Button.Group>
+            {/* </div> */}
             <LabelDiv   title="GAME OPTIONS" 
-                        height="20%" >
-                <CheckBox title="Limit time to" />
-                <input id="time-value" ></input> 
-                <span style={{  fontSize: "11px", 
-                                position: "relative",
-                                top: "-5px"}}> 
-                                 Seconds       
-                </span>
-                <CheckBox title="Play BLIND mode" />
-                <br />
-                <CheckBox title="Player loses if time goes out           " />
-                <CheckBox title="Play TRADING mode" />
+                        height="50%" >
+                {gameType === "FlowFive" ?
+                <GoptionFF />
+                : null }
+                {gameType === "PENTRATEGY" ?
+                <GoptionP />
+                : null }
+                {gameType === "FoursVigor" ?
+                <GoptionFV />
+                : null }
             </LabelDiv>
-            <br />
-            <LabelDiv   title="ROOM MESSAGE" 
-                        height="30px">
-                <input className="full-length"></input>
-            </LabelDiv>
-            <br />
-            <br />
             <div className="bottom-stick">
             <Button content='CLOSE ROOM' 
                     icon='close' 
