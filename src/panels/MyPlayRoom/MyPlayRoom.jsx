@@ -30,7 +30,7 @@ export default function MyPlayRoom(props){
 //----------------------------------------------
 function modalOk() {
     setModal1(false)
-    roomService.close(props.user);  
+    roomService.close(props.user, props.socket);  
     props.showPage("HomeLeft",""); 
 }   
 

@@ -1,6 +1,6 @@
 import userService from "./userService";
 const BASE_URL = '/api/rooms/';
-
+const ROOMPREFIX = "☺•";
 
 //----------------------------------------
 function getRoomOwner( roomId ) {
@@ -48,15 +48,18 @@ function leave() {
 }
 
 //----------------------------------------
-function open( userId ) {
-//console.log('MSK --> open room for ', userId);
-apiPost('open' , userId );
+function open( user, socket ) {
+//console.log('MSK --> open room for ', uid);
+socket.emit("◙join", {player: user._id, room:`r${ROOMPREFIX}${user._id}`});
+apiPost('open' , user );
 }
 
 //----------------------------------------
-function close( userId ) {
+function close( user, socket ) {
+socket.emit("◙leave", {player: user._id, room:`r${ROOMPREFIX}${user._id}`});
+// socket.off(); 
 //console.log('MSK --> close room for ', userId.);
-apiPost('close' , userId );
+apiPost('close' , user );
 }
 //----------------------------------------
 

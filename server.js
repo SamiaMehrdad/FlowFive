@@ -37,27 +37,37 @@ app.get('/*', function(req, res) {
 });
 
 ///TODO: refactor these sockets ---------------------------------------------
+const callBack = msg =>{
+  console.log(msg);
+}
 io.on('connection', socket => {
-  console.log("New WS connection ...");
+  console.log("New WS connection -----> ID=" , socket.id);
+  console.log(`------------------> Assurance: socket.id = ${socket.id}`);
+  socket.on('◙join', ({player, room}, callBack) => {
+    // call fallBack and return in case of error detecting
+    console.log(`------------------> Joining ${player} to ${room} `);
+    console.log(`------------------> Assurance: socket.id = ${socket.id}`);
+    socket.join(room);
+    // usage: emit('message , payload) exaples:
+    // socket.emit("message", {user: "admin", text: "message from admin to user of this socket"});
+    // socket.broadcast.to(room).emit("message", {user: "admin", text: "message from admin to all other users in room"});
+  });
+  socket.on('◙leave', ({player, room}, callBack) => {
+    console.log(`------------------> Leaving ${player} from ${room} `);
+    console.log(`------------------> Assurance: socket.id = ${socket.id}`);
+    socket.leave(room);    
+  });
+  socket.on('disconnect', () => {
+    console.log("WS disconnected ------> ID=" , socket.id);
+  });
 });
-// handle incoming connections from clients
-roomServer.sockets.on('connection', socket => {
-    // once a client has connected, we expect to get a ping from them 
-    // saying what room they want to join
-    socket.on('room', room => {
-        console.log("New Room connection ...");
-        socket.join(room);
-    });
-});
-// now, it's easy to send a message to just the clients in a given room
-let room = "abc123";
-roomServer.sockets.in(room).emit('message', 'what is going on, party people?');
+
 
 ///TODO: till here -----------------------------------------------------------------
 
 const port = process.env.PORT || 3001;
 
 // change from app.listen to server.listen for socket.io working
-server.listen(port, function() {
+server.listen(port, () => {
   console.log(`Express app listening on port ${port}`);
 });

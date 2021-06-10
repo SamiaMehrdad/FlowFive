@@ -1,0 +1,24 @@
+.message{
+  height: 3.5vh;
+  padding: 0;
+  /* margin: 0 2vh; */
+  position: absolute;
+  overflow: hidden;
+}
+
+.message input{
+  float: left;
+  height: 3vh;
+  background: none;
+  border: none;
+  /* border-bottom: 1px solid var(--light); */
+  margin-top: -.02vh;
+  width: 90%;
+}
+
+.message Button{
+  width: 5vh !important;
+  position: absolute;
+  right: -1vh;
+  top: -1vh;
+}

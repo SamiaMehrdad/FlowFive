@@ -1,0 +1,19 @@
+#tVal{
+  height: 2.5vh;
+  width: 4vh;
+  margin: 1vh;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  padding: .8vh;
+}
+
+.FFwrap{
+  display: grid;    
+  grid-template-columns: 1fr 1fr;
+  gap: 2%;
+  padding: 3% 0 0 10%;
+}
+
+#time-container{
+  display: inline;
+}

@@ -54,7 +54,7 @@ export default function HomeLeft(props){
 
     function openPlayRoom() {
        // props.showPage("MakeInvitation","");
-       roomService.open(props.user);
+       roomService.open(props.user, props.socket);
        props.showPage("MyPlayRoom");
     }
 

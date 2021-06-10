@@ -7,7 +7,7 @@ Custom react component.
 Developed by: Mehrdad Samia - 2021
 ----------------------------------*/
 import React, { useState, useEffect } from 'react';
-import socketIOClient from "socket.io-client";
+import io from "socket.io-client";
 import publicIp from 'public-ip';
 //import userService from '../../utils/userService'
 /// import all PAGE components 
@@ -50,28 +50,41 @@ const PAGES= {
   ViewInvitation: ViewInvitation ,
 };
 
+// const ROOMPREFIX = "☺•";
+const socket = io()
 
 export default function FlowFivePage(props){
 
   // study test for IPs
- (async () => {
-	console.log(await publicIp.v4());
-	//=> '46.5.21.123'
-})();
+  // it should be used in try-catch because of frequent errors
+//  (async () => {
+// 	console.log(await publicIp.v4());
+// 	//=> '46.5.21.123'
+// })();
 
   //--- Socket.io ------------------
   const [ioMessage, setIoMessage] = useState("");
+  //const [ioName, setIoName] = useState("testUser");
 
-  useEffect(() => {
-    const socket = socketIOClient();
+  // const [room, setRoom] = useState("testRoom");
 
-    socket.on("FromAPI", data =>{
-      setIoMessage( data );
-    })
+  // useEffect(() => {
+    
+    // console.log("SOCKET INIT : ", socket);
+    // if ( props.user )
+    //   socket.emit("◙join", {player: props.user._id, room: `r${ROOMPREFIX}${props.user._id}`}); // test. 47:34 https://www.youtube.com/watch?v=ZwFA3YMfkoc
+
+    // socket.on("FromAPI", data =>{
+    //   setIoMessage( data );
+    // });
+
+
     // return () => {
-    //   cleanup
+      // cleanup
+      // socket.emit("◙disconnect");
+      // socket.off();
     // }
-  }, []);
+  // }, []);
 
   //--- Main navigation process ------------------------------------------
   // use right and left state hooks + navigate function ( lifted state from children)
@@ -85,7 +98,8 @@ export default function FlowFivePage(props){
     const [leftNav, setLeftNav] = useState( props.user ?
                                             <HomeLeft 
                                             user={props.user} 
-                                            showPage={showPage}/>
+                                            showPage={showPage}
+                                            socket={socket} />
                                             :
                                             <GetEmail
                                             showPage={showPage} />
@@ -106,7 +120,8 @@ export default function FlowFivePage(props){
                                 showPage={showPage} 
                                 temp={temp} 
                                 handleLogout={props.handleLogout} 
-                                handleSignUpOrLogin={props.handleSignUpOrLogin} 
+                                handleSignUpOrLogin={props.handleSignUpOrLogin}
+                                socket={socket}
                                 /> );
     }
     if( right )
@@ -117,7 +132,8 @@ export default function FlowFivePage(props){
                                 showPage={showPage} 
                                 temp={temp}
                                 handleLogout={props.handleLogout}  
-                                handleSignUpOrLogin={props.handleSignUpOrLogin}  
+                                handleSignUpOrLogin={props.handleSignUpOrLogin}
+                                socket={socket}   
                                 /> );
     }
   }
