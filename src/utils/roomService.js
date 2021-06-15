@@ -18,29 +18,30 @@ const ROOMPREFIX = "☺•";
 function getOpenRooms(uid) {
    return apiGet('getRooms', {uid});
 }
-//----------------------------------------
-function getAll( uid ) {
 
-    return fetch (BASE_URL + 'getAll' , {
-        method: 'GET',
-        headers: new Headers({'Content-Type': 'application/json'}),
-        body: JSON.stringify(uid)
-    }) .then (res => {
-        console.log("res --> ",res.jason());
-        });
-}
+//----------------------------------------
+
 //----------------------------------------
 function join( user, hostUser, socket ) {
 // send a socket join requst message to server
-socket.emit("◙join", {player: user._id, room:`r${ROOMPREFIX}${hostUser._id}`});
+socket.emit("◙join", 
+            { player: user._id, 
+              room:`r${ROOMPREFIX}${hostUser._id}`,
+            } );
 if(user._id !== hostUser._id) // call server to add user to room if it is not host
-  apiPost('join',{user, hostUser});
+  apiPost('join',
+          { uid: user._id, 
+            hid: hostUser._id,
+          } );
 }
 
 //----------------------------------------
 function leave(user, hostUser, socket) {
 // send a socket leave requst message to server
-socket.emit("◙leave", {player: user._id, room:`r${ROOMPREFIX}${hostUser._id}`});
+socket.emit("◙leave", 
+            { player: user._id, 
+              room:`r${ROOMPREFIX}${hostUser._id}`,
+            } );
 }
 
 //----------------------------------------
@@ -48,7 +49,7 @@ function open( user, socket ) {
 //console.log('MSK --> open room for ', uid);
 
 join( user, user, socket ); // join user to his own room
-apiPost('open' , user ); // server: set room status to open
+apiPost('open' , {uid: user._id} ); // server: set room status to open
 }
 
 //----------------------------------------
@@ -56,7 +57,7 @@ function close( user, socket ) {
 
 leave( user, user, socket ); // kick out user from his own room
 //console.log('MSK --> close room for ', uid.);
-apiPost('close' , user ); // server: kick out all guests and set room status to close
+apiPost('close' , {uid: user._id} ); // server: kick out all guests and set room status to close
 }
 //----------------------------------------
 
@@ -96,7 +97,6 @@ export default {
   getOpenRooms,
   // getRoomOwner, 
   // getRoomId,
-  getAll, // get all open rooms of my friends
   join,   // user join a room
   leave,  // luser leave an open room
   open,   // owner open and join the room

@@ -20,6 +20,7 @@ export default function HomeLeft(props){
 
     const[ openRooms, setOpenRooms ] = useState([]);
     //if( !props.user ) window.location.reload();
+
     async function  getOpenRooms() {
             let opens = await roomService.getOpenRooms( props.user._id );
             if( opens )
@@ -34,37 +35,45 @@ export default function HomeLeft(props){
                         message: room.message,
                         status: room.status,
                         id: room._id,
+                        owner: owners[index],
                     } );
             });
             setOpenRooms([...bars]);
             console.log("GETTING OPEN ROOMS BARS: ",bars );
-        
+            }
     }
-    }
- 
+
+    //---------------------------------
     useEffect( () => {
         getOpenRooms();
         let timer = setInterval( async () => { getOpenRooms();   
-                    }, 10000 );
+        }, 10000 );
         return () => {
             clearInterval( timer );
         }
     }, [] );
     
-
+    
+    //---------------------------------
     function openPlayRoom() {
-       // props.showPage("MakeInvitation","");
-       roomService.open(props.user, props.socket);
-       props.showPage("MyPlayRoom");
+        // props.showPage("MakeInvitation","");
+        roomService.open(props.user, props.socket);
+        props.showPage("MyPlayRoom");
     }
-
+    
+    //---------------------------------
     function goSetting() {
         props.showPage("MySettings","");
     }
-
-
-    function goToPlayRoom() {
-        props.showPage('ActiveRound','Play');
+    
+    ///TODO: error on joining to room workflow, runs without clicking 
+    ///TODO: check if sending just id is better
+    //---------------------------------
+    function goToPlayRoom(owner) {
+       // if(openRoom.status === 'open')
+        //props.showPage('ActiveRound','Play'); //test
+            console.log("join to "+owner.nickName);
+      //  roomService.join()
     }
 
 
@@ -90,8 +99,8 @@ export default function HomeLeft(props){
                         height="80%">
                 {openRooms?
                 openRooms.map( openRoom =>         
-                <RoomBar  bar={openRoom} 
-                            onClick={goToPlayRoom}
+                <RoomBar    bar={openRoom} 
+                            onClick={goToPlayRoom(openRoom.owner)}
                             buttonLabel = {openRoom.status === 'open'?
                                             "JOIN"
                                           : "WATCH" }    
