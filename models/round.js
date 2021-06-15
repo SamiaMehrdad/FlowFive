@@ -20,10 +20,10 @@ const roundSchema = new mongoose.Schema({
  // players:  [{ type: mongoose.Types.ObjectId, ref:"User"}],
  // players are host quests
   timer:   { type: Number, default: 0 },
-  game: { type: String, default: "FlowFive" },
   blindMode: { type: Boolean, default: false },
   tradeMode: { type: Boolean, default: false },
   isActive: { type: Boolean, default: false },
+  players: [{ type: mongoose.Types.ObjectId, ref:"User"}],
   winner: { type: mongoose.Types.ObjectId, ref:"User"},
   moves: [{ type: mongoose.Types.ObjectId, ref:"Move"}],
 }, {

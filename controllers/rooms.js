@@ -40,7 +40,22 @@ res.send({ response: "I am alive" }).status(200);
 //----------------------------------
 function join(req, res)
 {
-console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+  const guestId = req.body.user._id;
+  const hostId = req.body.hostUser._id;
+  console.log("****** "+guestId+" JOINED TO ROOM OF "+hostId);
+ // console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/function ([^\(]+)/)[1]);
+ try{ 
+ Room.updateOne({owner: hostId},
+                {guests: guestId},
+                {upsert: true, setDefaultsOnInsert: true},
+                rm => { res.status(500)}
+  //{ $addToSet: {guests: guestId}}
+  );
+ }catch(err){
+  console.log(err)
+  return res.status(401).json(err);
+}
+
 }
 
 //-------------------------------
@@ -50,11 +65,12 @@ console.log ("HIT FROM -------> function ", arguments.callee.toString().match(/f
 }
 
 //---------------------------------------
-// Start a new Round belongs to this Room
+// Set room status to 'open'
 //---------------------------------------
  function open(req, res)
 {
-  console.log("Opening room for Uid = ", req.body._id);
+ // console.log("Opening room for Uid = ", req.body._id);
+ // 
 try {
     Room.updateOne({owner: req.body._id},{status: 'open'} ,{upsert: true, setDefaultsOnInsert: true},
     rm => { res.status(500)});
@@ -72,8 +88,9 @@ try {
 //---------------------------------------
 function close(req, res)
 {
+  // close room and empty guests array
 try {
-    Room.updateOne({owner: req.body._id},{status: 'close'} ,{upsert: true, setDefaultsOnInsert: true},
+    Room.updateOne({owner: req.body._id},{status: 'close', guests: null} ,{upsert: true, setDefaultsOnInsert: true},
     rm => { res.status(500)});
 
   } catch(err){
@@ -87,7 +104,8 @@ try {
 async function getOpenRooms(req, res) {
   try{
   const friends = await User.find({_id: req.body.uid}, 'friends');
-  console.log("#### GET ALL FRIEND TO --->", req.body, friends[0].friends);
+  // console.log("#### GET ALL FRIEND TO --->", req.body, friends[0].friends);
+  console.log("Get open rooms...");
   const rooms = await Room.find( {owner: {$in: friends[0].friends}, status: { $nin: 'close' } } );
    // this got lots of time :-(
    // MongoDB will not return TODO

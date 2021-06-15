@@ -13,7 +13,7 @@ const path = require('path');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
 const usersCtrl = require('./controllers/users');
-
+const roomsCtrl = require('./controllers/rooms');
 require('./config/database');
 
 // Require controllers here
@@ -37,25 +37,23 @@ app.get('/*', function(req, res) {
 });
 
 ///TODO: refactor these sockets ---------------------------------------------
-const callBack = msg =>{
-  console.log(msg);
+const msg = msg =>{
+  console.log("------------------>"+msg);
 }
+
 io.on('connection', socket => {
   console.log("New WS connection -----> ID=" , socket.id);
   console.log(`------------------> Assurance: socket.id = ${socket.id}`);
-  socket.on('◙join', ({player, room}, callBack) => {
-    // call fallBack and return in case of error detecting
-    console.log(`------------------> Joining ${player} to ${room} `);
-    console.log(`------------------> Assurance: socket.id = ${socket.id}`);
+  socket.on('◙join', ({player, room}) => {
     socket.join(room);
-    // usage: emit('message , payload) exaples:
+    msg(`Joining ${player} to ${room} , Assurance: socket.id = ${socket.id}` );
+    // usage: emit('message , payload) examples:
     // socket.emit("message", {user: "admin", text: "message from admin to user of this socket"});
     // socket.broadcast.to(room).emit("message", {user: "admin", text: "message from admin to all other users in room"});
   });
-  socket.on('◙leave', ({player, room}, callBack) => {
-    console.log(`------------------> Leaving ${player} from ${room} `);
-    console.log(`------------------> Assurance: socket.id = ${socket.id}`);
+  socket.on('◙leave', ({player, room}) => {
     socket.leave(room);    
+    msg(`Leaving ${player} from ${room} , Assurance: socket.id = ${socket.id}` );
   });
   socket.on('disconnect', () => {
     console.log("WS disconnected ------> ID=" , socket.id);

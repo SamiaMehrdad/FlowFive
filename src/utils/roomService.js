@@ -1,70 +1,67 @@
+// socket is stablished in FlowFivePage.jsx and pass here as a function parameter
+// 
 import userService from "./userService";
 const BASE_URL = '/api/rooms/';
 const ROOMPREFIX = "☺•";
 
 //----------------------------------------
-function getRoomOwner( roomId ) {
+// function getRoomOwner( roomId ) {
     
-}
+// }
 
 //----------------------------------------
-function getRoomId( userId ) {
+// function getRoomId( uid ) {
     
-}
+// }
 
 //----------------------------------------
 function getOpenRooms(uid) {
    return apiGet('getRooms', {uid});
-  // return fetch(BASE_URL + 'getRooms', {
-  //   method: 'POST',
-  //   headers: new Headers({'Content-Type': 'application/json'}),
-  //   body: JSON.stringify({uid})
-  // })
-  // .then( res => {
-  //   if (res.ok) 
-  //     return res.json();
-  //   console.log("ERROR: ", res[0]);
-  // }) 
 }
 //----------------------------------------
-function getAll( userId ) {
+function getAll( uid ) {
 
     return fetch (BASE_URL + 'getAll' , {
         method: 'GET',
         headers: new Headers({'Content-Type': 'application/json'}),
-        body: JSON.stringify(userId)
+        body: JSON.stringify(uid)
     }) .then (res => {
         console.log("res --> ",res.jason());
         });
 }
 //----------------------------------------
-function join( roomId ) {
-
+function join( user, hostUser, socket ) {
+// send a socket join requst message to server
+socket.emit("◙join", {player: user._id, room:`r${ROOMPREFIX}${hostUser._id}`});
+if(user._id !== hostUser._id) // call server to add user to room if it is not host
+  apiPost('join',{user, hostUser});
 }
 
 //----------------------------------------
-function leave() {
-
+function leave(user, hostUser, socket) {
+// send a socket leave requst message to server
+socket.emit("◙leave", {player: user._id, room:`r${ROOMPREFIX}${hostUser._id}`});
 }
 
 //----------------------------------------
 function open( user, socket ) {
 //console.log('MSK --> open room for ', uid);
-socket.emit("◙join", {player: user._id, room:`r${ROOMPREFIX}${user._id}`});
-apiPost('open' , user );
+
+join( user, user, socket ); // join user to his own room
+apiPost('open' , user ); // server: set room status to open
 }
 
 //----------------------------------------
 function close( user, socket ) {
-socket.emit("◙leave", {player: user._id, room:`r${ROOMPREFIX}${user._id}`});
-// socket.off(); 
-//console.log('MSK --> close room for ', userId.);
-apiPost('close' , user );
+
+leave( user, user, socket ); // kick out user from his own room
+//console.log('MSK --> close room for ', uid.);
+apiPost('close' , user ); // server: kick out all guests and set room status to close
 }
 //----------------------------------------
 
 //----------------------------------------
-function message( roomId ) {
+function message( roomId, socket ) {
 
 }
 // helper functions //-----------------------
@@ -97,12 +94,12 @@ function apiGet( route, data )
 //-------------------------------------------
 export default {
   getOpenRooms,
-  getRoomOwner, 
-  getRoomId,
+  // getRoomOwner, 
+  // getRoomId,
   getAll, // get all open rooms of my friends
-  join,   // user join a room, owner admitted
-  leave,  // leave an open room
-  open,   // owner action
-  close,  // owner action
-  message,// 
+  join,   // user join a room
+  leave,  // luser leave an open room
+  open,   // owner open and join the room
+  close,  // owner leave and close the room
+  message,// send message from a user to a room
 };

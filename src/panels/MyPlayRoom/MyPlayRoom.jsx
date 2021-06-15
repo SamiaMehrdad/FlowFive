@@ -39,12 +39,12 @@ function modalOk() {
         {modal1 ?     
                 <Modal  title="CLOSING PLAYROOM WARNING"
                         width="30vw"
-                        message=" This will close your private play room and kick out 
-                                any guest from it. Are you sure to proceed?"
-                         onOk={modalOk}
-                         onCancel={()=>setModal1(false)}
-                         okTitle="CLOSE ANYWAY"
-                         cancelTitle="NO! CANCEL"
+                        message=" This will close your private play room 
+                                  and kicks out all guests from it. Are you sure to proceed?"
+                        onOk={modalOk}
+                        onCancel={()=>setModal1(false)}
+                        okTitle="CLOSE ANYWAY"
+                        cancelTitle="NO! CANCEL"
                         /> 
                : null          
         }

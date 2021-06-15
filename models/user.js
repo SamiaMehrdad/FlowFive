@@ -38,6 +38,7 @@ const userSchema = new mongoose.Schema({
   canChat: { type: Boolean, default: true },
   friends: [{ type: mongoose.Types.ObjectId, ref:"User"}],
   msg: { type: mongoose.Types.ObjectId, ref:"Message"},
+  isPlaying: { type: Boolean, default: false },
 }, {
   timestamps: true
 });
