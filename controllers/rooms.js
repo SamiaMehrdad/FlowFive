@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const Room = require('../models/room');
-
+const PROTO = require('../src/utils/proto');
 module.exports = {
   getOpenRooms, // get all open rooms of my friends
   join,   // user join a room, owner admitted
@@ -94,6 +94,7 @@ try {
     console.log(err)
     return res.status(401).json(err);
   }
+  PROTO.xxx();
 }
 
 //---------------------------------------

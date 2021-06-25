@@ -32,10 +32,9 @@ socket.emit("◙join",
               room:`r${PROTO.ROOMPREFIX}${hid}`,
             } );
 if(uid !== hid) // call server to add user to room if it is not host
-  apiPost('join',
-          { uid, 
-            hid,
-          } );
+  apiPost('join', { uid, hid, } );
+
+PROTO.xxx();  
 }
 
 //----------------------------------------
