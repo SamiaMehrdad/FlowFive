@@ -10,6 +10,7 @@ Developed by: Mehrdad Samia - 2021
 import React ,{ useState, useEffect } from 'react';
 import { Button,} from 'semantic-ui-react';
 import Tooltip from 'react-tooltip';
+import Asap from 'asap';
 import './HomeLeft.css';
 import LabelDiv from '../../components/LabelDiv/LabelDiv';
 import RoomBar from '../../components/RoomBar/RoomBar';
@@ -32,10 +33,10 @@ export default function HomeLeft(props){
                     bars.push( {
                         avatar: owners[index].avatar,
                         nickName: owners[index].nickName,
+                        hostId: owners[index]._id, 
                         message: room.message,
                         status: room.status,
                         id: room._id,
-                        owner: owners[index],
                     } );
             });
             setOpenRooms([...bars]);
@@ -57,7 +58,7 @@ export default function HomeLeft(props){
     //---------------------------------
     function openPlayRoom() {
         // props.showPage("MakeInvitation","");
-        roomService.open(props.user, props.socket);
+        roomService.open(props.user._id, props.socket);
         props.showPage("MyPlayRoom");
     }
     
@@ -66,14 +67,15 @@ export default function HomeLeft(props){
         props.showPage("MySettings","");
     }
     
-    ///TODO: error on joining to room workflow, runs without clicking 
-    ///TODO: check if sending just id is better
+    // Bug: error on joining to room workflow, runs without clicking 
+    // fixed: add e=> to onClick of RoomBar
+
     //---------------------------------
-    function goToPlayRoom(owner) {
+    function goToPlayRoom(room) {
        // if(openRoom.status === 'open')
         //props.showPage('ActiveRound','Play'); //test
-            console.log("join to "+owner.nickName);
-      //  roomService.join()
+            console.log("join to ",room, props.user._id);
+        roomService.join(props.user._id, room.hostId, props.socket);
     }
 
 
@@ -100,7 +102,7 @@ export default function HomeLeft(props){
                 {openRooms?
                 openRooms.map( openRoom =>         
                 <RoomBar    bar={openRoom} 
-                            onClick={goToPlayRoom(openRoom.owner)}
+                            onClick={e=>goToPlayRoom(openRoom)}
                             buttonLabel = {openRoom.status === 'open'?
                                             "JOIN"
                                           : "WATCH" }    

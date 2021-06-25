@@ -1,8 +1,9 @@
 // socket is stablished in FlowFivePage.jsx and pass here as a function parameter
 // 
 import userService from "./userService";
+import PROTO from "./proto";
 const BASE_URL = '/api/rooms/';
-const ROOMPREFIX = "☺•";
+//const ROOMPREFIX = "☺•";
 
 //----------------------------------------
 // function getRoomOwner( roomId ) {
@@ -22,25 +23,27 @@ function getOpenRooms(uid) {
 //----------------------------------------
 
 //----------------------------------------
-function join( user, hostUser, socket ) {
+function join( uid, hid, socket ) {
+  // console.log("Roomservice.join()--->", uid, hid, socket);
+
 // send a socket join requst message to server
 socket.emit("◙join", 
-            { player: user._id, 
-              room:`r${ROOMPREFIX}${hostUser._id}`,
+            { player: uid, 
+              room:`r${PROTO.ROOMPREFIX}${hid}`,
             } );
-if(user._id !== hostUser._id) // call server to add user to room if it is not host
+if(uid !== hid) // call server to add user to room if it is not host
   apiPost('join',
-          { uid: user._id, 
-            hid: hostUser._id,
+          { uid, 
+            hid,
           } );
 }
 
 //----------------------------------------
-function leave(user, hostUser, socket) {
+function leave(uid, hid, socket) {
 // send a socket leave requst message to server
 socket.emit("◙leave", 
-            { player: user._id, 
-              room:`r${ROOMPREFIX}${hostUser._id}`,
+            { player: uid, 
+              room:`r${PROTO.ROOMPREFIX}${hid}`,
             } );
 }
 
@@ -53,11 +56,11 @@ apiPost('open' , {uid: user._id} ); // server: set room status to open
 }
 
 //----------------------------------------
-function close( user, socket ) {
+function close( uid, socket ) {
 
-leave( user, user, socket ); // kick out user from his own room
+leave( uid, uid, socket ); // kick out user from his own room
 //console.log('MSK --> close room for ', uid.);
-apiPost('close' , {uid: user._id} ); // server: kick out all guests and set room status to close
+apiPost('close' , {uid} ); // server: kick out all guests and set room status to close
 }
 //----------------------------------------
 

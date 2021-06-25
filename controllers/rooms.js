@@ -65,7 +65,6 @@ function join(req, res)
                 {guests: guestId},
                 {upsert: true, setDefaultsOnInsert: true},
                 rm => { res.status(500)}
-  //{ $addToSet: {guests: guestId}}
   );
  }catch(err){
   console.log(err)
