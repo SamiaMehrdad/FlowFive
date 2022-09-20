@@ -222,7 +222,7 @@ label{
 }
 .card{
     border-radius: 10px ; 
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
 }
 .lighted{
     border-left: 1px solid var(--edge);
