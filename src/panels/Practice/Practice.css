@@ -20,3 +20,8 @@ font-size: 2vh !important;
 right: 1vh;
 bottom: 1vh;
 }
+#tryLabel{
+    position: absolute;
+    right: 10vh;
+    bottom: 1vh;
+}

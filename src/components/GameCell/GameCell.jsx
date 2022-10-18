@@ -25,7 +25,7 @@ function setStyle()
  if( props.winner )
     style = {backgroundColor: "var(--green)"};
  else
-    props.highlight? style ={backgroundColor: "rgba(20,20,0,.1)", cursor: "pointer"}: style = null;
+    props.highlight? style ={backgroundColor: "rgba(100,100,0,.2)", cursor: "pointer"}: style = null;
  return style;   
 }
 //----------------------------------

@@ -89,8 +89,13 @@ export default function HomeLeft(props){
                     data-tip
                     data-for="setting-tip"
                     />
-            <span   className="main-userinfo">
-             {props.user.nickName} - Rank:27
+            <span   className="main-userinfo"
+                    onClick={ goSetting }
+                    data-tip
+                    data-for="setting-tip"
+                    id="main-title"
+            >        
+                    {props.user.nickName} - Rank:27
             </span>
           
             <br />
@@ -126,7 +131,7 @@ export default function HomeLeft(props){
 
             <Tooltip    id="setting-tip"
                         delayShow={500}>
-            Profile, friends and security settings dashboard.            
+            Click for Profile, friends and security settings dashboard.            
             </Tooltip>
         </>
     );

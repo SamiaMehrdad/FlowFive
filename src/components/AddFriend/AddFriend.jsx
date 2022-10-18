@@ -37,7 +37,7 @@ export default function AddFriend(props){
               {'\u{1F50D}'} {/* long unicode formatting */}
               <input type="text" 
                      name="search" 
-                     placeholder="some letters"
+                     placeholder="Start typing here"
                      onChange={ 
                                 e => {
                                       searchUsers(e.target.value);

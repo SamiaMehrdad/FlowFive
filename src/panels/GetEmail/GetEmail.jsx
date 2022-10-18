@@ -44,8 +44,8 @@ export default function GetEmail(props){
     return(
         <div id="back">
             <img id="hb-logo" src="HB-small1.jpg" alt="Horian Booms" />
-            <p id="welcome">Welcome! As a guest user, you can start playing unknown, right now!<br/> 
-            But if you want to have your own private play room and your ranking track, 
+            <p id="welcome">Welcome! You can start playing as a guest right now!<br/> 
+            But if you want your own private multy player room and your ranking track, 
             please login by your email or Google account.
             </p>
 
@@ -56,16 +56,16 @@ export default function GetEmail(props){
                 <input 
                     type="email" 
                     name="email" 
-                    placeholder="Email"
+                    placeholder="Enter your email"
                     onChange={handleChange}
                     autoFocus
                     required
                 />
                 <Button
                     id="submitButton"
-                    content="NEXT"
+                    content="Login"
                     type="submit" 
-                    icon='arrow circle right'
+                    icon='arrow right'
                     labelPosition='left'
                     className="bt green short" />            
 
@@ -76,7 +76,7 @@ export default function GetEmail(props){
                     onClick={OAuth}   
                     className="bt blue" />
             <br/>        
-            <Button content='PLAY RANDOM' 
+            <Button content='PLAY AS GUEST' 
                     icon='spy' 
                     labelPosition='left'
                     onClick={playUnknown}   

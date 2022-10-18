@@ -15,7 +15,7 @@ import './Practice.css';
 export default function Practice(props){
 
 //let newBoard = gameEngine.getShuffledBoard().slice() ; //TODO DEBUG, cause re-shuffle
-//let newBoard = [2,0,0,0 ,0,1,0,0 ,0,3,4,0 ,0,0,5,0];
+//let newBoard = [2,0,0,0 ,0,1,0,0 ,0,3,4,0 ,0,0,5,0]; // Needs more attention to not to make strange behave
 let newBoard = [0,0,0,0 ,0,0,0,0 ,0,0,0,0 ,0,0,0,0];
 let winnerCells = [];
 let activePiece = 0;
@@ -53,8 +53,12 @@ function close(){
 //-------------------------------------------
     return (
     <div className="help-container">
-        <p  className="close-icon large-icon" 
+         <p className="close-icon large-icon"  
             onClick={close} />
+        <p id='tryLabel'
+        >
+            Prees button to restart 
+        </p>    
         <Button circular
                 icon='shuffle'
                 onClick={shuffle}

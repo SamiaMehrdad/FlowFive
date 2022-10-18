@@ -7,7 +7,7 @@ body{
     --light: rgba(255,255,255,.4);
     --mid: rgba(255,255,255,.3);
     --back: rgba(100,100,100,.4);
-    --dark: rgba(0,0,0,.5);
+    --dark: rgba(20,20,20,.7);
     --gold: rgba(255,225,0,.7);
     --blue: rgba(0,100,255,.3);
     --shade: rgba(0,0,0,.4);
@@ -65,7 +65,7 @@ input[type="checkbox"]:checked{
     width: 100%;
 }
 .close-icon{
-    color: var(--gold);
+    color: var(--light);
     font-size: 2vh;
     margin: 5px 0 ;
     cursor: pointer;
@@ -74,13 +74,15 @@ input[type="checkbox"]:checked{
     top: -1vh;
     position: absolute;
     padding: 1vh;
+    text-shadow: 1px 1px 2px var(--shade);
 }
 .close-icon:after{
-    content: "\2716";
+    content: "\2717";
     /* content: "\274c"; */
+
 }
 .close-icon:hover{
-    color: #fff;
+    color: var(--gold);
     text-shadow: 3px 3px 5px var(--shade);
 }
 .close-icon:active{
@@ -168,6 +170,8 @@ button:active{
     backdrop-filter: blur(2px) !important;
     border-right: 1px solid var(--gold) !important;
     border-left: 1px solid var(--gold) !important;
+    /* background-color: var(--dark) !important; */
+
 }
 .bt:active{
     box-shadow: 1px 1px var(--soft-shade) !important;
